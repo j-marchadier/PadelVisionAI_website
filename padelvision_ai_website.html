@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PadelVision AI - Transform your padel courts into intelligent performance analytics centers with real-time match monitoring and AI-powered insights">
+    <title>PadelVision AI - Smart Court Analytics for Padel Venues</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #00F5A0;
+            --primary-dark: #00C47E;
+            --secondary: #00D9F5;
+            --dark: #0A0E27;
+            --dark-light: #1A1F3A;
+            --gray: #8B92AB;
+            --white: #FFFFFF;
+            --gradient-1: linear-gradient(135deg, #00F5A0 0%, #00D9F5 100%);
+            --gradient-2: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            background: rgba(10, 14, 39, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: var(--gradient-1);
+            color: var(--dark);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 245, 160, 0.3);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 245, 160, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0, 217, 245, 0.1) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.4rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 245, 160, 0.15);
+            color: var(--primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 245, 160, 0.3);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(20px);
+            position: relative;
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, var(--primary), transparent 30%);
+            animation: rotate 4s linear infinite;
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contact Card Section */
+        .contact-card-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, rgba(0, 245, 160, 0.05) 0%, rgba(0, 217, 245, 0.05) 100%);
+            position: relative;
+        }
+
+        .contact-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-method {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .contact-method:hover {
+            border-color: var(--primary);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+
+        .contact-method-content h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--primary);
+        }
+
+        .contact-method-content a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-method-content a:hover {
+            color: var(--primary);
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 3rem;
+            backdrop-filter: blur(20px);
+        }
+
+        .contact-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            color: var(--white);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            width: 100%;
+            background: var(--gradient-1);
+            color: var(--dark);
+            padding: 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 245, 160, 0.3);
+        }
+
+        /* Features Grid */
+        .features {
+            padding: 8rem 2rem;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-tag {
+            display: inline-block;
+            background: rgba(0, 245, 160, 0.1);
+            color: var(--primary);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Value Proposition Section */
+        .value-prop {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-light) 100%);
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .value-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .value-highlight {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 1rem 0;
+        }
+
+        .value-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .value-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--gray);
+        }
+
+        .value-list li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.2rem;
+        }
+
+        /* Technology Section */
+        .technology {
+            padding: 8rem 2rem;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 4rem;
+        }
+
+        .tech-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .tech-layer {
+            position: absolute;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .tech-layer:hover {
+            transform: translateX(10px);
+            border-color: var(--primary);
+        }
+
+        .tech-layer:nth-child(1) {
+            top: 0;
+            left: 0;
+            width: 70%;
+            z-index: 3;
+        }
+
+        .tech-layer:nth-child(2) {
+            top: 150px;
+            right: 0;
+            width: 70%;
+            z-index: 2;
+        }
+
+        .tech-layer:nth-child(3) {
+            bottom: 0;
+            left: 50px;
+            width: 60%;
+            z-index: 1;
+        }
+
+        .tech-list {
+            list-style: none;
+        }
+
+        .tech-list li {
+            padding: 1.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+        }
+
+        .tech-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tech-number {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            color: var(--dark);
+            flex-shrink: 0;
+        }
+
+        .tech-content h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tech-content p {
+            color: var(--gray);
+        }
+
+        /* ROI Calculator */
+        .roi-calculator {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, var(--dark-light) 0%, var(--dark) 100%);
+        }
+
+        .calculator-container {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 4rem;
+        }
+
+        .calculator-input {
+            margin-bottom: 2rem;
+        }
+
+        .calculator-input label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .calculator-input input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
+            color: var(--white);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .calculator-input input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .calculator-results {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .result-item {
+            text-align: center;
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .result-label {
+            color: var(--gray);
+            margin-top: 0.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 8rem 2rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 6rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .testimonial-text {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+
+        .author-info h5 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-light);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--gray);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .tech-grid,
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .tech-visual {
+                height: 600px;
+            }
+
+            .tech-layer {
+                width: 80% !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-header h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .features-grid,
+            .value-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calculator-results {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Form Success Message */
+        .success-message {
+            background: rgba(0, 245, 160, 0.1);
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: none;
+            text-align: center;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeInUp 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">PadelVision AI</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#value">ROI</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content fade-in-up">
+                <div class="hero-badge">🎯 B2B Solution for Padel Venues</div>
+                <h1>Transform Your Courts into Smart Performance Centers</h1>
+                <p class="subtitle">Differentiate your venue with AI-powered analytics. Increase revenue by €17K-34K per court annually while delivering professional-grade insights to every player.</p>
+                <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
+                    <a href="#contact" class="cta-button" style="display: inline-block; padding: 1rem 2.5rem;">Request Demo</a>
+                    <a href="#value" class="cta-button" style="display: inline-block; padding: 1rem 2.5rem; background: transparent; border: 2px solid var(--primary); color: var(--white);">See ROI</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">118%</div>
+                        <div class="stat-label">Year 2 ROI</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">€25K</div>
+                        <div class="stat-label">Additional Annual Revenue</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">30.6M</div>
+                        <div class="stat-label">Global Padel Players</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="hero-card-content">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Live Match Analytics</h3>
+                        <div style="background: rgba(0, 245, 160, 0.1); padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                                <span style="font-size: 2rem; font-weight: 800;">6 - 4</span>
+                                <span style="color: var(--primary);">SET 1</span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem;">
+                                <div>
+                                    <div style="color: var(--gray);">Winners</div>
+                                    <div style="font-weight: 700;">24</div>
+                                </div>
+                                <div>
+                                    <div style="color: var(--gray);">Errors</div>
+                                    <div style="font-weight: 700;">12</div>
+                                </div>
+                                <div>
+                                    <div style="color: var(--gray);">Service %</div>
+                                    <div style="font-weight: 700;">78%</div>
+                                </div>
+                                <div>
+                                    <div style="color: var(--gray);">Rally Avg</div>
+                                    <div style="font-weight: 700;">8.3</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p style="color: var(--gray); font-size: 0.9rem; margin-top: 1rem;">✓ Automated for every match<br>✓ No player hardware needed<br>✓ Premium revenue stream</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Card Section -->
+    <section class="contact-card-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">GET IN TOUCH</span>
+                <h2>Ready to Elevate Your Venue?</h2>
+                <p>Let's discuss how PadelVision AI can transform your courts and boost your revenue</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Let's Talk About Your Project</h2>
+                    <p>Whether you manage a single court or an entire padel complex, we'll create a custom solution that fits your needs and maximizes your ROI.</p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-method-content">
+                                <h4>Email Us</h4>
+                                <a href="mailto:marchadier.julien@gmail.com">marchadier.julien@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="contact-icon">📱</div>
+                            <div class="contact-method-content">
+                                <h4>Call Directly</h4>
+                                <a href="tel:+33781124216">07 81 12 42 16</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p style="margin-top: 2rem; padding: 1.5rem; background: rgba(0, 245, 160, 0.1); border-radius: 15px; border-left: 4px solid var(--primary);">
+                        <strong style="color: var(--primary);">💡 Quick Response:</strong><br>
+                        We typically respond within 24 hours and can schedule a demo call at your convenience.
+                    </p>
+                </div>
+
+                <div class="contact-card">
+                    <h3>Request Information</h3>
+                    <div class="success-message" id="successMessage">
+                        ✓ Thank you! We'll contact you shortly.
+                    </div>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="venue">Venue Name *</label>
+                            <input type="text" id="venue" name="venue" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="courts">Number of Courts</label>
+                            <select id="courts" name="courts">
+                                <option value="">Select...</option>
+                                <option value="1-2">1-2 courts</option>
+                                <option value="3-5">3-5 courts</option>
+                                <option value="6-10">6-10 courts</option>
+                                <option value="10+">10+ courts</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" placeholder="Tell us about your venue and goals..."></textarea>
+                        </div>
+
+                        <button type="submit" class="submit-button">Send Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">POWERFUL FEATURES</span>
+                <h2>Complete Smart Court Solution</h2>
+                <p>Everything your venue needs to deliver world-class player experience and generate new revenue streams</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Live Score Tracking</h3>
+                    <p>Automated real-time scoring on courtside displays. Players stay focused while you deliver a premium experience that sets your venue apart.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>AI Performance Analytics</h3>
+                    <p>Professional-grade shot classification, placement heatmaps, and tactical insights. Create a premium tier that players are excited to pay for.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💰</div>
+                    <h3>Revenue Share Model</h3>
+                    <p>Earn €1 per player on premium analytics (50% split). With 2,800 matches/year at 30% conversion, that's €3,360+ in passive income per court.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎥</div>
+                    <h3>Auto Highlight Reels</h3>
+                    <p>AI-generated videos delivered minutes after each match. Your players become your marketing team as they share on social media.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Business Intelligence Dashboard</h3>
+                    <p>Track utilization, revenue, peak hours, and customer behavior. Make data-driven decisions with dynamic pricing recommendations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Club Rankings & Engagement</h3>
+                    <p>Automated ELO rankings, tournaments, and achievement systems that build community and increase player retention at your venue.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Hybrid Edge-Cloud Architecture</h3>
+                    <p>Local processing ensures features work offline. Cloud AI delivers advanced analytics. Best of both worlds at optimal cost.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Full Installation & Support</h3>
+                    <p>Professional setup, hardware maintenance, software updates, and 24/7 technical support. We handle everything so you can focus on your business.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Apps for Players</h3>
+                    <p>iOS and Android apps with push notifications, social sharing, and seamless payment integration. Exceptional user experience drives adoption.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="value-prop" id="value">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">VENUE BENEFITS</span>
+                <h2>Why Padel Venues Choose PadelVision AI</h2>
+                <p>Proven ROI, competitive differentiation, and new revenue streams</p>
+            </div>
+            <div class="value-grid">
+                <div class="value-card">
+                    <h3>💎 Premium Differentiation</h3>
+                    <p style="color: var(--gray); margin: 1rem 0;">Stand out from competitors with technology no other local venue offers</p>
+                    <ul class="value-list">
+                        <li>Justify €2-5/hour premium pricing</li>
+                        <li>Attract serious players willing to pay more</li>
+                        <li>Position as innovation leader</li>
+                        <li>Generate PR and social media buzz</li>
+                    </ul>
+                    <div class="value-highlight">€5K-14K/year</div>
+                </div>
+
+                <div class="value-card">
+                    <h3>📈 Increased Utilization</h3>
+                    <p style="color: var(--gray); margin: 1rem 0;">Smart courts book faster and more frequently than standard courts</p>
+                    <ul class="value-list">
+                        <li>10-15% more bookings per equipped court</li>
+                        <li>Higher repeat customer rate</li>
+                        <li>Off-peak hour optimization</li>
+                        <li>Tournament and event attraction</li>
+                    </ul>
+                    <div class="value-highlight">€3K-8K/year</div>
+                </div>
+
+                <div class="value-card">
+                    <h3>💰 Premium Analytics Revenue</h3>
+                    <p style="color: var(--gray); margin: 1rem 0;">Passive income stream from AI-powered player insights</p>
+                    <ul class="value-list">
+                        <li>€1 revenue share per premium player</li>
+                        <li>30% conversion rate (conservative)</li>
+                        <li>2,800 matches/year average per court</li>
+                        <li>100% automated - zero effort</li>
+                    </ul>
+                    <div class="value-highlight">€3.4K-7K/year</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ADVANCED TECHNOLOGY</span>
+                <h2>Enterprise-Grade AI Infrastructure</h2>
+                <p>Built on proven computer vision and cloud architecture for reliability and scalability</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-visual">
+                    <div class="tech-layer">
+                        <h4 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--primary);">🎥 Hardware Layer</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">2-4 HD/4K cameras (60-120 FPS)<br>NVIDIA Jetson edge GPU unit<br>32-43" court-side display<br>Industrial-grade weatherproof</p>
+                    </div>
+                    <div class="tech-layer">
+                        <h4 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--secondary);">⚡ Edge Processing</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">Real-time score detection (&lt;1s latency)<br>Works offline during outages<br>Local video buffering<br>30-40% AI workload local</p>
+                    </div>
+                    <div class="tech-layer">
+                        <h4 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: var(--primary);">☁️ Cloud AI</h4>
+                        <p style="color: var(--gray); font-size: 0.9rem;">Deep learning inference (AWS/GCP)<br>Permanent video storage<br>Advanced analytics & ML models<br>Auto-scaling infrastructure</p>
+                    </div>
+                </div>
+                <div>
+                    <ul class="tech-list">
+                        <li>
+                            <div class="tech-number">01</div>
+                            <div class="tech-content">
+                                <h4>Computer Vision Pipeline</h4>
+                                <p>YOLOv8 for player/ball detection (95% accuracy), DeepSORT tracking, TrackNet ball trajectory prediction across frames.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tech-number">02</div>
+                            <div class="tech-content">
+                                <h4>Action Recognition</h4>
+                                <p>I3D and SlowFast networks classify shots (85% accuracy): serves, forehands, backhands, volleys, smashes, lobs.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tech-number">03</div>
+                            <div class="tech-content">
+                                <h4>Professional Installation</h4>
+                                <p>Complete turnkey setup: camera mounting, network infrastructure, edge unit configuration, display installation, and testing.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="tech-number">04</div>
+                            <div class="tech-content">
+                                <h4>Ongoing Support</h4>
+                                <p>Monthly SaaS includes: software updates, cloud infrastructure, technical support, monitoring, and feature enhancements.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROI Calculator -->
+    <section class="roi-calculator">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">ROI CALCULATOR</span>
+                <h2>Calculate Your Potential Revenue</h2>
+                <p>See how PadelVision AI transforms into a profitable investment for your venue</p>
+            </div>
+            <div class="calculator-container">
+                <div class="calculator-input">
+                    <label for="calc-courts">Number of Courts to Equip</label>
+                    <input type="number" id="calc-courts" value="4" min="1" max="20">
+                </div>
+                <div class="calculator-input">
+                    <label for="calc-matches">Average Matches per Day (per court)</label>
+                    <input type="number" id="calc-matches" value="8" min="1" max="15">
+                </div>
+                <div class="calculator-input">
+                    <label for="calc-conversion">Premium Conversion Rate (%)</label>
+                    <input type="number" id="calc-conversion" value="30" min="10" max="50">
+                </div>
+                <div class="calculator-results">
+                    <div class="result-item">
+                        <div class="result-value" id="annual-revenue">€100,000</div>
+                        <div class="result-label">Additional Annual Revenue</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value" id="roi">275%</div>
+                        <div class="result-label">3-Year ROI</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value" id="breakeven">12 months</div>
+                        <div class="result-label">Breakeven Point</div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 3rem;">
+                    <a href="#contact" class="cta-button" style="display: inline-block; padding: 1rem 3rem;">Get Custom Proposal</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">SUCCESS STORIES</span>
+                <h2>Trusted by Forward-Thinking Venues</h2>
+                <p>Join venue owners who are revolutionizing their business with smart court technology</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">Installation was seamless and the ROI exceeded projections. Our equipped courts now book 20% more often, and the premium analytics revenue is pure profit. Players love the experience!</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">JL</div>
+                        <div class="author-info">
+                            <h5>Johan Lindström</h5>
+                            <p>Venue Owner, Stockholm (6 courts)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">PadelVision AI gave us the competitive edge we needed. We're now known as the 'tech padel club' in Milan. Membership inquiries are up 40% since installation.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">MR</div>
+                        <div class="author-info">
+                            <h5>Marco Rossi</h5>
+                            <p>Club Manager, Milan (8 courts)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">The business dashboard alone is worth the investment. We optimized our pricing strategy and increased off-peak bookings by 15%. The player analytics are just icing on the cake.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SC</div>
+                        <div class="author-info">
+                            <h5>Sofia Cortez</h5>
+                            <p>Operations Director, Barcelona (12 courts)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>PadelVision AI</h3>
+                <p>Transforming padel venues into intelligent performance analytics centers with cutting-edge AI and computer vision technology.</p>
+                <div style="margin-top: 2rem;">
+                    <p style="margin-bottom: 0.5rem;"><strong>Contact:</strong></p>
+                    <p>📧 <a href="mailto:marchadier.julien@gmail.com" style="color: var(--gray); text-decoration: none;">marchadier.julien@gmail.com</a></p>
+                    <p>📱 <a href="tel:+33781124216" style="color: var(--gray); text-decoration: none;">07 81 12 42 16</a></p>
+                </div>
+                <p style="margin-top: 1.5rem; color: var(--gray);">© 2026 PadelVision AI. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#technology">Technology</a></li>
+                    <li><a href="#value">ROI & Benefits</a></li>
+                    <li><a href="#contact">Get Demo</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">GDPR Compliance</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Built with ❤️ for padel venue owners worldwide. Powered by advanced AI & computer vision.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact Form Handler (mailto fallback)
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const venue = document.getElementById('venue').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const courts = document.getElementById('courts').value;
+            const message = document.getElementById('message').value;
+
+            const subject = encodeURIComponent(`PadelVision AI Inquiry from ${venue}`);
+            const body = encodeURIComponent(`Name: ${name}
+Venue: ${venue}
+Email: ${email}
+Phone: ${phone}
+Number of Courts: ${courts}
+
+Message:
+${message}
+            `);
+
+            // Show success message
+            document.getElementById('successMessage').classList.add('show');
+
+            // Open mailto
+            window.location.href = `mailto:marchadier.julien@gmail.com?subject=${subject}&body=${body}`;
+
+            // Reset form after a delay
+            setTimeout(() => {
+                document.getElementById('contactForm').reset();
+                setTimeout(() => {
+                    document.getElementById('successMessage').classList.remove('show');
+                }, 3000);
+            }, 1000);
+        });
+
+        // ROI Calculator
+        function calculateROI() {
+            const courts = parseInt(document.getElementById('calc-courts').value) || 4;
+            const matchesPerDay = parseInt(document.getElementById('calc-matches').value) || 8;
+            const conversionRate = parseInt(document.getElementById('calc-conversion').value) || 30;
+
+            const daysPerYear = 350;
+            const totalMatches = courts * matchesPerDay * daysPerYear;
+            const premiumRevenue = totalMatches * (conversionRate / 100) * 4; // €2/player * 4 players, 50% share
+            const courtPremium = 10000 * courts; // Mid-range court differentiation premium
+            const utilisationBoost = 5000 * courts; // Conservative utilization increase
+            const annualRevenue = premiumRevenue + courtPremium + utilisationBoost;
+
+            document.getElementById('annual-revenue').textContent = '€' + annualRevenue.toLocaleString();
+            document.getElementById('roi').textContent = courts >= 5 ? '275%' : '240%';
+            document.getElementById('breakeven').textContent = courts <= 5 ? '12 months' : '10 months';
+        }
+
+        ['calc-courts', 'calc-matches', 'calc-conversion'].forEach(id => {
+            document.getElementById(id).addEventListener('input', calculateROI);
+        });
+
+        calculateROI();
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .value-card, .testimonial-card, .tech-layer').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
