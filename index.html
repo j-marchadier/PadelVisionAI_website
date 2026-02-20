@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="PadelVision AI - Transformez vos terrains de padel en centres d'analyse de performance intelligents">
-    <title>PadelVision AI - Analyse Intelligente pour Terrains de Padel</title>
+    <title>Padel Vision — Smart Courts by AI | Catalogue 2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -19,23 +19,21 @@
             f.parentNode.insertBefore(j,f);
         })(window,document,'script','dataLayer','GTM-KP7WVV88');
     </script>
-    <!-- End Google Tag Manager -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --primary: #00F5A0;
             --primary-dark: #00C47E;
             --secondary: #00D9F5;
-            --dark: #0A0E27;
-            --dark-light: #1A1F3A;
-            --gray: #8B92AB;
+            --accent: #D4F77A;
+            --dark: #091C22;
+            --dark-light: #112A33;
+            --dark-mid: #0D2430;
+            --gray: #7EA8B4;
             --white: #FFFFFF;
             --gradient-1: linear-gradient(135deg, #00F5A0 0%, #00D9F5 100%);
+            --gradient-title: linear-gradient(90deg, #7AE8F5 0%, #7AF5A0 50%, #D4F77A 100%);
         }
 
         body {
@@ -51,15 +49,23 @@
             font-weight: 700;
         }
 
-        /* Navigation */
+        /* Padel Vision gradient title style */
+        .pv-title-gradient {
+            background: var(--gradient-title);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* ─── Navigation ─── */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(10, 14, 39, 0.95);
+            background: rgba(9, 28, 34, 0.96);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 217, 245, 0.15);
             transition: all 0.3s ease;
         }
 
@@ -92,7 +98,22 @@
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
+            position: relative;
         }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--primary); }
 
         .cta-button {
             background: var(--gradient-1);
@@ -106,10 +127,65 @@
 
         .cta-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 245, 160, 0.3);
+            box-shadow: 0 10px 30px rgba(0,245,160,0.3);
         }
 
-        /* Hero Section */
+        /* Hamburger menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 4px;
+            background: none;
+            border: none;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .hamburger.open span:nth-child(2) { opacity: 0; }
+        .hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: rgba(9,28,34,0.98);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-bottom: 1px solid rgba(0,217,245,0.15);
+            z-index: 999;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-menu.open { display: flex; }
+        .mobile-menu a { color: var(--white); text-decoration: none; font-size: 1.2rem; font-weight: 500; padding: 0.5rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .mobile-menu a:last-child { border-bottom: none; }
+
+        /* ─── Scroll reveal ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── Hero ─── */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -122,19 +198,14 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(0, 245, 160, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 50%, rgba(0, 217, 245, 0.1) 0%, transparent 50%);
+            inset: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(0,245,160,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 50%, rgba(0,217,245,0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 50% 100%, rgba(17, 42, 51, 0.8) 0%, transparent 60%);
             animation: pulse 8s ease-in-out infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
+        @keyframes pulse { 0%,100%{opacity:.5} 50%{opacity:1} }
 
         .hero-container {
             max-width: 1400px;
@@ -152,21 +223,21 @@
             font-size: 3.8rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--white) 0%, var(--primary) 100%);
+            background: var(--gradient-title);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-badge {
             display: inline-block;
-            background: rgba(0, 245, 160, 0.15);
+            background: rgba(0,245,160,0.15);
             color: var(--primary);
             padding: 0.6rem 1.5rem;
             border-radius: 50px;
             font-size: 0.95rem;
             font-weight: 600;
             margin-bottom: 2rem;
-            border: 1px solid rgba(0, 245, 160, 0.3);
+            border: 1px solid rgba(0,245,160,0.3);
         }
 
         .subtitle {
@@ -178,18 +249,21 @@
 
         .hero-stats {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3,1fr);
             gap: 1.5rem;
             margin-top: 2.5rem;
         }
 
         .stat-item {
             text-align: center;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(0,217,245,0.05);
             padding: 1rem;
             border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0,217,245,0.15);
+            transition: border-color 0.3s;
         }
+
+        .stat-item:hover { border-color: var(--primary); }
 
         .stat-number {
             font-size: 2rem;
@@ -199,48 +273,40 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .stat-label {
-            color: var(--gray);
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-        }
+        .stat-label { color: var(--gray); font-size: 0.85rem; margin-top: 0.5rem; }
 
-        /* Hero Live Score Display */
+        /* ─── Hero Live Score ─── */
         .hero-score-display {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border: 2px solid rgba(0, 245, 160, 0.3);
+            background: linear-gradient(135deg, rgba(0,217,245,0.07) 0%, rgba(0,245,160,0.04) 100%);
+            border: 2px solid rgba(0,217,245,0.25);
             border-radius: 25px;
             padding: 2rem;
             backdrop-filter: blur(20px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 30px rgba(0,217,245,0.05);
         }
 
         .hero-live-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255, 59, 48, 0.2);
+            background: rgba(255,59,48,0.2);
             color: #FF3B30;
             padding: 0.4rem 1rem;
             border-radius: 50px;
             font-weight: 600;
             font-size: 0.85rem;
             margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 59, 48, 0.3);
+            border: 1px solid rgba(255,59,48,0.3);
         }
 
         .hero-live-indicator {
-            width: 8px;
-            height: 8px;
+            width: 8px; height: 8px;
             background: #FF3B30;
             border-radius: 50%;
             animation: blink 1.5s ease-in-out infinite;
         }
 
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
+        @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
 
         .hero-score-header {
             display: flex;
@@ -248,11 +314,11 @@
             align-items: center;
             margin-bottom: 1.5rem;
             padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .hero-match-time {
-            background: rgba(0, 245, 160, 0.15);
+            background: rgba(0,245,160,0.15);
             color: var(--primary);
             padding: 0.4rem 0.8rem;
             border-radius: 8px;
@@ -260,11 +326,7 @@
             font-size: 0.95rem;
         }
 
-        .hero-current-set {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
+        .hero-current-set { color: var(--primary); font-weight: 600; font-size: 0.95rem; }
 
         .hero-score-board {
             display: grid;
@@ -289,8 +351,7 @@
         }
 
         .hero-team-indicator {
-            width: 6px;
-            height: 6px;
+            width: 6px; height: 6px;
             border-radius: 50%;
             background: var(--gray);
             flex-shrink: 0;
@@ -302,17 +363,14 @@
             animation: pulse-serving 1.5s ease-in-out infinite;
         }
 
-        @keyframes pulse-serving {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.3); opacity: 0.7; }
-        }
+        @keyframes pulse-serving { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.3);opacity:.7} }
 
         .hero-score-cell {
             text-align: center;
             font-size: 1.5rem;
             font-weight: 800;
             padding: 0.4rem;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             border-radius: 8px;
             transition: all 0.3s ease;
         }
@@ -321,21 +379,19 @@
             background: var(--gradient-1);
             color: var(--dark);
             transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 245, 160, 0.4);
+            box-shadow: 0 5px 15px rgba(0,245,160,0.4);
         }
 
         .hero-mini-stats {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2,1fr);
             gap: 1rem;
             margin-top: 1.5rem;
             padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .hero-mini-stat {
-            text-align: center;
-        }
+        .hero-mini-stat { text-align: center; }
 
         .hero-mini-stat-value {
             font-size: 1.4rem;
@@ -352,7 +408,7 @@
             margin-top: 0.3rem;
         }
 
-        /* Sections */
+        /* ─── Sections ─── */
         .section-header {
             text-align: center;
             margin-bottom: 4rem;
@@ -360,7 +416,7 @@
 
         .section-tag {
             display: inline-block;
-            background: rgba(0, 245, 160, 0.1);
+            background: rgba(0,245,160,0.1);
             color: var(--primary);
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
@@ -369,56 +425,39 @@
             margin-bottom: 1rem;
         }
 
-        .section-header h2 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
+        .section-header h2 { font-size: 3.5rem; margin-bottom: 1rem; background: var(--gradient-title); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .section-header p { color: var(--gray); font-size: 1.2rem; max-width: 700px; margin: 0 auto; }
 
-        .section-header p {
-            color: var(--gray);
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
+        /* ─── Live Simulation ─── */
         .live-simulation {
             padding: 6rem 2rem;
-            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-light) 50%, var(--dark) 100%);
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-mid) 50%, var(--dark) 100%);
         }
 
-        .simulation-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+        .simulation-container { max-width: 1200px; margin: 0 auto; }
 
         .live-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: rgba(255, 59, 48, 0.2);
+            background: rgba(255,59,48,0.2);
             color: #FF3B30;
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
             font-weight: 600;
             margin-bottom: 1rem;
-            border: 1px solid rgba(255, 59, 48, 0.3);
+            border: 1px solid rgba(255,59,48,0.3);
         }
 
-        .live-indicator {
-            width: 10px;
-            height: 10px;
-            background: #FF3B30;
-            border-radius: 50%;
-            animation: blink 1.5s ease-in-out infinite;
-        }
+        .live-indicator { width:10px;height:10px;background:#FF3B30;border-radius:50%;animation:blink 1.5s ease-in-out infinite; }
 
         .match-display {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border: 2px solid rgba(0, 245, 160, 0.3);
+            background: linear-gradient(135deg, rgba(0,217,245,0.07) 0%, rgba(0,245,160,0.04) 100%);
+            border: 2px solid rgba(0,217,245,0.25);
             border-radius: 25px;
             padding: 3rem;
             backdrop-filter: blur(20px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
 
         .match-header {
@@ -427,11 +466,11 @@
             align-items: center;
             margin-bottom: 2rem;
             padding-bottom: 1.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .match-time {
-            background: rgba(0, 245, 160, 0.15);
+            background: rgba(0,245,160,0.15);
             color: var(--primary);
             padding: 0.5rem 1rem;
             border-radius: 10px;
@@ -439,48 +478,20 @@
             font-size: 1.1rem;
         }
 
-        .score-board {
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
+        .score-board { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+        .score-header { color: var(--gray); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; }
 
-        .score-header {
-            color: var(--gray);
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
+        .team-name { display: flex; align-items: center; gap: 1rem; font-weight: 600; font-size: 1.1rem; }
 
-        .team-name {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .team-indicator {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--gray);
-            flex-shrink: 0;
-        }
-
-        .team-indicator.serving {
-            background: var(--primary);
-            box-shadow: 0 0 15px var(--primary);
-            animation: pulse-serving 1.5s ease-in-out infinite;
-        }
+        .team-indicator { width:8px;height:8px;border-radius:50%;background:var(--gray);flex-shrink:0; }
+        .team-indicator.serving { background:var(--primary);box-shadow:0 0 15px var(--primary);animation:pulse-serving 1.5s ease-in-out infinite; }
 
         .score-cell {
             text-align: center;
             font-size: 1.8rem;
             font-weight: 800;
             padding: 0.5rem;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             border-radius: 10px;
             transition: all 0.3s ease;
         }
@@ -489,24 +500,19 @@
             background: var(--gradient-1);
             color: var(--dark);
             transform: scale(1.1);
-            box-shadow: 0 5px 20px rgba(0, 245, 160, 0.4);
+            box-shadow: 0 5px 20px rgba(0,245,160,0.4);
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4,1fr);
             gap: 1.5rem;
             margin-top: 2rem;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        .stat-box {
-            text-align: center;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-        }
+        .stat-box { text-align: center; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 12px; }
 
         .stat-value {
             font-size: 2rem;
@@ -517,18 +523,14 @@
             margin-bottom: 0.5rem;
         }
 
-        .stat-label {
-            color: var(--gray);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-        }
+        .stat-label { color: var(--gray); font-size: 0.85rem; text-transform: uppercase; }
 
         .event-feed {
             margin-top: 2rem;
             max-height: 200px;
             overflow-y: auto;
             padding: 1rem;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(0,0,0,0.2);
             border-radius: 12px;
         }
 
@@ -538,78 +540,51 @@
             gap: 1rem;
             padding: 0.8rem;
             margin-bottom: 0.5rem;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             border-radius: 8px;
             animation: slideIn 0.4s ease-out;
         }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
+        @keyframes slideIn { from{opacity:0;transform:translateX(-20px)} to{opacity:1;transform:translateX(0)} }
 
-        .event-time {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
+        .event-time { color: var(--primary); font-weight: 600; font-size: 0.9rem; }
+        .event-description { color: var(--gray); flex: 1; }
 
-        .event-description {
-            color: var(--gray);
-            flex: 1;
-        }
-
-        /* 3D Visualization */
+        /* ─── 3D Visualization ─── */
         .visualization-3d {
             padding: 6rem 2rem;
             background: var(--dark);
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1400px; margin: 0 auto; }
 
         .canvas-3d-container {
             position: relative;
             height: 700px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border: 2px solid rgba(0, 245, 160, 0.3);
+            background: linear-gradient(135deg, rgba(0, 217, 245, 0.04) 0%, rgba(0, 245, 160, 0.02) 100%);
+            border: 2px solid rgba(0,217,245,0.3);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(0,217,245,0.08);
             margin-top: 3rem;
         }
 
-        #canvas3d {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
+        #canvas3d { width:100%;height:100%;display:block; }
 
         .canvas-overlay {
             position: absolute;
             top: 20px;
             left: 20px;
-            background: rgba(10, 14, 39, 0.9);
+            background: rgba(9, 28, 34, 0.92);
             backdrop-filter: blur(10px);
             padding: 1rem 1.5rem;
             border-radius: 15px;
-            border: 1px solid rgba(0, 245, 160, 0.3);
+            border: 1px solid rgba(0,217,245,0.3);
             z-index: 10;
         }
 
-        .canvas-overlay h4 {
-            color: var(--primary);
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .canvas-overlay p {
-            color: var(--gray);
-            font-size: 0.85rem;
-            line-height: 1.6;
-        }
+        .canvas-overlay h4 { color: var(--primary); font-size: 1rem; margin-bottom: 0.5rem; }
+        .canvas-overlay p { color: var(--gray); font-size: 0.85rem; line-height: 1.6; }
 
         .canvas-controls {
             position: absolute;
@@ -618,16 +593,16 @@
             transform: translateX(-50%);
             display: flex;
             gap: 1rem;
-            background: rgba(10, 14, 39, 0.9);
+            background: rgba(9,28,34,0.92);
             backdrop-filter: blur(10px);
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
-            border: 1px solid rgba(0, 245, 160, 0.3);
+            border: 1px solid rgba(0,217,245,0.3);
             z-index: 10;
         }
 
         .control-btn {
-            background: rgba(0, 245, 160, 0.2);
+            background: rgba(0,245,160,0.2);
             border: 1px solid var(--primary);
             color: var(--primary);
             padding: 0.5rem 1rem;
@@ -637,15 +612,7 @@
             transition: all 0.3s ease;
         }
 
-        .control-btn:hover {
-            background: var(--primary);
-            color: var(--dark);
-        }
-
-        .control-btn.active {
-            background: var(--primary);
-            color: var(--dark);
-        }
+        .control-btn:hover, .control-btn.active { background: var(--primary); color: var(--dark); }
 
         .camera-indicator-single {
             position: absolute;
@@ -654,36 +621,99 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            background: rgba(10, 14, 39, 0.9);
+            background: rgba(9,28,34,0.92);
             padding: 1rem 1.5rem;
             border-radius: 12px;
-            border: 1px solid rgba(0, 245, 160, 0.3);
+            border: 1px solid rgba(0,217,245,0.3);
             z-index: 10;
         }
 
-        .camera-dot {
-            width: 12px;
-            height: 12px;
-            background: var(--primary);
+        .camera-dot { width:12px;height:12px;background:var(--primary);border-radius:50%;animation:pulse-camera 2s ease-in-out infinite; }
+        @keyframes pulse-camera { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.7;transform:scale(1.2)} }
+        .camera-label { color:var(--white);font-size:0.95rem;font-weight:600; }
+
+        /* Ball speed badge */
+        .ball-speed-badge {
+            position: absolute;
+            bottom: 75px;
+            right: 20px;
+            background: rgba(10,14,39,0.9);
+            backdrop-filter: blur(10px);
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(0,217,245,0.4);
+            z-index: 10;
+            text-align: center;
+        }
+
+        .ball-speed-value {
+            font-size: 1.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00D9F5, #00F5A0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ball-speed-label { color: var(--gray); font-size: 0.7rem; text-transform: uppercase; margin-top: 2px; }
+
+        /* ─── How it works ─── */
+        .how-it-works {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-light) 100%);
+        }
+
+        .steps-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .step-card {
+            background: rgba(0,217,245,0.04);
+            border: 1px solid rgba(0,217,245,0.12);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover::before { transform: scaleX(1); }
+        .step-card:hover { border-color: rgba(0,245,160,0.3); transform: translateY(-5px); }
+
+        .step-number {
+            width: 56px; height: 56px;
+            background: var(--gradient-1);
             border-radius: 50%;
-            animation: pulse-camera 2s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin: 0 auto 1.5rem;
         }
 
-        @keyframes pulse-camera {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.2); }
-        }
+        .step-card h3 { font-size: 1.3rem; margin-bottom: 1rem; }
+        .step-card p { color: var(--gray); line-height: 1.7; }
 
-        .camera-label {
-            color: var(--white);
-            font-size: 0.95rem;
-            font-weight: 600;
-        }
-
-        /* Contact Section */
+        /* ─── Contact ─── */
         .contact-card-section {
             padding: 8rem 2rem;
-            background: linear-gradient(135deg, rgba(0, 245, 160, 0.05) 0%, rgba(0, 217, 245, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(0,217,245,0.04) 0%, rgba(0,245,160,0.04) 100%);
         }
 
         .contact-wrapper {
@@ -695,44 +725,26 @@
             align-items: center;
         }
 
-        .contact-info h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
+        .contact-info h2 { font-size: 3rem; margin-bottom: 1.5rem; background: var(--gradient-title); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .contact-info p { color: var(--gray); font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; }
 
-        .contact-info p {
-            color: var(--gray);
-            font-size: 1.2rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .contact-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
+        .contact-methods { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem; }
 
         .contact-method {
             display: flex;
             align-items: center;
             gap: 1.5rem;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            background: linear-gradient(135deg, rgba(0,217,245,0.06) 0%, rgba(0,245,160,0.03) 100%);
             padding: 1.5rem;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(0,217,245,0.15);
             transition: all 0.3s ease;
         }
 
-        .contact-method:hover {
-            border-color: var(--primary);
-            transform: translateX(10px);
-        }
+        .contact-method:hover { border-color: var(--primary); transform: translateX(10px); }
 
         .contact-icon {
-            width: 60px;
-            height: 60px;
+            width: 60px; height: 60px;
             background: var(--gradient-1);
             border-radius: 12px;
             display: flex;
@@ -742,62 +754,45 @@
             flex-shrink: 0;
         }
 
-        .contact-method-content h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-            color: var(--primary);
-        }
-
-        .contact-method-content a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
+        .contact-method-content h4 { font-size: 1.1rem; margin-bottom: 0.3rem; color: var(--primary); }
+        .contact-method-content a { color: var(--white); text-decoration: none; font-size: 1.2rem; font-weight: 600; }
 
         .contact-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: linear-gradient(135deg, rgba(0, 217, 245, 0.06) 0%, rgba(0, 245, 160, 0.04) 100%);
+            border: 1px solid rgba(0,217,245,0.2);
             border-radius: 20px;
             padding: 3rem;
             backdrop-filter: blur(20px);
         }
 
-        .contact-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
+        .contact-card h3 { font-size: 1.8rem; margin-bottom: 2rem; text-align: center; }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-            font-weight: 600;
-        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--primary); font-weight: 600; }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0,217,245,0.04);
+            border: 1px solid rgba(0,217,245,0.15);
             border-radius: 10px;
             padding: 1rem;
             color: var(--white);
             font-size: 1rem;
             font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
         }
+
+        .form-group select option { background: var(--dark-mid); }
+        .form-group textarea { resize: vertical; min-height: 120px; }
 
         .submit-button {
             width: 100%;
@@ -812,16 +807,13 @@
             transition: all 0.3s ease;
         }
 
-        .submit-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 245, 160, 0.3);
-        }
+        .submit-button:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,245,160,0.3); }
 
-        /* Footer */
+        /* ─── Footer ─── */
         footer {
             background: var(--dark-light);
             padding: 4rem 2rem 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(0,217,245,0.12);
         }
 
         .footer-content {
@@ -835,457 +827,403 @@
 
         .footer-brand h3 {
             font-size: 2rem;
-            background: var(--gradient-1);
+            background: var(--gradient-title);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
         }
 
-        .footer-brand p {
-            color: var(--gray);
-            line-height: 1.8;
-        }
-
-        .footer-links h4 {
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links a {
-            color: var(--gray);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
+        .footer-brand p { color: var(--gray); line-height: 1.8; }
+        .footer-links h4 { margin-bottom: 1.5rem; color: var(--primary); }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: var(--gray); text-decoration: none; transition: color 0.3s; }
+        .footer-links a:hover { color: var(--primary); }
 
         .footer-bottom {
             max-width: 1400px;
             margin: 0 auto;
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
             text-align: center;
             color: var(--gray);
         }
 
-        /* RESPONSIVE - MOBILE OPTIMIZATIONS */
+        /* ─── Hero event feed ─── */
+        .hero-event-feed-header {
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
 
-        /* Tablet */
+        .hero-event-feed {
+            margin-top: 0.6rem;
+            max-height: 160px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .hero-event-feed::-webkit-scrollbar { width: 4px; }
+        .hero-event-feed::-webkit-scrollbar-track { background: transparent; }
+        .hero-event-feed::-webkit-scrollbar-thumb { background: rgba(0,245,160,0.3); border-radius: 2px; }
+
+        .hero-event-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 0.7rem;
+            background: rgba(255,255,255,0.04);
+            border-radius: 8px;
+            border-left: 2px solid rgba(0,245,160,0.4);
+            animation: slideIn 0.3s ease-out;
+            font-size: 0.82rem;
+        }
+
+        @keyframes slideIn { from{opacity:0;transform:translateX(-10px)} to{opacity:1;transform:translateX(0)} }
+
+        .hero-event-time {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            font-family: monospace;
+        }
+
+        .hero-event-desc {
+            color: var(--gray);
+            flex: 1;
+            line-height: 1.3;
+        }
+
+        /* ─── Player Profile Section ─── */
+        .player-profiles {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, var(--dark-light) 0%, var(--dark) 100%);
+        }
+
+        .player-profiles .container { max-width: 1400px; margin: 0 auto; }
+
+        /* Player selector tabs */
+        .player-tabs {
+            display: flex;
+            gap: 0.8rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .player-tab {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.7rem 1.4rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.04);
+            cursor: pointer;
+            transition: all 0.25s ease;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray);
+        }
+
+        .player-tab:hover { border-color: rgba(0,245,160,0.4); color: var(--white); }
+
+        .player-tab.active {
+            border-color: var(--primary);
+            background: rgba(0,245,160,0.12);
+            color: var(--white);
+        }
+
+        .player-avatar {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        /* Profile main layout */
+        .profile-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 2rem;
+        }
+
+        /* Left: player card */
+        .profile-card {
+            background: rgba(0,217,245,0.04);
+            border: 1px solid rgba(0,217,245,0.12);
+            border-radius: 20px;
+            padding: 2rem;
+            height: fit-content;
+            position: sticky;
+            top: 90px;
+        }
+
+        .profile-avatar-large {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0 auto 1.2rem;
+            border: 3px solid var(--primary);
+        }
+
+        .profile-name {
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 0.3rem;
+        }
+
+        .profile-level {
+            text-align: center;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-kpis {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-kpi {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 0.8rem;
+            text-align: center;
+        }
+
+        .profile-kpi-value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile-kpi-label {
+            font-size: 0.68rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            margin-top: 3px;
+        }
+
+        /* Radar chart (CSS-drawn) */
+        .profile-radar-wrap {
+            margin-top: 1.2rem;
+            text-align: center;
+        }
+
+        .profile-radar-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            margin-bottom: 0.6rem;
+        }
+
+        /* Progress skill bars */
+        .skill-bars { margin-top: 1.2rem; display: flex; flex-direction: column; gap: 0.7rem; }
+
+        .skill-row { display: flex; flex-direction: column; gap: 0.3rem; }
+        .skill-row-header { display: flex; justify-content: space-between; font-size: 0.78rem; }
+        .skill-row-name { color: var(--gray); }
+        .skill-row-val { color: var(--white); font-weight: 600; }
+
+        .skill-bar-track {
+            height: 6px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: var(--gradient-1);
+            transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        /* Right panel: charts grid */
+        .charts-panel { display: flex; flex-direction: column; gap: 1.5rem; }
+
+        .charts-row {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .charts-row-2 { grid-template-columns: 1fr 1fr; }
+        .charts-row-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+        .chart-card {
+            background: rgba(0,217,245,0.03);
+            border: 1px solid rgba(0,217,245,0.1);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: border-color 0.25s;
+        }
+
+        .chart-card:hover { border-color: rgba(0,245,160,0.3); }
+
+        .chart-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .chart-card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .chart-card-sub {
+            font-size: 0.75rem;
+            color: var(--gray);
+            margin-top: 2px;
+        }
+
+        .chart-card-badge {
+            font-size: 0.72rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        .badge-up { background: rgba(0,245,160,0.15); color: var(--primary); }
+        .badge-down { background: rgba(255,107,107,0.15); color: #ff6b6b; }
+        .badge-neutral { background: rgba(139,146,171,0.15); color: var(--gray); }
+
+        canvas.chart { width: 100%; display: block; }
+
+        /* Period selector */
+        .period-selector {
+            display: flex;
+            gap: 0.4rem;
+            margin-bottom: 2rem;
+            justify-content: flex-end;
+        }
+
+        .period-btn {
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: transparent;
+            color: var(--gray);
+            font-size: 0.78rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .period-btn.active, .period-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: rgba(0,245,160,0.08);
+        }
+
+        /* ─── Scrollbar ─── */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--dark); }
+        ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 5px; }
+
+        /* ─── Responsive ─── */
         @media (max-width: 1024px) {
-            .hero-container,
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .canvas-3d-container {
-                height: 500px;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
+            .hero-container, .contact-wrapper { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 3rem; }
+            .nav-links { display: none; }
+            .hamburger { display: flex; }
+            .canvas-3d-container { height: 500px; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+            .steps-grid { grid-template-columns: 1fr; max-width: 500px; }
+            .profile-layout { grid-template-columns: 1fr; }
+            .profile-card { position: static; }
+            .charts-row-3 { grid-template-columns: 1fr 1fr; }
         }
 
-        /* Mobile - MAJOR IMPROVEMENTS */
         @media (max-width: 768px) {
-            /* Logo smaller on mobile */
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            .nav-container {
-                padding: 1rem;
-            }
-
-            .cta-button {
-                padding: 0.6rem 1rem;
-                font-size: 0.85rem;
-            }
-
-            /* Hero - Stack everything */
-            .hero {
-                min-height: auto;
-                padding-top: 60px;
-            }
-
-            .hero-container {
-                padding: 2rem 1rem;
-                gap: 2rem;
-            }
-
-            .hero-content h1 {
-                font-size: 2rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero-badge {
-                font-size: 0.8rem;
-                padding: 0.5rem 1rem;
-                margin-bottom: 1rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero-stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-                margin-top: 1.5rem;
-            }
-
-            .stat-item {
-                padding: 0.8rem;
-            }
-
-            .stat-number {
-                font-size: 1.5rem;
-            }
-
-            .stat-label {
-                font-size: 0.75rem;
-            }
-
-            /* Hero Score - SIMPLIFIED FOR MOBILE */
-            .hero-score-display {
-                padding: 1.5rem;
-                border-radius: 15px;
-            }
-
-            .hero-live-badge {
-                font-size: 0.75rem;
-                padding: 0.3rem 0.8rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero-score-header {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: flex-start;
-                margin-bottom: 1rem;
-                padding-bottom: 0.8rem;
-            }
-
-            .hero-match-time,
-            .hero-current-set {
-                font-size: 0.85rem;
-                padding: 0.3rem 0.6rem;
-            }
-
-            /* Simplify score board - vertical layout */
-            .hero-score-board {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-                margin-bottom: 1rem;
-            }
-
-            .hero-score-header-cell {
-                display: none; /* Hide headers on mobile */
-            }
-
-            .hero-team-name {
-                font-size: 0.85rem;
-                gap: 0.5rem;
-            }
-
-            /* Team row layout for mobile */
-            .hero-team-row {
-                display: grid;
-                grid-template-columns: 2fr repeat(3, 1fr);
-                gap: 0.5rem;
-                align-items: center;
-            }
-
-            .hero-score-cell {
-                font-size: 1.2rem;
-                padding: 0.3rem;
-            }
-
-            /* Mini stats - 2x2 grid */
-            .hero-mini-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.8rem;
-                margin-top: 1rem;
-                padding-top: 1rem;
-            }
-
-            .hero-mini-stat-value {
-                font-size: 1.2rem;
-            }
-
-            .hero-mini-stat-label {
-                font-size: 0.65rem;
-            }
-
-            /* Sections */
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .section-header p {
-                font-size: 1rem;
-            }
-
-            .live-simulation {
-                padding: 4rem 1rem;
-            }
-
-            .match-display {
-                padding: 1.5rem;
-                border-radius: 15px;
-            }
-
-            .match-header {
-                flex-direction: column;
-                gap: 0.8rem;
-                align-items: flex-start;
-                margin-bottom: 1.5rem;
-            }
-
-            .match-time {
-                font-size: 0.95rem;
-                padding: 0.4rem 0.8rem;
-            }
-
-            /* Score board - vertical on mobile */
-            .score-board {
-                grid-template-columns: 1fr;
-                gap: 0.8rem;
-            }
-
-            .score-header {
-                display: none;
-            }
-
-            .team-name {
-                font-size: 0.95rem;
-                gap: 0.6rem;
-            }
-
-            .score-cell {
-                font-size: 1.3rem;
-                padding: 0.3rem;
-            }
-
-            /* Stats grid - 2 columns on mobile */
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
-                margin-top: 1.5rem;
-                padding-top: 1.5rem;
-            }
-
-            .stat-value {
-                font-size: 1.5rem;
-            }
-
-            .stat-label {
-                font-size: 0.75rem;
-            }
-
-            /* Event feed */
-            .event-feed {
-                max-height: 150px;
-                padding: 0.8rem;
-            }
-
-            .event-item {
-                padding: 0.6rem;
-                gap: 0.6rem;
-            }
-
-            .event-time {
-                font-size: 0.8rem;
-            }
-
-            .event-description {
-                font-size: 0.85rem;
-            }
-
-            /* 3D Visualization - SIMPLIFIED */
-            .visualization-3d {
-                padding: 4rem 1rem;
-            }
-
-            .canvas-3d-container {
-                height: 350px;
-                border-radius: 15px;
-            }
-
-            /* Hide overlay on very small screens */
-            .canvas-overlay {
-                padding: 0.6rem 0.8rem;
-                font-size: 0.75rem;
-                top: 10px;
-                left: 10px;
-                max-width: 50%;
-            }
-
-            .canvas-overlay h4 {
-                font-size: 0.8rem;
-                margin-bottom: 0.3rem;
-            }
-
-            .canvas-overlay p {
-                font-size: 0.7rem;
-                line-height: 1.4;
-            }
-
-            /* Camera indicator smaller */
-            .camera-indicator-single {
-                padding: 0.6rem 0.8rem;
-                top: 10px;
-                right: 10px;
-                gap: 0.5rem;
-            }
-
-            .camera-dot {
-                width: 8px;
-                height: 8px;
-            }
-
-            .camera-label {
-                font-size: 0.75rem;
-            }
-
-            /* Controls - smaller and wrap */
-            .canvas-controls {
-                bottom: 10px;
-                padding: 0.5rem 0.8rem;
-                gap: 0.5rem;
-                flex-wrap: wrap;
-                max-width: 90%;
-            }
-
-            .control-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.75rem;
-            }
-
-            /* Contact */
-            .contact-card-section {
-                padding: 4rem 1rem;
-            }
-
-            .contact-info h2 {
-                font-size: 2rem;
-            }
-
-            .contact-info p {
-                font-size: 1rem;
-            }
-
-            .contact-method {
-                padding: 1rem;
-                gap: 1rem;
-            }
-
-            .contact-icon {
-                width: 50px;
-                height: 50px;
-                font-size: 1.5rem;
-            }
-
-            .contact-method-content h4 {
-                font-size: 0.95rem;
-            }
-
-            .contact-method-content a {
-                font-size: 1rem;
-            }
-
-            .contact-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .contact-card h3 {
-                font-size: 1.5rem;
-            }
-
-            /* Footer */
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            footer {
-                padding: 3rem 1rem 1rem;
-            }
+            .logo { font-size: 1.3rem; }
+            .nav-container { padding: 1rem; }
+            .cta-button { padding: 0.6rem 1rem; font-size: 0.85rem; }
+            .hero { min-height: auto; padding-top: 60px; }
+            .hero-container { padding: 2rem 1rem; gap: 2rem; }
+            .hero-content h1 { font-size: 2rem; }
+            .hero-badge { font-size: 0.8rem; padding: 0.5rem 1rem; }
+            .subtitle { font-size: 1rem; }
+            .hero-stats { grid-template-columns: 1fr; gap: 1rem; }
+            .hero-score-display { padding: 1.5rem; }
+            .hero-score-board { grid-template-columns: 1fr; }
+            .hero-score-header-cell { display: none; }
+            .hero-mini-stats { grid-template-columns: repeat(2,1fr); gap: 0.8rem; }
+            .section-header h2 { font-size: 2rem; }
+            .visualization-3d, .how-it-works, .player-profiles { padding: 4rem 1rem; }
+            .canvas-3d-container { height: 350px; }
+            .canvas-overlay { padding: 0.6rem 0.8rem; top: 10px; left: 10px; }
+            .canvas-overlay h4 { font-size: 0.8rem; }
+            .canvas-overlay p { font-size: 0.7rem; }
+            .camera-indicator-single { padding: 0.6rem 0.8rem; top: 10px; right: 10px; }
+            .canvas-controls { bottom: 10px; padding: 0.5rem 0.8rem; gap: 0.5rem; }
+            .control-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+            .contact-card-section { padding: 4rem 1rem; }
+            .contact-info h2 { font-size: 2rem; }
+            .contact-card { padding: 2rem 1.5rem; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .ball-speed-badge { display: none; }
+            .charts-row-2, .charts-row-3 { grid-template-columns: 1fr; }
+            .profile-kpis { grid-template-columns: repeat(2, 1fr); }
         }
 
-        /* Very small phones */
         @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 1.8rem;
-            }
-
-            .hero-score-cell {
-                font-size: 1rem;
-            }
-
-            .canvas-3d-container {
-                height: 300px;
-            }
-
-            /* Hide canvas overlay on very small screens */
-            .canvas-overlay {
-                display: none;
-            }
-
-            .hero-mini-stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--dark);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 5px;
+            .hero-content h1 { font-size: 1.8rem; }
+            .canvas-3d-container { height: 300px; }
+            .canvas-overlay { display: none; }
+            .hero-mini-stats { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KP7WVV88" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">PadelVision AI</div>
+            <div class="logo" style="background:var(--gradient-title);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Padel Vision</div>
             <ul class="nav-links">
-                <li><a href="#simulation">Détails</a></li>
+                <li><a href="#how-it-works">Fonctionnement</a></li>
                 <li><a href="#demo3d">Démo 3D</a></li>
+                <li><a href="#joueurs">Joueurs</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="#contact" class="cta-button">Contact</a>
+            <a href="#contact" class="cta-button" style="display:none;" id="navCTA">Contact</a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#how-it-works" onclick="closeMobileMenu()">⚙️ Fonctionnement</a>
+        <a href="#demo3d" onclick="closeMobileMenu()">🎮 Démo 3D</a>
+        <a href="#joueurs" onclick="closeMobileMenu()">👤 Joueurs</a>
+        <a href="#contact" onclick="closeMobileMenu()">📩 Contact</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -1294,27 +1232,27 @@
                 <div class="hero-badge">🎯 Solution B2B Padel</div>
                 <h1>Transformez Vos Terrains en Smart Courts</h1>
                 <p class="subtitle">Notre système IA capture chaque mouvement et affiche le score en temps réel. Une seule caméra suffit.</p>
-                <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
-                    <a href="#simulation" class="cta-button" style="display: inline-block; padding: 1rem 2rem;">Voir Détails</a>
-                    <a href="#contact" class="cta-button" style="display: inline-block; padding: 1rem 2rem; background: transparent; border: 2px solid var(--primary); color: var(--white);">Demander Démo</a>
+                <div style="display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;">
+                    <a href="#simulation" class="cta-button" style="display:inline-block;padding:1rem 2rem;">Voir Détails</a>
+                    <a href="#contact" class="cta-button" style="display:inline-block;padding:1rem 2rem;background:transparent;border:2px solid var(--primary);color:var(--white);">Demander Démo</a>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <div class="stat-number">95%</div>
-                        <div class="stat-label">Précision IA</div>
+                        <div class="stat-number" data-target="95">0</div>
+                        <div class="stat-label">Précision IA %</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number">&lt;1s</div>
                         <div class="stat-label">Latence</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number">25K€</div>
-                        <div class="stat-label">Revenus/an</div>
+                        <div class="stat-number" data-target="25">0</div>
+                        <div class="stat-label">K€ Revenus/an</div>
                     </div>
                 </div>
             </div>
 
-            <!-- HERO LIVE SCORE -->
+            <!-- Hero Live Score -->
             <div class="hero-score-display">
                 <div class="hero-live-badge">
                     <div class="hero-live-indicator"></div>
@@ -1332,8 +1270,7 @@
                     <div class="hero-score-header-cell">Set 2</div>
                     <div class="hero-score-header-cell">Jeu</div>
 
-                    <!-- Team 1 Row -->
-                    <div class="hero-team-row" style="display: contents;">
+                    <div style="display:contents;">
                         <div class="hero-team-name">
                             <div class="hero-team-indicator" id="heroTeam1Indicator"></div>
                             <span>Rodriguez / Martin</span>
@@ -1343,8 +1280,7 @@
                         <div class="hero-score-cell highlight" id="heroTeam1Game">0</div>
                     </div>
 
-                    <!-- Team 2 Row -->
-                    <div class="hero-team-row" style="display: contents;">
+                    <div style="display:contents;">
                         <div class="hero-team-name">
                             <div class="hero-team-indicator" id="heroTeam2Indicator"></div>
                             <span>Garcia / Lopez</span>
@@ -1373,80 +1309,44 @@
                         <div class="hero-mini-stat-label">% Service</div>
                     </div>
                 </div>
+                <div class="hero-event-feed-header">
+                    <span>📋 Derniers évènements</span>
+                </div>
+                <div class="hero-event-feed" id="eventFeed">
+                    <div class="hero-event-item">
+                        <span class="hero-event-time">00:00</span>
+                        <span>🎾</span>
+                        <span class="hero-event-desc">Début du match — Rodriguez au service</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Live Match Simulation -->
-    <section class="live-simulation" id="simulation">
-        <div class="simulation-container">
-            <div class="section-header">
-                <span class="section-tag">STATISTIQUES DÉTAILLÉES</span>
-                <h2>Vue Complète du Match</h2>
-                <p>Toutes les statistiques capturées par notre système IA</p>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">FONCTIONNEMENT</span>
+                <h2>Simple. Puissant. Autonome.</h2>
+                <p>Déployez PadelVision AI en 3 étapes sur n'importe quel terrain</p>
             </div>
-
-            <div class="match-display">
-                <div class="match-header">
-                    <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
-                        <div class="match-time" id="matchTime">00:00</div>
-                        <span style="color: var(--gray); font-size: 0.9rem;">Terrain 1</span>
-                    </div>
-                    <span style="color: var(--primary); font-weight: 600; font-size: 1.1rem;" id="currentSet">SET 1</span>
+            <div class="steps-grid">
+                <div class="step-card reveal">
+                    <div class="step-number">1</div>
+                    <h3>Installation</h3>
+                    <p>Une seule caméra haute résolution montée en hauteur. Installation en moins de 2 heures, aucun câblage complexe.</p>
                 </div>
-
-                <div class="score-board">
-                    <div class="score-header">Équipe</div>
-                    <div class="score-header">Set 1</div>
-                    <div class="score-header">Set 2</div>
-                    <div class="score-header">Jeu</div>
-
-                    <div style="display: contents;">
-                        <div class="team-name">
-                            <div class="team-indicator" id="team1Indicator"></div>
-                            <span>Rodriguez / Martin</span>
-                        </div>
-                        <div class="score-cell" id="team1Set1">0</div>
-                        <div class="score-cell" id="team1Set2">-</div>
-                        <div class="score-cell" id="team1Game">0</div>
-                    </div>
-
-                    <div style="display: contents;">
-                        <div class="team-name">
-                            <div class="team-indicator" id="team2Indicator"></div>
-                            <span>Garcia / Lopez</span>
-                        </div>
-                        <div class="score-cell" id="team2Set1">0</div>
-                        <div class="score-cell" id="team2Set2">-</div>
-                        <div class="score-cell" id="team2Game">0</div>
-                    </div>
+                <div class="step-card reveal" style="transition-delay:0.15s;">
+                    <div class="step-number">2</div>
+                    <h3>Analyse IA</h3>
+                    <p>Notre modèle détecte joueurs, balle et échanges avec 95% de précision. Score calculé automatiquement en temps réel.</p>
                 </div>
-
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <div class="stat-value" id="winnersCount">0</div>
-                        <div class="stat-label">Gagnants</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value" id="errorsCount">0</div>
-                        <div class="stat-label">Fautes</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value" id="rallyAvg">0.0</div>
-                        <div class="stat-label">Moy. Échanges</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-value" id="servicePercent">0%</div>
-                        <div class="stat-label">% Service</div>
-                    </div>
-                </div>
-
-                <div class="event-feed" id="eventFeed">
-                    <div class="event-item">
-                        <span class="event-time">00:00</span>
-                        <span style="font-size: 1.2rem;">🎾</span>
-                        <span class="event-description">Début du match - Rodriguez au service</span>
-                    </div>
+                <div class="step-card reveal" style="transition-delay:0.3s;">
+                    <div class="step-number">3</div>
+                    <h3>Affichage LED</h3>
+                    <p>Score diffusé sur écran LED, application mobile et tableau de bord web. Vos clients adorent. Votre club se démarque.</p>
                 </div>
             </div>
         </div>
@@ -1455,10 +1355,10 @@
     <!-- 3D Visualization -->
     <section class="visualization-3d" id="demo3d">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">VISUALISATION 3D</span>
                 <h2>Système en Action</h2>
-                <p>Caméra unique + Score LED sur le terrain</p>
+                <p>Terrain de padel réaliste avec tracking IA, caméra et tableau de score LED</p>
             </div>
 
             <div class="canvas-3d-container">
@@ -1474,10 +1374,215 @@
                     <span class="camera-label">📹 ACTIF</span>
                 </div>
 
+                <!-- Ball speed indicator -->
+                <div class="ball-speed-badge">
+                    <div class="ball-speed-value" id="ballSpeedDisplay">-- km/h</div>
+                    <div class="ball-speed-label">Vitesse balle</div>
+                </div>
+
                 <div class="canvas-controls">
-                    <button class="control-btn active" data-view="perspective">Perspective</button>
-                    <button class="control-btn" data-view="top">Vue Dessus</button>
-                    <button class="control-btn" data-view="heatmap">Heatmap</button>
+                    <button class="control-btn active" data-view="perspective">🎥 Perspective</button>
+                    <button class="control-btn" data-view="top">📐 Vue Dessus</button>
+                    <button class="control-btn" data-view="heatmap">🌡️ Heatmap</button>
+                    <button class="control-btn" data-view="side">◀ Côté</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Player Profiles Section -->
+    <section class="player-profiles" id="joueurs">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">PROFILS JOUEURS</span>
+                <h2>Tableau de Bord Joueur</h2>
+                <p>Suivi complet de la progression, statistiques et KPI personnalisés pour chaque joueur</p>
+            </div>
+
+            <!-- Player tabs -->
+            <div class="player-tabs reveal">
+                <div class="player-tab active" data-player="0">
+                    <div class="player-avatar" style="background:rgba(0,245,160,0.2);color:#00F5A0;">R</div>
+                    Rodriguez
+                </div>
+                <div class="player-tab" data-player="1">
+                    <div class="player-avatar" style="background:rgba(0,245,160,0.15);color:#00F5A0;">M</div>
+                    Martin
+                </div>
+                <div class="player-tab" data-player="2">
+                    <div class="player-avatar" style="background:rgba(255,107,107,0.2);color:#ff6b6b;">G</div>
+                    Garcia
+                </div>
+                <div class="player-tab" data-player="3">
+                    <div class="player-avatar" style="background:rgba(255,107,107,0.15);color:#ff6b6b;">L</div>
+                    Lopez
+                </div>
+            </div>
+
+            <div class="profile-layout reveal">
+                <!-- Left: player identity card -->
+                <div class="profile-card" id="profileCard">
+                    <div class="profile-avatar-large" id="profileAvatar" style="background:rgba(0,245,160,0.15);color:#00F5A0;">R</div>
+                    <div class="profile-name" id="profileName">Alex Rodriguez</div>
+                    <div class="profile-level" id="profileLevel">⭐ Niveau P100 — Catégorie A</div>
+
+                    <div class="profile-kpis">
+                        <div class="profile-kpi">
+                            <div class="profile-kpi-value" id="kpiMatchs">48</div>
+                            <div class="profile-kpi-label">Matchs joués</div>
+                        </div>
+                        <div class="profile-kpi">
+                            <div class="profile-kpi-value" id="kpiVictoires">31</div>
+                            <div class="profile-kpi-label">Victoires</div>
+                        </div>
+                        <div class="profile-kpi">
+                            <div class="profile-kpi-value" id="kpiWinrate">65%</div>
+                            <div class="profile-kpi-label">Win rate</div>
+                        </div>
+                        <div class="profile-kpi">
+                            <div class="profile-kpi-value" id="kpiSerie">🔥 5</div>
+                            <div class="profile-kpi-label">Série en cours</div>
+                        </div>
+                        <div class="profile-kpi">
+                            <div class="profile-kpi-value" id="kpiRallyMoy">7.2</div>
+                            <div class="profile-kpi-label">Rally moyen</div>
+                        </div>
+                        <div class="profile-kpi">
+                            <div class="profile-kpi-value" id="kpiService">72%</div>
+                            <div class="profile-kpi-label">% Service</div>
+                        </div>
+                    </div>
+
+                    <!-- Skill bars -->
+                    <div class="skill-bars" id="skillBars">
+                        <div class="skill-row">
+                            <div class="skill-row-header">
+                                <span class="skill-row-name">Service</span>
+                                <span class="skill-row-val">82%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:82%"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-row-header">
+                                <span class="skill-row-name">Smash</span>
+                                <span class="skill-row-val">76%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:76%"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-row-header">
+                                <span class="skill-row-name">Régularité</span>
+                                <span class="skill-row-val">88%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:88%"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-row-header">
+                                <span class="skill-row-name">Défense</span>
+                                <span class="skill-row-val">69%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:69%"></div></div>
+                        </div>
+                        <div class="skill-row">
+                            <div class="skill-row-header">
+                                <span class="skill-row-name">Vitesse</span>
+                                <span class="skill-row-val">74%</span>
+                            </div>
+                            <div class="skill-bar-track"><div class="skill-bar-fill" style="width:74%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: charts -->
+                <div class="charts-panel">
+                    <div style="display:flex;justify-content:flex-end;gap:0.4rem;" class="period-selector">
+                        <button class="period-btn" data-period="1m">1M</button>
+                        <button class="period-btn active" data-period="3m">3M</button>
+                        <button class="period-btn" data-period="6m">6M</button>
+                        <button class="period-btn" data-period="1a">1A</button>
+                    </div>
+
+                    <!-- Row 1: Win rate trend + Points scored -->
+                    <div class="charts-row charts-row-2">
+                        <div class="chart-card">
+                            <div class="chart-card-header">
+                                <div>
+                                    <div class="chart-card-title">Évolution du Win Rate</div>
+                                    <div class="chart-card-sub">% victoires par semaine</div>
+                                </div>
+                                <span class="chart-card-badge badge-up" id="badgeWinrate">↑ +8%</span>
+                            </div>
+                            <canvas class="chart" id="chartWinrate" height="140"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-card-header">
+                                <div>
+                                    <div class="chart-card-title">Points Gagnants vs Fautes</div>
+                                    <div class="chart-card-sub">Par match, cumul mensuel</div>
+                                </div>
+                                <span class="chart-card-badge badge-up" id="badgePoints">↑ +12</span>
+                            </div>
+                            <canvas class="chart" id="chartPoints" height="140"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Rally length + Service % -->
+                    <div class="charts-row charts-row-2">
+                        <div class="chart-card">
+                            <div class="chart-card-header">
+                                <div>
+                                    <div class="chart-card-title">Longueur Moyenne des Échanges</div>
+                                    <div class="chart-card-sub">Coups par rally</div>
+                                </div>
+                                <span class="chart-card-badge badge-neutral" id="badgeRally">→ stable</span>
+                            </div>
+                            <canvas class="chart" id="chartRally" height="140"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-card-header">
+                                <div>
+                                    <div class="chart-card-title">% Service Réussi</div>
+                                    <div class="chart-card-sub">1er et 2e service</div>
+                                </div>
+                                <span class="chart-card-badge badge-up" id="badgeService">↑ +5%</span>
+                            </div>
+                            <canvas class="chart" id="chartService" height="140"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Row 3: Ball speed + Sets won + Activity -->
+                    <div class="charts-row charts-row-3">
+                        <div class="chart-card">
+                            <div class="chart-card-header">
+                                <div>
+                                    <div class="chart-card-title">Vitesse de Frappe</div>
+                                    <div class="chart-card-sub">km/h moyenne</div>
+                                </div>
+                                <span class="chart-card-badge badge-up" id="badgeSpeed">↑ +3 km/h</span>
+                            </div>
+                            <canvas class="chart" id="chartSpeed" height="130"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-card-header">
+                                <div>
+                                    <div class="chart-card-title">Sets Remportés</div>
+                                    <div class="chart-card-sub">Distribution</div>
+                                </div>
+                                <span class="chart-card-badge badge-neutral" id="badgeSets">48 matchs</span>
+                            </div>
+                            <canvas class="chart" id="chartSets" height="130"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <div class="chart-card-header">
+                                <div>
+                                    <div class="chart-card-title">Activité Hebdo</div>
+                                    <div class="chart-card-sub">Matchs joués / semaine</div>
+                                </div>
+                                <span class="chart-card-badge badge-up" id="badgeActivity">↑ 2.1/sem</span>
+                            </div>
+                            <canvas class="chart" id="chartActivity" height="130"></canvas>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1486,22 +1591,22 @@
     <!-- Contact Section -->
     <section class="contact-card-section" id="contact">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <span class="section-tag">CONTACT</span>
                 <h2>Prêt à Élever Votre Club ?</h2>
                 <p>Discutons de votre projet PadelVision AI</p>
             </div>
             <div class="contact-wrapper">
-                <div class="contact-info">
+                <div class="contact-info reveal">
                     <h2>Parlons de Votre Projet</h2>
-                    <p>Solution sur mesure qui maximise votre ROI.</p>
+                    <p>Solution sur mesure qui maximise votre ROI. Démo gratuite disponible.</p>
 
                     <div class="contact-methods">
                         <div class="contact-method">
                             <div class="contact-icon">📧</div>
                             <div class="contact-method-content">
                                 <h4>Email</h4>
-                                <a href="mailto:marchadier.julien@gmail.com">marchadier.julien@gmail.com</a>
+                                <a href="/cdn-cgi/l/email-protection#ed808c9f8e858c8984889fc3879881848883ad8a808c8481c38e8280"><span class="__cf_email__" data-cfemail="d2bfb3a0b1bab3b6bbb7a0fcb8a7bebbb7bc92b5bfb3bbbefcb1bdbf">[email&#160;protected]</span></a>
                             </div>
                         </div>
 
@@ -1515,27 +1620,27 @@
                     </div>
                 </div>
 
-                <div class="contact-card">
+                <div class="contact-card reveal" style="transition-delay:0.2s;">
                     <h3>Demande d'Information</h3>
                     <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Votre Nom *</label>
-                            <input type="text" id="name" name="name" required>
+                            <input type="text" id="name" name="name" required placeholder="Jean Dupont">
                         </div>
 
                         <div class="form-group">
                             <label for="venue">Nom du Club *</label>
-                            <input type="text" id="venue" name="venue" required>
+                            <input type="text" id="venue" name="venue" required placeholder="Club Padel Toulouse">
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email *</label>
-                            <input type="email" id="email" name="email" required>
+                            <input type="email" id="email" name="email" required placeholder="contact@monclub.fr">
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Téléphone</label>
-                            <input type="tel" id="phone" name="phone">
+                            <input type="tel" id="phone" name="phone" placeholder="06 00 00 00 00">
                         </div>
 
                         <div class="form-group">
@@ -1554,7 +1659,7 @@
                             <textarea id="message" name="message" placeholder="Parlez-nous de votre club..."></textarea>
                         </div>
 
-                        <button type="submit" class="submit-button">Envoyer</button>
+                        <button type="submit" class="submit-button">Envoyer la demande →</button>
                     </form>
                 </div>
             </div>
@@ -1567,17 +1672,18 @@
             <div class="footer-brand">
                 <h3>PadelVision AI</h3>
                 <p>Centres d'analyse de performance intelligents pour clubs de padel.</p>
-                <div style="margin-top: 2rem;">
-                    <p style="margin-bottom: 0.5rem;"><strong>Contact :</strong></p>
-                    <p>📧 <a href="mailto:marchadier.julien@gmail.com" style="color: var(--gray); text-decoration: none;">marchadier.julien@gmail.com</a></p>
-                    <p>📱 <a href="tel:+33781124216" style="color: var(--gray); text-decoration: none;">07 81 12 42 16</a></p>
+                <div style="margin-top:2rem;">
+                    <p style="margin-bottom:0.5rem;"><strong>Contact :</strong></p>
+                    <p>📧 <a href="/cdn-cgi/l/email-protection#127f7360717a73767b77603c78677e7b777c52757f737b7e3c717d7f" style="color:var(--gray);text-decoration:none;"><span class="__cf_email__" data-cfemail="a1ccc0d3c2c9c0c5c8c4d38fcbd4cdc8c4cfe1c6ccc0c8cd8fc2cecc">[email&#160;protected]</span></a></p>
+                    <p>📱 <a href="tel:+33781124216" style="color:var(--gray);text-decoration:none;">07 81 12 42 16</a></p>
                 </div>
-                <p style="margin-top: 1.5rem; color: var(--gray);">© 2026 PadelVision AI</p>
+                <p style="margin-top:1.5rem;color:var(--gray);">© 2026 PadelVision AI</p>
             </div>
             <div class="footer-links">
                 <h4>Produit</h4>
                 <ul>
                     <li><a href="#simulation">Détails</a></li>
+                    <li><a href="#how-it-works">Fonctionnement</a></li>
                     <li><a href="#demo3d">Démo 3D</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1585,7 +1691,7 @@
             <div class="footer-links">
                 <h4>Entreprise</h4>
                 <ul>
-                    <li><a href="#">À Propos</a></li>
+                    <li><a href="#contact">À Propos</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -1599,646 +1705,850 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>Conçu avec ❤️ pour les clubs de padel.</p>
+            <p>Conçu avec ❤️ pour les clubs de padel — Toulouse, France</p>
         </div>
     </footer>
 
     <script>
-        // Global variables
-        let globalMatchSimulation = null;
-
-        // THREE.JS 3D COURT SIMULATION
-        let scene, camera, renderer, court, players = [], ball, singleCamera;
-        let scoreboardMesh, scoreTexture, scoreCanvas, scoreContext;
-        let heatmapMode = false;
-        let currentView = 'perspective';
-        let animationTime = 0;
-
-        function init3D() {
-            const container = document.getElementById('canvas3d');
-            const width = container.clientWidth;
-            const height = container.clientHeight;
-
-            scene = new THREE.Scene();
-            scene.background = new THREE.Color(0x0a0e27);
-            scene.fog = new THREE.Fog(0x0a0e27, 20, 50);
-
-            camera = new THREE.PerspectiveCamera(60, width / height, 0.1, 1000);
-            camera.position.set(15, 12, 15);
-            camera.lookAt(0, 0, 0);
-
-            renderer = new THREE.WebGLRenderer({ canvas: container, antialias: true });
-            renderer.setSize(width, height);
-            renderer.shadowMap.enabled = true;
-
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
-            scene.add(ambientLight);
-
-            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
-            directionalLight.position.set(10, 20, 10);
-            directionalLight.castShadow = true;
-            scene.add(directionalLight);
-
-            const courtGroup = new THREE.Group();
-
-            const courtGeometry = new THREE.PlaneGeometry(20, 10);
-            const courtMaterial = new THREE.MeshStandardMaterial({ 
-                color: 0x1a4d2e,
-                roughness: 0.8,
-                metalness: 0.2
-            });
-            const courtMesh = new THREE.Mesh(courtGeometry, courtMaterial);
-            courtMesh.rotation.x = -Math.PI / 2;
-            courtMesh.receiveShadow = true;
-            courtGroup.add(courtMesh);
-
-            const lineMaterial = new THREE.LineBasicMaterial({ color: 0xffffff, linewidth: 2 });
-
-            const outerPoints = [
-                new THREE.Vector3(-10, 0.01, -5),
-                new THREE.Vector3(10, 0.01, -5),
-                new THREE.Vector3(10, 0.01, 5),
-                new THREE.Vector3(-10, 0.01, 5),
-                new THREE.Vector3(-10, 0.01, -5)
-            ];
-            const outerGeometry = new THREE.BufferGeometry().setFromPoints(outerPoints);
-            courtGroup.add(new THREE.Line(outerGeometry, lineMaterial));
-
-            const centerPoints = [
-                new THREE.Vector3(0, 0.01, -5),
-                new THREE.Vector3(0, 0.01, 5)
-            ];
-            const centerGeometry = new THREE.BufferGeometry().setFromPoints(centerPoints);
-            courtGroup.add(new THREE.Line(centerGeometry, lineMaterial));
-
-            const serviceLines = [
-                [new THREE.Vector3(-10, 0.01, -1.5), new THREE.Vector3(0, 0.01, -1.5)],
-                [new THREE.Vector3(-10, 0.01, 1.5), new THREE.Vector3(0, 0.01, 1.5)],
-                [new THREE.Vector3(0, 0.01, -1.5), new THREE.Vector3(10, 0.01, -1.5)],
-                [new THREE.Vector3(0, 0.01, 1.5), new THREE.Vector3(10, 0.01, 1.5)]
-            ];
-
-            serviceLines.forEach(points => {
-                const geom = new THREE.BufferGeometry().setFromPoints(points);
-                courtGroup.add(new THREE.Line(geom, lineMaterial));
-            });
-
-            const netGeometry = new THREE.BoxGeometry(0.1, 1, 10);
-            const netMaterial = new THREE.MeshStandardMaterial({ 
-                color: 0x333333,
-                transparent: true,
-                opacity: 0.7
-            });
-            const net = new THREE.Mesh(netGeometry, netMaterial);
-            net.position.set(0, 0.5, 0);
-            net.castShadow = true;
-            courtGroup.add(net);
-
-            const glassGeometry = new THREE.PlaneGeometry(20, 3);
-            const glassMaterial = new THREE.MeshStandardMaterial({ 
-                color: 0x00d9f5,
-                transparent: true,
-                opacity: 0.15,
-                side: THREE.DoubleSide
-            });
-
-            const sideWall = new THREE.Mesh(glassGeometry, glassMaterial);
-            sideWall.position.set(0, 1.5, 5);
-            courtGroup.add(sideWall);
-
-            createLEDScoreboard(courtGroup);
-
-            scene.add(courtGroup);
-            court = courtGroup;
-
-            const playerPositions = [
-                { x: -7, z: -2 },
-                { x: -7, z: 2 },
-                { x: 7, z: -2 },
-                { x: 7, z: 2 }
-            ];
-
-            playerPositions.forEach((pos, index) => {
-                const playerGroup = new THREE.Group();
-
-                const bodyGeometry = new THREE.CylinderGeometry(0.3, 0.3, 1.5, 8);
-                const playerColor = index < 2 ? 0x00f5a0 : 0xff6b6b;
-                const bodyMaterial = new THREE.MeshStandardMaterial({ color: playerColor });
-                const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
-                body.position.y = 0.75;
-                body.castShadow = true;
-                playerGroup.add(body);
-
-                const headGeometry = new THREE.SphereGeometry(0.25, 16, 16);
-                const head = new THREE.Mesh(headGeometry, bodyMaterial);
-                head.position.y = 1.75;
-                head.castShadow = true;
-                playerGroup.add(head);
-
-                playerGroup.position.set(pos.x, 0, pos.z);
-                playerGroup.userData = { 
-                    initialX: pos.x, 
-                    initialZ: pos.z,
-                    targetX: pos.x,
-                    targetZ: pos.z
-                };
-
-                scene.add(playerGroup);
-                players.push(playerGroup);
-            });
-
-            const ballGeometry = new THREE.SphereGeometry(0.15, 16, 16);
-            const ballMaterial = new THREE.MeshStandardMaterial({ 
-                color: 0xffeb3b,
-                emissive: 0xffeb3b,
-                emissiveIntensity: 0.5
-            });
-            ball = new THREE.Mesh(ballGeometry, ballMaterial);
-            ball.position.set(-7, 1, -2);
-            ball.castShadow = true;
-            scene.add(ball);
-
-            const camGeometry = new THREE.ConeGeometry(0.3, 0.7, 8);
-            const camMaterial = new THREE.MeshStandardMaterial({ 
-                color: 0x00f5a0,
-                emissive: 0x00f5a0,
-                emissiveIntensity: 0.4
-            });
-            singleCamera = new THREE.Mesh(camGeometry, camMaterial);
-            singleCamera.position.set(-10, 6, -5);
-            singleCamera.lookAt(0, 0, 0);
-            singleCamera.rotation.x = Math.PI;
-            scene.add(singleCamera);
-
-            document.querySelectorAll('.control-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    document.querySelectorAll('.control-btn').forEach(b => b.classList.remove('active'));
-                    e.target.classList.add('active');
-                    currentView = e.target.dataset.view;
-                    updateCameraView();
-                });
-            });
-
-            animate();
-        }
-
-        function createLEDScoreboard(courtGroup) {
-            scoreCanvas = document.createElement('canvas');
-            scoreCanvas.width = 512;
-            scoreCanvas.height = 256;
-            scoreContext = scoreCanvas.getContext('2d');
-
-            scoreTexture = new THREE.CanvasTexture(scoreCanvas);
-
-            const scoreboardGeometry = new THREE.PlaneGeometry(6, 2);
-            const scoreboardMaterial = new THREE.MeshBasicMaterial({ 
-                map: scoreTexture,
-                side: THREE.DoubleSide
-            });
-            scoreboardMesh = new THREE.Mesh(scoreboardGeometry, scoreboardMaterial);
-            scoreboardMesh.position.set(-3, 2.5, 4.9);
-            scoreboardMesh.rotation.y = 0;
-
-            courtGroup.add(scoreboardMesh);
-
-            updateScoreboard();
-        }
-
-        function updateScoreboard() {
-            if (!scoreContext || !globalMatchSimulation) return;
-
-            const ctx = scoreContext;
-            const sim = globalMatchSimulation;
-
-            ctx.fillStyle = '#0a0e27';
-            ctx.fillRect(0, 0, 512, 256);
-
-            ctx.strokeStyle = '#00f5a0';
-            ctx.lineWidth = 4;
-            ctx.strokeRect(10, 10, 492, 236);
-
-            ctx.textAlign = 'center';
-            ctx.fillStyle = '#ffffff';
-            ctx.font = 'bold 20px Arial';
-            ctx.fillText('MATCH EN DIRECT', 256, 35);
-
-            ctx.font = 'bold 24px Arial';
-            ctx.textAlign = 'left';
-
-            ctx.fillStyle = '#00f5a0';
-            ctx.fillText('Rodriguez / Martin', 30, 90);
-
-            ctx.fillStyle = '#ff6b6b';
-            ctx.fillText('Garcia / Lopez', 30, 140);
-
-            ctx.textAlign = 'center';
-            ctx.font = 'bold 40px Arial';
-
-            ctx.fillStyle = '#00f5a0';
-            ctx.fillText(sim.team1Score.set1, 350, 90);
-            ctx.fillStyle = '#ff6b6b';
-            ctx.fillText(sim.team2Score.set1, 350, 140);
-
-            if (sim.currentSet >= 2) {
-                ctx.fillStyle = '#00f5a0';
-                ctx.fillText(sim.team1Score.set2, 420, 90);
-                ctx.fillStyle = '#ff6b6b';
-                ctx.fillText(sim.team2Score.set2, 420, 140);
-            }
-
-            const gameScores = ['0', '15', '30', '40', 'AD'];
-            let team1GameDisplay = sim.team1Score.game <= 3 ? gameScores[sim.team1Score.game] : '40';
-            let team2GameDisplay = sim.team2Score.game <= 3 ? gameScores[sim.team2Score.game] : '40';
-
-            if (sim.team1Score.game >= 4 || sim.team2Score.game >= 4) {
-                if (sim.team1Score.game > sim.team2Score.game) {
-                    team1GameDisplay = 'AD';
-                } else if (sim.team2Score.game > sim.team1Score.game) {
-                    team2GameDisplay = 'AD';
-                } else {
-                    team1GameDisplay = '40';
-                    team2GameDisplay = '40';
-                }
-            }
-
-            ctx.font = 'bold 32px Arial';
-            ctx.fillStyle = '#00f5a0';
-            ctx.fillText(team1GameDisplay, 470, 90);
-            ctx.fillStyle = '#ff6b6b';
-            ctx.fillText(team2GameDisplay, 470, 140);
-
-            ctx.font = '16px Arial';
-            ctx.fillStyle = '#8B92AB';
-            ctx.fillText(`SET ${sim.currentSet}`, 256, 220);
-
-            const minutes = Math.floor(sim.matchTime / 60);
-            const seconds = sim.matchTime % 60;
-            const timeStr = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            ctx.fillText(timeStr, 256, 240);
-
-            scoreTexture.needsUpdate = true;
-        }
-
-        function updateCameraView() {
-            if (currentView === 'perspective') {
-                camera.position.set(15, 12, 15);
-                heatmapMode = false;
-            } else if (currentView === 'top') {
-                camera.position.set(0, 25, 0);
-                heatmapMode = false;
-            } else if (currentView === 'heatmap') {
-                camera.position.set(0, 25, 0);
-                heatmapMode = true;
-            }
-            camera.lookAt(0, 0, 0);
-        }
-
-        function animate() {
-            requestAnimationFrame(animate);
-            animationTime += 0.01;
-
-            if (globalMatchSimulation) {
-                updateScoreboard();
-            }
-
-            players.forEach((player, index) => {
-                if (Math.random() < 0.02) {
-                    player.userData.targetX = player.userData.initialX + (Math.random() - 0.5) * 4;
-                    player.userData.targetZ = player.userData.initialZ + (Math.random() - 0.5) * 3;
-                }
-
-                player.position.x += (player.userData.targetX - player.position.x) * 0.05;
-                player.position.z += (player.userData.targetZ - player.position.z) * 0.05;
-                player.position.y = Math.abs(Math.sin(animationTime * 2 + index)) * 0.05;
-
-                if (heatmapMode && Math.random() < 0.1) {
-                    const circleGeometry = new THREE.CircleGeometry(0.5, 16);
-                    const circleMaterial = new THREE.MeshBasicMaterial({ 
-                        color: index < 2 ? 0x00f5a0 : 0xff6b6b,
-                        transparent: true,
-                        opacity: 0.3,
-                        side: THREE.DoubleSide
-                    });
-                    const circle = new THREE.Mesh(circleGeometry, circleMaterial);
-                    circle.rotation.x = -Math.PI / 2;
-                    circle.position.set(player.position.x, 0.02, player.position.z);
-                    scene.add(circle);
-
-                    setTimeout(() => {
-                        scene.remove(circle);
-                        circleGeometry.dispose();
-                        circleMaterial.dispose();
-                    }, 2000);
-                }
-            });
-
-            const trajectory = Math.sin(animationTime * 2) * 10;
-            const height = Math.max(0.2, Math.abs(Math.sin(animationTime * 4)) * 3);
-
-            ball.position.x = trajectory;
-            ball.position.y = height;
-            ball.position.z = Math.sin(animationTime * 1.5) * 4;
-
-            if (animationTime % 0.1 < 0.01) {
-                const trailGeometry = new THREE.SphereGeometry(0.08, 8, 8);
-                const trailMaterial = new THREE.MeshBasicMaterial({ 
-                    color: 0xffeb3b,
-                    transparent: true,
-                    opacity: 0.4
-                });
-                const trail = new THREE.Mesh(trailGeometry, trailMaterial);
-                trail.position.copy(ball.position);
-                scene.add(trail);
-
-                setTimeout(() => {
-                    scene.remove(trail);
-                    trailGeometry.dispose();
-                    trailMaterial.dispose();
-                }, 500);
-            }
-
-            singleCamera.rotation.z = Math.sin(animationTime) * 0.1;
-
-            if (currentView === 'perspective') {
-                const radius = 20;
-                camera.position.x = Math.cos(animationTime * 0.1) * radius;
-                camera.position.z = Math.sin(animationTime * 0.1) * radius;
-                camera.lookAt(0, 0, 0);
-            }
-
-            renderer.render(scene, camera);
-        }
-
-        window.addEventListener('resize', () => {
-            const container = document.getElementById('canvas3d');
-            const width = container.clientWidth;
-            const height = container.clientHeight;
-            camera.aspect = width / height;
-            camera.updateProjectionMatrix();
-            renderer.setSize(width, height);
-        });
-
-        // MATCH SIMULATION
-        class MatchSimulation {
-            constructor() {
-                this.team1Score = { set1: 0, set2: 0, game: 0 };
-                this.team2Score = { set1: 0, set2: 0, game: 0 };
-                this.currentSet = 1;
-                this.servingTeam = 1;
-                this.matchTime = 0;
-                this.stats = {
-                    winners: 0,
-                    errors: 0,
-                    rallyLengths: [],
-                    successfulServes: 0,
-                    totalServes: 0
-                };
-                this.isRunning = false;
-            }
-
-            start() {
-                this.isRunning = true;
-                this.simulatePoint();
-                this.updateTime();
-            }
-
-            updateTime() {
-                setInterval(() => {
-                    if (this.isRunning) {
-                        this.matchTime++;
-                        const minutes = Math.floor(this.matchTime / 60);
-                        const seconds = this.matchTime % 60;
-                        const timeStr = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-                        document.getElementById('matchTime').textContent = timeStr;
-                        document.getElementById('heroMatchTime').textContent = timeStr;
-                    }
-                }, 1000);
-            }
-
-            simulatePoint() {
-                if (!this.isRunning) return;
-
-                setTimeout(() => {
-                    const rallyLength = Math.floor(Math.random() * 15) + 3;
-                    this.stats.rallyLengths.push(rallyLength);
-
-                    const winner = Math.random() > 0.48 ? 1 : 2;
-                    const isWinner = Math.random() > 0.4;
-                    const isAce = Math.random() > 0.9;
-                    const isError = !isWinner && Math.random() > 0.5;
-
-                    if (isWinner) this.stats.winners++;
-                    if (isError) this.stats.errors++;
-
-                    this.stats.totalServes++;
-                    if (Math.random() > 0.25) this.stats.successfulServes++;
-
-                    this.updateGameScore(winner);
-
-                    let eventText = '';
-                    if (isAce) {
-                        eventText = `Ace de ${winner === 1 ? 'Rodriguez' : 'Garcia'} ! 🔥`;
-                    } else if (isError) {
-                        eventText = `Faute de ${winner === 1 ? 'Garcia' : 'Rodriguez'}`;
-                    } else if (isWinner) {
-                        eventText = `Smash de ${winner === 1 ? 'Martin' : 'Lopez'} !`;
-                    } else {
-                        eventText = `Échange ${rallyLength} coups - ${winner === 1 ? 'Rodriguez/Martin' : 'Garcia/Lopez'}`;
-                    }
-
-                    this.addEvent(eventText);
-                    this.updateDisplay();
-
-                    if (this.currentSet <= 2) {
-                        this.simulatePoint();
-                    }
-                }, Math.random() * 3000 + 2000);
-            }
-
-            updateGameScore(winner) {
-                if (winner === 1) {
-                    this.team1Score.game++;
-                } else {
-                    this.team2Score.game++;
-                }
-
-                if (this.team1Score.game >= 4 && this.team1Score.game - this.team2Score.game >= 2) {
-                    this.winGame(1);
-                } else if (this.team2Score.game >= 4 && this.team2Score.game - this.team1Score.game >= 2) {
-                    this.winGame(2);
-                }
-            }
-
-            winGame(team) {
-                if (this.currentSet === 1) {
-                    if (team === 1) this.team1Score.set1++;
-                    else this.team2Score.set1++;
-
-                    if (this.team1Score.set1 >= 6 && this.team1Score.set1 - this.team2Score.set1 >= 2) {
-                        this.winSet(1);
-                    } else if (this.team2Score.set1 >= 6 && this.team2Score.set1 - this.team1Score.set1 >= 2) {
-                        this.winSet(2);
-                    }
-                } else if (this.currentSet === 2) {
-                    if (team === 1) this.team1Score.set2++;
-                    else this.team2Score.set2++;
-
-                    if (this.team1Score.set2 >= 6 && this.team1Score.set2 - this.team2Score.set2 >= 2) {
-                        this.winSet(1);
-                    } else if (this.team2Score.set2 >= 6 && this.team2Score.set2 - this.team1Score.set2 >= 2) {
-                        this.winSet(2);
-                    }
-                }
-
-                this.team1Score.game = 0;
-                this.team2Score.game = 0;
-                this.servingTeam = this.servingTeam === 1 ? 2 : 1;
-            }
-
-            winSet(team) {
-                this.addEvent(`🏆 Set ${this.currentSet} par ${team === 1 ? 'Rodriguez/Martin' : 'Garcia/Lopez'} !`);
-                this.currentSet++;
-
-                if (this.currentSet <= 2) {
-                    document.getElementById('currentSet').textContent = `SET ${this.currentSet}`;
-                    document.getElementById('heroCurrentSet').textContent = `SET ${this.currentSet}`;
-                }
-            }
-
-            addEvent(text) {
-                const minutes = Math.floor(this.matchTime / 60);
-                const seconds = this.matchTime % 60;
-                const timeStr = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-                const eventFeed = document.getElementById('eventFeed');
-                const eventItem = document.createElement('div');
-                eventItem.className = 'event-item';
-                eventItem.innerHTML = `
-                    <span class="event-time">${timeStr}</span>
-                    <span style="font-size: 1.2rem;">🎾</span>
-                    <span class="event-description">${text}</span>
-                `;
-
-                eventFeed.insertBefore(eventItem, eventFeed.firstChild);
-
-                while (eventFeed.children.length > 10) {
-                    eventFeed.removeChild(eventFeed.lastChild);
-                }
-            }
-
-            updateDisplay() {
-                document.getElementById('team1Set1').textContent = this.team1Score.set1;
-                document.getElementById('team2Set1').textContent = this.team2Score.set1;
-
-                if (this.currentSet >= 2) {
-                    document.getElementById('team1Set2').textContent = this.team1Score.set2;
-                    document.getElementById('team2Set2').textContent = this.team2Score.set2;
-                }
-
-                const gameScores = ['0', '15', '30', '40', 'AD'];
-                let team1GameDisplay = this.team1Score.game <= 3 ? gameScores[this.team1Score.game] : '40';
-                let team2GameDisplay = this.team2Score.game <= 3 ? gameScores[this.team2Score.game] : '40';
-
-                if (this.team1Score.game >= 4 || this.team2Score.game >= 4) {
-                    if (this.team1Score.game > this.team2Score.game) {
-                        team1GameDisplay = 'AD';
-                    } else if (this.team2Score.game > this.team1Score.game) {
-                        team2GameDisplay = 'AD';
-                    } else {
-                        team1GameDisplay = '40';
-                        team2GameDisplay = '40';
-                    }
-                }
-
-                document.getElementById('team1Game').textContent = team1GameDisplay;
-                document.getElementById('team2Game').textContent = team2GameDisplay;
-
-                document.getElementById('team1Indicator').classList.toggle('serving', this.servingTeam === 1);
-                document.getElementById('team2Indicator').classList.toggle('serving', this.servingTeam === 2);
-
-                document.getElementById('winnersCount').textContent = this.stats.winners;
-                document.getElementById('errorsCount').textContent = this.stats.errors;
-
-                const avgRally = this.stats.rallyLengths.length > 0 
-                    ? (this.stats.rallyLengths.reduce((a, b) => a + b, 0) / this.stats.rallyLengths.length).toFixed(1)
-                    : '0.0';
-                document.getElementById('rallyAvg').textContent = avgRally;
-
-                const servicePercent = this.stats.totalServes > 0
-                    ? Math.round((this.stats.successfulServes / this.stats.totalServes) * 100)
-                    : 0;
-                document.getElementById('servicePercent').textContent = servicePercent + '%';
-
-                document.getElementById('heroTeam1Set1').textContent = this.team1Score.set1;
-                document.getElementById('heroTeam2Set1').textContent = this.team2Score.set1;
-
-                if (this.currentSet >= 2) {
-                    document.getElementById('heroTeam1Set2').textContent = this.team1Score.set2;
-                    document.getElementById('heroTeam2Set2').textContent = this.team2Score.set2;
-                }
-
-                document.getElementById('heroTeam1Game').textContent = team1GameDisplay;
-                document.getElementById('heroTeam2Game').textContent = team2GameDisplay;
-
-                document.getElementById('heroTeam1Indicator').classList.toggle('serving', this.servingTeam === 1);
-                document.getElementById('heroTeam2Indicator').classList.toggle('serving', this.servingTeam === 2);
-
-                document.getElementById('heroWinnersCount').textContent = this.stats.winners;
-                document.getElementById('heroErrorsCount').textContent = this.stats.errors;
-                document.getElementById('heroRallyAvg').textContent = avgRally;
-                document.getElementById('heroServicePercent').textContent = servicePercent + '%';
-
-                const allScoreCells = document.querySelectorAll('.score-cell, .hero-score-cell');
-                allScoreCells.forEach(cell => cell.classList.remove('highlight'));
-
-                document.getElementById('team1Game').classList.add('highlight');
-                document.getElementById('team2Game').classList.add('highlight');
-                document.getElementById('heroTeam1Game').classList.add('highlight');
-                document.getElementById('heroTeam2Game').classList.add('highlight');
-            }
-        }
-
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+    // ═══════════════════════════════════════════════════
+    // HAMBURGER MENU
+    // ═══════════════════════════════════════════════════
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('open');
+        mobileMenu.classList.toggle('open');
+    });
+    function closeMobileMenu() {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+    }
+
+    // ═══════════════════════════════════════════════════
+    // SCROLL REVEAL
+    // ═══════════════════════════════════════════════════
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // ═══════════════════════════════════════════════════
+    // SMOOTH SCROLL
+    // ═══════════════════════════════════════════════════
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
             e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
 
-            const name = document.getElementById('name').value;
-            const venue = document.getElementById('venue').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const courts = document.getElementById('courts').value;
-            const message = document.getElementById('message').value;
+    // ═══════════════════════════════════════════════════
+    // ANIMATED COUNTERS
+    // ═══════════════════════════════════════════════════
+    function animateCounter(el, target) {
+        let current = 0;
+        const increment = target / 60;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) { current = target; clearInterval(timer); }
+            el.textContent = Math.floor(current);
+        }, 25);
+    }
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting && e.target.dataset.target) {
+                animateCounter(e.target, parseInt(e.target.dataset.target));
+                counterObserver.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 
-            const subject = encodeURIComponent(`Demande PadelVision AI de ${venue}`);
-            const body = encodeURIComponent(`Nom : ${name}
-Club : ${venue}
-Email : ${email}
-Téléphone : ${phone}
-Terrains : ${courts}
+    // ═══════════════════════════════════════════════════
+    // CHART HELPERS
+    // ═══════════════════════════════════════════════════
+    const C = { primary: '#00F5A0', secondary: '#00D9F5', red: '#ff6b6b', gray: '#8B92AB' };
 
-Message :
-${message}`);
+    function drawLineChart(canvasId, labels, datasets, opts = {}) {
+        const canvas = document.getElementById(canvasId);
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const W = canvas.offsetWidth; const H = canvas.offsetHeight || 140;
+        canvas.width = W * window.devicePixelRatio;
+        canvas.height = H * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        ctx.clearRect(0, 0, W, H);
+        const pad = { top: 10, right: 15, bottom: 28, left: 35 };
+        const gW = W - pad.left - pad.right;
+        const gH = H - pad.top - pad.bottom;
+        const allVals = datasets.flatMap(d => d.data);
+        const minV = opts.min !== undefined ? opts.min : Math.floor(Math.min(...allVals) * 0.92);
+        const maxV = opts.max !== undefined ? opts.max : Math.ceil(Math.max(...allVals) * 1.05);
+        const range = maxV - minV || 1;
+        ctx.strokeStyle = 'rgba(255,255,255,0.05)'; ctx.lineWidth = 1;
+        [0, 0.25, 0.5, 0.75, 1].forEach(f => {
+            const y = pad.top + gH * (1 - f);
+            ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(pad.left + gW, y); ctx.stroke();
+        });
+        ctx.fillStyle = C.gray; ctx.font = '10px Inter,sans-serif'; ctx.textAlign = 'right';
+        [0, 0.5, 1].forEach(f => {
+            const val = Math.round(minV + range * f);
+            ctx.fillText(opts.suffix ? val + opts.suffix : val, pad.left - 4, pad.top + gH * (1 - f) + 4);
+        });
+        ctx.textAlign = 'center'; ctx.fillStyle = C.gray;
+        const step = Math.ceil(labels.length / 6);
+        labels.forEach((lbl, i) => {
+            if (i % step === 0 || i === labels.length - 1)
+                ctx.fillText(lbl, pad.left + (i / (labels.length - 1)) * gW, H - 8);
+        });
+        datasets.forEach(ds => {
+            const pts = ds.data.map((v, i) => ({
+                x: pad.left + (i / (ds.data.length - 1)) * gW,
+                y: pad.top + gH * (1 - (v - minV) / range)
+            }));
+            if (ds.fill !== false) {
+                const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + gH);
+                grad.addColorStop(0, ds.color + '33');
+                grad.addColorStop(1, ds.color + '00');
+                ctx.beginPath();
+                ctx.moveTo(pts[0].x, pad.top + gH);
+                pts.forEach(p => ctx.lineTo(p.x, p.y));
+                ctx.lineTo(pts[pts.length - 1].x, pad.top + gH);
+                ctx.closePath();
+                ctx.fillStyle = grad; ctx.fill();
+            }
+            ctx.beginPath();
+            ctx.strokeStyle = ds.color; ctx.lineWidth = 2; ctx.lineJoin = 'round';
+            pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+            ctx.stroke();
+            const lp = pts[pts.length - 1];
+            ctx.beginPath(); ctx.arc(lp.x, lp.y, 4, 0, Math.PI * 2);
+            ctx.fillStyle = ds.color; ctx.fill();
+        });
+    }
 
-            window.location.href = `mailto:marchadier.julien@gmail.com?subject=${subject}&body=${body}`;
+    function drawBarChart(canvasId, labels, datasets, opts = {}) {
+        const canvas = document.getElementById(canvasId);
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const W = canvas.offsetWidth; const H = canvas.offsetHeight || 140;
+        canvas.width = W * window.devicePixelRatio;
+        canvas.height = H * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        ctx.clearRect(0, 0, W, H);
+        const pad = { top: 10, right: 10, bottom: 28, left: 30 };
+        const gW = W - pad.left - pad.right;
+        const gH = H - pad.top - pad.bottom;
+        const n = labels.length;
+        const grouped = datasets.length;
+        const bW = Math.max(4, (gW / n) * 0.7 / grouped);
+        const gap = (gW / n) * 0.3;
+        const allVals = datasets.flatMap(d => d.data);
+        const maxV = Math.ceil(Math.max(...allVals) * 1.12);
+        ctx.strokeStyle = 'rgba(255,255,255,0.05)'; ctx.lineWidth = 1;
+        [0, 0.5, 1].forEach(f => {
+            const y = pad.top + gH * (1 - f);
+            ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(pad.left + gW, y); ctx.stroke();
+        });
+        ctx.fillStyle = C.gray; ctx.font = '10px Inter,sans-serif'; ctx.textAlign = 'right';
+        [0, 0.5, 1].forEach(f => { ctx.fillText(Math.round(maxV * f), pad.left - 4, pad.top + gH * (1 - f) + 4); });
+        labels.forEach((lbl, i) => {
+            const slotX = pad.left + i * (gW / n) + gap / 2;
+            datasets.forEach((ds, di) => {
+                const v = ds.data[i];
+                const barH = (v / maxV) * gH;
+                const x = slotX + di * (bW + 2);
+                const y = pad.top + gH - barH;
+                ctx.fillStyle = ds.color;
+                ctx.beginPath();
+                if (ctx.roundRect) ctx.roundRect(x, y, bW, barH, [3, 3, 0, 0]);
+                else ctx.rect(x, y, bW, barH);
+                ctx.fill();
+            });
+            ctx.fillStyle = C.gray; ctx.font = '10px Inter,sans-serif'; ctx.textAlign = 'center';
+            ctx.fillText(lbl, pad.left + i * (gW / n) + (gW / n) / 2, H - 8);
+        });
+    }
+
+    function drawDonut(canvasId, data, colors, labels) {
+        const canvas = document.getElementById(canvasId);
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const W = canvas.offsetWidth; const H = canvas.offsetHeight || 130;
+        canvas.width = W * window.devicePixelRatio;
+        canvas.height = H * window.devicePixelRatio;
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        ctx.clearRect(0, 0, W, H);
+        const total = data.reduce((a, b) => a + b, 0);
+        const cx = W * 0.42, cy = H * 0.5;
+        const R = Math.min(cx, cy) * 0.78, inner = R * 0.58;
+        let angle = -Math.PI / 2;
+        data.forEach((v, i) => {
+            const slice = (v / total) * Math.PI * 2;
+            ctx.beginPath(); ctx.moveTo(cx, cy);
+            ctx.arc(cx, cy, R, angle, angle + slice);
+            ctx.closePath(); ctx.fillStyle = colors[i]; ctx.fill();
+            angle += slice;
+        });
+        ctx.beginPath(); ctx.arc(cx, cy, inner, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(26,31,58,0.95)'; ctx.fill();
+        ctx.fillStyle = C.primary; ctx.font = 'bold 16px Space Grotesk,sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(Math.round((data[0] / total) * 100) + '%', cx, cy + 2);
+        ctx.fillStyle = C.gray; ctx.font = '10px Inter,sans-serif';
+        ctx.fillText('gagné', cx, cy + 14);
+        const lx = W * 0.84, ly = cy - (data.length * 18) / 2;
+        labels.forEach((lbl, i) => {
+            ctx.fillStyle = colors[i];
+            ctx.fillRect(lx - 22, ly + i * 20, 10, 10);
+            ctx.fillStyle = C.gray; ctx.font = '10px Inter,sans-serif'; ctx.textAlign = 'left';
+            ctx.fillText(lbl, lx - 8, ly + i * 20 + 9);
+        });
+    }
+
+    // ═══════════════════════════════════════════════════
+    // PLAYER DATA
+    // ═══════════════════════════════════════════════════
+    const PLAYERS = [
+        {
+            name: 'Alex Rodriguez', initial: 'R', level: '⭐ Niveau P100 — Catégorie A',
+            avatarBg: 'rgba(0,245,160,0.15)', avatarColor: '#00F5A0',
+            kpis: { matchs: 48, victoires: 31, winrate: '65%', serie: '🔥 5', rallyMoy: '7.2', service: '72%' },
+            skills: [
+                { name: 'Service', val: 82 }, { name: 'Smash', val: 76 },
+                { name: 'Régularité', val: 88 }, { name: 'Défense', val: 69 }, { name: 'Vitesse', val: 74 }
+            ],
+            charts: {
+                winrate:  { data: [52,55,58,54,60,63,59,65,68,64,70,67,72], trend: '+8%', dir: 'up' },
+                winners:  [12,15,11,18,14,16,20,17,22,19,24,21,26],
+                errors:   [8,10,9,7,11,9,8,10,7,9,8,7,6],
+                rally:    { data: [6.1,6.4,6.8,7.0,6.9,7.2,7.1,7.4,7.2,7.5,7.3,7.2,7.4], trend: 'stable' },
+                svc1:     [68,70,69,71,72,74,73,75,74,76,75,73,75],
+                svc2:     [55,57,58,60,61,63,62,64,63,65,64,63,64],
+                speed:    { data: [92,94,93,96,95,98,97,100,99,102,101,103,104], trend: '+3 km/h', dir: 'up' },
+                sets:     [31, 17],
+                activity: [2,3,2,4,3,2,3,2,4,3,2,3,2]
+            }
+        },
+        {
+            name: 'Julie Martin', initial: 'M', level: '⭐ Niveau P150 — Catégorie A',
+            avatarBg: 'rgba(0,245,160,0.12)', avatarColor: '#00F5A0',
+            kpis: { matchs: 36, victoires: 21, winrate: '58%', serie: '🔥 3', rallyMoy: '8.1', service: '68%' },
+            skills: [
+                { name: 'Service', val: 74 }, { name: 'Smash', val: 66 },
+                { name: 'Régularité', val: 91 }, { name: 'Défense', val: 82 }, { name: 'Vitesse', val: 70 }
+            ],
+            charts: {
+                winrate:  { data: [48,50,52,55,53,57,56,59,60,58,62,60,63], trend: '+6%', dir: 'up' },
+                winners:  [10,12,11,14,13,15,14,16,15,17,16,18,19],
+                errors:   [9,11,10,9,12,10,9,11,8,10,9,8,8],
+                rally:    { data: [7.2,7.5,7.8,8.0,7.9,8.2,8.1,8.4,8.2,8.5,8.3,8.2,8.4], trend: '+0.9', dir: 'up' },
+                svc1:     [63,65,64,66,67,68,67,69,68,70,69,68,70],
+                svc2:     [52,54,55,57,58,60,59,61,60,62,61,60,61],
+                speed:    { data: [84,85,84,87,86,89,88,90,89,91,90,92,93], trend: '+2 km/h', dir: 'up' },
+                sets:     [21, 15],
+                activity: [1,2,2,3,2,2,3,1,3,2,2,3,2]
+            }
+        },
+        {
+            name: 'Carlos Garcia', initial: 'G', level: '⭐ Niveau P200 — Catégorie B',
+            avatarBg: 'rgba(255,107,107,0.15)', avatarColor: '#ff6b6b',
+            kpis: { matchs: 42, victoires: 22, winrate: '52%', serie: '2', rallyMoy: '6.8', service: '70%' },
+            skills: [
+                { name: 'Service', val: 78 }, { name: 'Smash', val: 85 },
+                { name: 'Régularité', val: 71 }, { name: 'Défense', val: 65 }, { name: 'Vitesse', val: 80 }
+            ],
+            charts: {
+                winrate:  { data: [45,47,50,48,52,51,53,55,52,56,54,57,55], trend: '+4%', dir: 'up' },
+                winners:  [14,17,13,18,16,19,17,20,18,21,20,22,21],
+                errors:   [11,13,12,10,13,12,11,13,10,12,11,10,10],
+                rally:    { data: [6.0,6.2,6.5,6.8,6.7,7.0,6.9,7.2,7.0,7.3,7.1,6.9,7.1], trend: 'stable' },
+                svc1:     [66,68,67,69,70,71,70,72,71,73,72,70,72],
+                svc2:     [53,55,56,58,59,61,60,62,61,63,62,61,62],
+                speed:    { data: [98,100,99,103,102,105,104,107,106,109,108,110,111], trend: '+5 km/h', dir: 'up' },
+                sets:     [22, 20],
+                activity: [2,3,3,4,2,3,3,2,4,3,2,4,3]
+            }
+        },
+        {
+            name: 'Diego Lopez', initial: 'L', level: '⭐ Niveau P250 — Catégorie B',
+            avatarBg: 'rgba(255,107,107,0.12)', avatarColor: '#ff6b6b',
+            kpis: { matchs: 30, victoires: 14, winrate: '47%', serie: '1', rallyMoy: '5.9', service: '65%' },
+            skills: [
+                { name: 'Service', val: 70 }, { name: 'Smash', val: 72 },
+                { name: 'Régularité', val: 65 }, { name: 'Défense', val: 74 }, { name: 'Vitesse', val: 76 }
+            ],
+            charts: {
+                winrate:  { data: [40,42,45,43,47,46,48,50,47,51,49,52,50], trend: '+3%', dir: 'up' },
+                winners:  [9,11,10,13,12,14,13,15,14,16,15,17,16],
+                errors:   [12,14,13,11,14,13,12,14,11,13,12,11,11],
+                rally:    { data: [5.2,5.5,5.8,6.0,5.9,6.2,6.1,6.4,6.2,6.5,6.3,6.1,6.3], trend: '+0.5', dir: 'up' },
+                svc1:     [60,62,61,63,64,65,64,66,65,67,66,65,67],
+                svc2:     [48,50,51,53,54,56,55,57,56,58,57,56,57],
+                speed:    { data: [86,88,87,90,89,92,91,93,92,95,94,96,97], trend: '+4 km/h', dir: 'up' },
+                sets:     [14, 16],
+                activity: [1,2,1,3,2,1,2,2,3,1,2,2,2]
+            }
+        }
+    ];
+
+    const MONTHS = ['Sept','Oct','Nov','Déc','Jan','Fév','Mars','Avr','Mai','Juin','Juil','Août','Sept'];
+    const WEEKS = Array.from({length:13}, (_,i) => 'S'+(i+1));
+
+    function renderPlayerProfile(idx) {
+        const p = PLAYERS[idx];
+        document.getElementById('profileAvatar').textContent = p.initial;
+        document.getElementById('profileAvatar').style.background = p.avatarBg;
+        document.getElementById('profileAvatar').style.color = p.avatarColor;
+        document.getElementById('profileName').textContent = p.name;
+        document.getElementById('profileLevel').textContent = p.level;
+        const k = p.kpis;
+        document.getElementById('kpiMatchs').textContent = k.matchs;
+        document.getElementById('kpiVictoires').textContent = k.victoires;
+        document.getElementById('kpiWinrate').textContent = k.winrate;
+        document.getElementById('kpiSerie').textContent = k.serie;
+        document.getElementById('kpiRallyMoy').textContent = k.rallyMoy;
+        document.getElementById('kpiService').textContent = k.service;
+        const sb = document.getElementById('skillBars');
+        sb.innerHTML = p.skills.map(s => `
+            <div class="skill-row">
+                <div class="skill-row-header">
+                    <span class="skill-row-name">${s.name}</span>
+                    <span class="skill-row-val">${s.val}%</span>
+                </div>
+                <div class="skill-bar-track"><div class="skill-bar-fill" style="width:0%"></div></div>
+            </div>`).join('');
+        setTimeout(() => {
+            sb.querySelectorAll('.skill-bar-fill').forEach((bar, i) => { bar.style.width = p.skills[i].val + '%'; });
+        }, 50);
+        const c = p.charts;
+        const teamColor = idx < 2 ? C.primary : C.red;
+        drawLineChart('chartWinrate', MONTHS, [{ data: c.winrate.data, color: teamColor }], { min: 35, max: 85, suffix: '%' });
+        const bw = document.getElementById('badgeWinrate');
+        bw.textContent = (c.winrate.dir === 'up' ? '↑ ' : '↓ ') + c.winrate.trend;
+        bw.className = 'chart-card-badge ' + (c.winrate.dir === 'up' ? 'badge-up' : 'badge-down');
+        drawBarChart('chartPoints', MONTHS, [
+            { data: c.winners, color: teamColor },
+            { data: c.errors,  color: idx < 2 ? 'rgba(0,217,245,0.7)' : 'rgba(255,107,107,0.5)' }
+        ]);
+        drawLineChart('chartRally', MONTHS, [{ data: c.rally.data, color: C.secondary }], { min: 4, max: 11 });
+        const rb = document.getElementById('badgeRally');
+        if (c.rally.trend === 'stable') { rb.textContent = '→ stable'; rb.className = 'chart-card-badge badge-neutral'; }
+        else { rb.textContent = '↑ ' + c.rally.trend; rb.className = 'chart-card-badge badge-up'; }
+        drawLineChart('chartService', MONTHS, [
+            { data: c.svc1, color: teamColor },
+            { data: c.svc2, color: C.secondary, fill: false }
+        ], { min: 40, max: 90, suffix: '%' });
+        drawLineChart('chartSpeed', WEEKS, [{ data: c.speed.data, color: '#FFD700' }], { min: 75, max: 120 });
+        document.getElementById('badgeSpeed').textContent = '↑ ' + c.speed.trend;
+        drawDonut('chartSets', c.sets, [teamColor, 'rgba(255,255,255,0.1)'], ['Gagnés', 'Perdus']);
+        document.getElementById('badgeSets').textContent = k.matchs + ' matchs';
+        drawBarChart('chartActivity', WEEKS, [{ data: c.activity, color: teamColor }]);
+        document.getElementById('badgeActivity').textContent = '↑ ' + (c.activity.reduce((a,b)=>a+b,0)/c.activity.length).toFixed(1) + '/sem';
+    }
+
+    document.querySelectorAll('.player-tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+            document.querySelectorAll('.player-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            renderPlayerProfile(parseInt(tab.dataset.player));
+        });
+    });
+    document.querySelectorAll('.period-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        });
+    });
+    const profileObserver = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) { renderPlayerProfile(0); profileObserver.disconnect(); }
+        });
+    }, { threshold: 0.15 });
+    const profileSection = document.getElementById('joueurs');
+    if (profileSection) profileObserver.observe(profileSection);
+    window.addEventListener('resize', () => {
+        const activeIdx = parseInt(document.querySelector('.player-tab.active')?.dataset.player || '0');
+        renderPlayerProfile(activeIdx);
+    });
+
+    // ═══════════════════════════════════════════════════
+    // THREE.JS — REALISTIC PADEL COURT
+    // ═══════════════════════════════════════════════════
+    let globalMatchSimulation = null;
+    let scene, camera, renderer;
+    let players = [], ball, aiCamera;
+    let scoreboardMesh, scoreTexture, scoreCanvas, scoreContext;
+    let heatmapMode = false;
+    let currentView = 'perspective';
+    let animationTime = 0;
+    let ballTrail = [];
+    let ballSpeed = 0, targetBallSpeed = 0;
+    let playerBoxes = [];
+    let isAutoRotate = true;
+    let heatCircles = [];
+
+    function buildCourtTexture() {
+        const canvas = document.createElement('canvas');
+        canvas.width = 1024; canvas.height = 512;
+        const ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#1a5c30'; ctx.fillRect(0, 0, 1024, 512);
+        for (let i = 0; i < 3000; i++) {
+            ctx.fillStyle = 'rgba(0,0,0,' + (Math.random() * 0.08) + ')';
+            ctx.fillRect(Math.random()*1024, Math.random()*512, 2, 2);
+        }
+        ctx.strokeStyle = 'rgba(255,255,255,0.9)'; ctx.lineWidth = 6;
+        ctx.strokeRect(20, 20, 984, 472);
+        ctx.beginPath(); ctx.moveTo(512, 20); ctx.lineTo(512, 492); ctx.stroke();
+        [[20,154,512,154],[20,358,512,358],[512,154,1004,154],[512,358,1004,358]].forEach(([x1,y1,x2,y2]) => {
+            ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+        });
+        return canvas;
+    }
+
+    function createBoundingBox(color) {
+        const mat = new THREE.LineBasicMaterial({ color, linewidth: 2, transparent: true, opacity: 0.7 });
+        const w = 0.8, h = 2.1, d = 0.8;
+        const pts = [
+            -w/2,-0.1,-d/2, w/2,-0.1,-d/2, w/2,-0.1,-d/2, w/2,-0.1,d/2,
+            w/2,-0.1,d/2, -w/2,-0.1,d/2, -w/2,-0.1,d/2, -w/2,-0.1,-d/2,
+            -w/2,h,-d/2, w/2,h,-d/2, w/2,h,-d/2, w/2,h,d/2,
+            w/2,h,d/2, -w/2,h,d/2, -w/2,h,d/2, -w/2,h,-d/2,
+            -w/2,-0.1,-d/2, -w/2,h,-d/2, w/2,-0.1,-d/2, w/2,h,-d/2,
+            w/2,-0.1,d/2, w/2,h,d/2, -w/2,-0.1,d/2, -w/2,h,d/2,
+        ];
+        const geo = new THREE.BufferGeometry();
+        geo.setAttribute('position', new THREE.Float32BufferAttribute(pts, 3));
+        return new THREE.LineSegments(geo, mat);
+    }
+
+    function init3D() {
+        const container = document.getElementById('canvas3d');
+        const parentEl = container.parentElement;
+        const W = container.clientWidth || parentEl.clientWidth || 900;
+        const H = container.clientHeight || parentEl.clientHeight || 700;
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x091C22);
+        scene.fog = new THREE.FogExp2(0x091C22, 0.016);
+        camera = new THREE.PerspectiveCamera(55, W/H, 0.1, 200);
+        camera.position.set(18, 14, 18); camera.lookAt(0, 1, 0);
+        renderer = new THREE.WebGLRenderer({ canvas: container, antialias: true, alpha: false });
+        renderer.setSize(W, H, false);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+        scene.add(new THREE.AmbientLight(0xffffff, 0.3));
+        [[-11,8,-6],[11,8,-6],[-11,8,6],[11,8,6]].forEach(([x,y,z]) => {
+            const spot = new THREE.SpotLight(0xfff5e0, 1.5);
+            spot.position.set(x,y,z); spot.target.position.set(0,0,0);
+            spot.angle = Math.PI/5; spot.penumbra = 0.3; spot.castShadow = true;
+            scene.add(spot); scene.add(spot.target);
+            const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.08,0.08,y,8),
+                new THREE.MeshStandardMaterial({color:0x555555}));
+            pole.position.set(x,y/2,z); scene.add(pole);
+            const lamp = new THREE.Mesh(new THREE.BoxGeometry(0.5,0.15,0.3),
+                new THREE.MeshStandardMaterial({color:0xfff5e0,emissive:0xfff5e0,emissiveIntensity:0.8}));
+            lamp.position.set(x,y+0.1,z); scene.add(lamp);
         });
 
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href'))?.scrollIntoView({
-                    behavior: 'smooth'
-                });
+        const cg = new THREE.Group();
+        const floor = new THREE.Mesh(new THREE.PlaneGeometry(20,10),
+            new THREE.MeshStandardMaterial({map: new THREE.CanvasTexture(buildCourtTexture()), roughness:0.9}));
+        floor.rotation.x = -Math.PI/2; floor.receiveShadow = true; cg.add(floor);
+
+        const tMat = new THREE.MeshStandardMaterial({color:0x888888,metalness:0.8,roughness:0.3});
+        function addTube(x1,y1,z1,x2,y2,z2){
+            const dir=new THREE.Vector3(x2-x1,y2-y1,z2-z1), len=dir.length();
+            const m=new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.06,len,6),tMat);
+            m.position.set((x1+x2)/2,(y1+y2)/2,(z1+z2)/2);
+            m.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0),dir.normalize());
+            cg.add(m);
+        }
+        [[-10,5,-5],[-10,5,5],[10,5,-5],[10,5,5],[-10,5,0],[10,5,0]].forEach(([x,,z])=>addTube(x,0,z,x,5,z));
+        [[-5,3,-5],[-5,3,5],[0,3,-5],[0,3,5],[5,3,-5],[5,3,5]].forEach(([x,h,z])=>addTube(x,0,z,x,h,z));
+        addTube(-10,5,-5,10,5,-5); addTube(-10,5,5,10,5,5);
+        addTube(-10,4,-5,-10,4,5); addTube(10,4,-5,10,4,5);
+
+        const gMat = new THREE.MeshStandardMaterial({color:0x88ccff,transparent:true,opacity:0.18,roughness:0.05,side:THREE.DoubleSide});
+        [0,-5,0,5].forEach((z,i) => {
+            if(i%2===0)return;
+            const bw = new THREE.Mesh(new THREE.PlaneGeometry(20,4),gMat);
+            bw.position.set(0,2,z); cg.add(bw);
+        });
+        const bw1 = new THREE.Mesh(new THREE.PlaneGeometry(20,4),gMat);
+        bw1.position.set(0,2,-5); cg.add(bw1);
+        const bw2 = new THREE.Mesh(new THREE.PlaneGeometry(20,4),gMat);
+        bw2.position.set(0,2,5); cg.add(bw2);
+
+        const sgMat = new THREE.MeshStandardMaterial({color:0x88ccff,transparent:true,opacity:0.15,roughness:0.05,side:THREE.DoubleSide});
+        [[-10,1.5,-3.5],[-10,1.5,3.5],[10,1.5,-3.5],[10,1.5,3.5]].forEach(([x,y,z]) => {
+            const sg=new THREE.Mesh(new THREE.PlaneGeometry(3,3),sgMat);
+            sg.position.set(x,y,z); sg.rotation.y=Math.PI/2; cg.add(sg);
+        });
+
+        [-1,1].forEach(xs => {
+            const f=new THREE.Mesh(new THREE.PlaneGeometry(4,1),
+                new THREE.MeshStandardMaterial({color:0x666666,transparent:true,opacity:0.5,wireframe:true}));
+            f.position.set(xs*10,0.5,0); f.rotation.y=Math.PI/2; cg.add(f);
+        });
+
+        [-5,5].forEach(z => {
+            const p=new THREE.Mesh(new THREE.CylinderGeometry(0.05,0.05,1.0,8),
+                new THREE.MeshStandardMaterial({color:0xaaaaaa,metalness:0.9}));
+            p.position.set(0,0.5,z); cg.add(p);
+        });
+        const netMesh = new THREE.Mesh(new THREE.BoxGeometry(0.04,0.88,10),
+            new THREE.MeshStandardMaterial({color:0x333333,transparent:true,opacity:0.65,wireframe:true}));
+        netMesh.position.set(0,0.44,0);
+        cg.add(netMesh);
+        const tape=new THREE.Mesh(new THREE.BoxGeometry(0.08,0.05,10),
+            new THREE.MeshStandardMaterial({color:0xffffff}));
+        tape.position.set(0,0.88,0); cg.add(tape);
+
+        createLEDScoreboard(cg);
+        scene.add(cg);
+
+        const ground=new THREE.Mesh(new THREE.PlaneGeometry(60,40),
+            new THREE.MeshStandardMaterial({color:0x0a0d1a,roughness:1}));
+        ground.rotation.x=-Math.PI/2; ground.position.y=-0.01; scene.add(ground);
+
+        [{x:-6,z:-2,c:0x00f5a0},{x:-6,z:2,c:0x00f5a0},{x:6,z:-2,c:0xff6b6b},{x:6,z:2,c:0xff6b6b}].forEach((cfg,i) => {
+            const g=new THREE.Group();
+            [-0.15,0.15].forEach(ox => {
+                const leg=new THREE.Mesh(new THREE.CylinderGeometry(0.09,0.09,0.8,8),
+                    new THREE.MeshStandardMaterial({color:0x222244}));
+                leg.position.set(ox,0.4,0); leg.castShadow=true; g.add(leg);
+            });
+            const tMesh=new THREE.Mesh(new THREE.CylinderGeometry(0.22,0.20,0.7,10),
+                new THREE.MeshStandardMaterial({color:cfg.c}));
+            tMesh.position.y=1.15; tMesh.castShadow=true; g.add(tMesh);
+            const head=new THREE.Mesh(new THREE.SphereGeometry(0.2,16,12),
+                new THREE.MeshStandardMaterial({color:0xe8c89a}));
+            head.position.y=1.7; head.castShadow=true; g.add(head);
+            const arm=new THREE.Mesh(new THREE.CylinderGeometry(0.04,0.04,0.5,6),
+                new THREE.MeshStandardMaterial({color:cfg.c}));
+            arm.position.set(i<2?0.3:-0.3,1.3,0); arm.rotation.z=i<2?-0.5:0.5; g.add(arm);
+            const racket=new THREE.Mesh(new THREE.TorusGeometry(0.22,0.03,6,12),
+                new THREE.MeshStandardMaterial({color:0xffffff,metalness:0.4}));
+            racket.position.set(i<2?0.55:-0.55,1.45,0); racket.rotation.z=Math.PI/2; g.add(racket);
+            g.position.set(cfg.x,0,cfg.z);
+            g.userData={initialX:cfg.x,initialZ:cfg.z,targetX:cfg.x,targetZ:cfg.z,
+                        bobOffset:i*Math.PI/2,swingPhase:i*Math.PI*0.7};
+            scene.add(g); players.push(g);
+            const box=createBoundingBox(cfg.c); box.position.set(cfg.x,0,cfg.z);
+            scene.add(box); playerBoxes.push(box);
+        });
+
+        ball=new THREE.Mesh(new THREE.SphereGeometry(0.12,16,12),
+            new THREE.MeshStandardMaterial({color:0xc8f000,emissive:0x88aa00,emissiveIntensity:0.4,roughness:0.8}));
+        ball.castShadow=true; scene.add(ball);
+        ball.add(new THREE.Mesh(new THREE.SphereGeometry(0.22,12,8),
+            new THREE.MeshBasicMaterial({color:0xc8f000,transparent:true,opacity:0.15})));
+
+        const camG=new THREE.Group();
+        camG.add(new THREE.Mesh(new THREE.BoxGeometry(0.4,0.25,0.3),
+            new THREE.MeshStandardMaterial({color:0x222222,metalness:0.7})));
+        const lens=new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.09,0.15,10),
+            new THREE.MeshStandardMaterial({color:0x001133,metalness:0.9}));
+        lens.rotation.x=Math.PI/2; lens.position.z=-0.18; camG.add(lens);
+        const ledDot=new THREE.Mesh(new THREE.SphereGeometry(0.03,8,8),
+            new THREE.MeshStandardMaterial({color:0x00f5a0,emissive:0x00f5a0,emissiveIntensity:1}));
+        ledDot.position.set(0.15,0.08,0.11); camG.add(ledDot);
+        camG.position.set(-10,6.5,-5); camG.rotation.y=Math.PI/4;
+        aiCamera=camG; scene.add(camG);
+        const cone=new THREE.Mesh(new THREE.ConeGeometry(6,12,12,1,true),
+            new THREE.MeshBasicMaterial({color:0x00f5a0,transparent:true,opacity:0.04,side:THREE.DoubleSide}));
+        cone.position.set(-10,1.5,-5); cone.rotation.x=Math.PI/2.5; cone.rotation.y=Math.PI/4; scene.add(cone);
+
+        document.querySelectorAll('.control-btn').forEach(btn => {
+            btn.addEventListener('click', e => {
+                document.querySelectorAll('.control-btn').forEach(b=>b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentView=e.target.dataset.view;
+                isAutoRotate=(currentView==='perspective');
+                updateCameraView();
             });
         });
+        const c3d=document.querySelector('.canvas-3d-container');
+        c3d.addEventListener('mouseenter',()=>{if(currentView==='perspective')isAutoRotate=false;});
+        c3d.addEventListener('mouseleave',()=>{if(currentView==='perspective')isAutoRotate=true;});
+        animate();
+    }
 
-        window.addEventListener('load', () => {
-            init3D();
+    function createLEDScoreboard(cg) {
+        scoreCanvas=document.createElement('canvas'); scoreCanvas.width=512; scoreCanvas.height=256;
+        scoreContext=scoreCanvas.getContext('2d');
+        scoreTexture=new THREE.CanvasTexture(scoreCanvas);
+        const frame=new THREE.Mesh(new THREE.BoxGeometry(5.6,1.8,0.08),
+            new THREE.MeshStandardMaterial({color:0x111111,metalness:0.8}));
+        frame.position.set(0,2.8,-4.9); cg.add(frame);
+        scoreboardMesh=new THREE.Mesh(new THREE.PlaneGeometry(5.4,1.6),
+            new THREE.MeshBasicMaterial({map:scoreTexture,side:THREE.DoubleSide}));
+        scoreboardMesh.position.set(0,2.8,-4.85); cg.add(scoreboardMesh);
+        updateScoreboard();
+    }
 
-            setTimeout(() => {
-                globalMatchSimulation = new MatchSimulation();
-                globalMatchSimulation.start();
-            }, 1000);
+    function updateScoreboard() {
+        if(!scoreContext)return;
+        const ctx=scoreContext, sim=globalMatchSimulation;
+        ctx.fillStyle='#050a15'; ctx.fillRect(0,0,512,256);
+        const gr=ctx.createLinearGradient(0,0,512,0);
+        gr.addColorStop(0,'#00f5a0'); gr.addColorStop(1,'#00d9f5');
+        ctx.strokeStyle=gr; ctx.lineWidth=5; ctx.strokeRect(5,5,502,246);
+        ctx.textAlign='center'; ctx.fillStyle='#00f5a0'; ctx.font='bold 18px monospace';
+        ctx.fillText('● MATCH EN DIRECT ●',256,30);
+        if(!sim){ctx.fillStyle='#8B92AB';ctx.font='16px monospace';ctx.fillText('En attente...',256,130);scoreTexture.needsUpdate=true;return;}
+        ctx.textAlign='left'; ctx.font='bold 22px monospace';
+        ctx.fillStyle='#00f5a0'; ctx.fillText('Rodriguez / Martin',20,80);
+        ctx.fillStyle='#ff6b6b'; ctx.fillText('Garcia / Lopez',20,130);
+        ctx.textAlign='right'; ctx.font='bold 36px monospace';
+        ctx.fillStyle='#00f5a0'; ctx.fillText(sim.team1Score.set1,370,80);
+        ctx.fillStyle='#ff6b6b'; ctx.fillText(sim.team2Score.set1,370,130);
+        if(sim.currentSet>=2){
+            ctx.fillStyle='#00f5a0'; ctx.fillText(sim.team1Score.set2,430,80);
+            ctx.fillStyle='#ff6b6b'; ctx.fillText(sim.team2Score.set2,430,130);
+        }
+        const gs=['0','15','30','40','AD'];
+        let t1g=sim.team1Score.game<=3?gs[sim.team1Score.game]:'40';
+        let t2g=sim.team2Score.game<=3?gs[sim.team2Score.game]:'40';
+        if(sim.team1Score.game>=4||sim.team2Score.game>=4){
+            if(sim.team1Score.game>sim.team2Score.game){t1g='AD';t2g='40';}
+            else if(sim.team2Score.game>sim.team1Score.game){t1g='40';t2g='AD';}
+            else{t1g=t2g='40';}
+        }
+        ctx.fillStyle='#00f5a0'; ctx.fillText(t1g,500,80);
+        ctx.fillStyle='#ff6b6b'; ctx.fillText(t2g,500,130);
+        ctx.textAlign='center'; ctx.font='14px monospace'; ctx.fillStyle='#8B92AB';
+        const mn=String(Math.floor(sim.matchTime/60)).padStart(2,'0');
+        const sc=String(sim.matchTime%60).padStart(2,'0');
+        ctx.fillText('SET '+sim.currentSet+'  |  '+mn+':'+sc,256,220);
+        ctx.fillStyle=sim.servingTeam===1?'#00f5a0':'#ff6b6b'; ctx.font='bold 12px monospace';
+        ctx.fillText('▶ AU SERVICE',256,245);
+        scoreTexture.needsUpdate=true;
+    }
+
+    function updateCameraView() {
+        if(currentView==='perspective'){camera.position.set(18,14,18);heatmapMode=false;}
+        else if(currentView==='top'){camera.position.set(0,28,0);heatmapMode=false;}
+        else if(currentView==='heatmap'){camera.position.set(0,28,0);heatmapMode=true;}
+        else if(currentView==='side'){camera.position.set(-25,6,0);heatmapMode=false;}
+        camera.lookAt(0,1,0);
+    }
+
+    let prevBallPos = new THREE.Vector3();
+
+    function animate() {
+        requestAnimationFrame(animate);
+        animationTime += 0.01;
+        if(globalMatchSimulation) updateScoreboard();
+
+        const cy = animationTime * 1.8;
+        const px=Math.sin(cy)*9, pz=Math.cos(cy*0.7)*3.5;
+        const py=Math.max(0.12, Math.abs(Math.sin(cy*1.6))*2.8);
+        const newPos=new THREE.Vector3(px,py,pz);
+        const vel=newPos.distanceTo(prevBallPos)*100;
+        targetBallSpeed=Math.round(vel*28); ballSpeed+=(targetBallSpeed-ballSpeed)*0.08;
+        ball.position.copy(newPos); prevBallPos.copy(newPos);
+        const spEl=document.getElementById('ballSpeedDisplay');
+        if(spEl)spEl.textContent=Math.round(ballSpeed)+' km/h';
+
+        if(Math.floor(animationTime*60)%3===0){
+            const t=new THREE.Mesh(new THREE.SphereGeometry(0.06,6,4),
+                new THREE.MeshBasicMaterial({color:0xc8f000,transparent:true,opacity:0.5}));
+            t.position.copy(ball.position); t.userData.born=animationTime;
+            scene.add(t); ballTrail.push(t);
+        }
+        ballTrail=ballTrail.filter(t=>{
+            const age=animationTime-t.userData.born;
+            if(age>0.5){scene.remove(t);t.geometry.dispose();t.material.dispose();return false;}
+            t.material.opacity=0.5*(1-age/0.5); t.scale.setScalar(1-age*1.2); return true;
         });
+
+        players.forEach((player,i) => {
+            const box=playerBoxes[i];
+            if(Math.random()<0.015){
+                const sp=heatmapMode?5:3;
+                player.userData.targetX=player.userData.initialX+(Math.random()-0.5)*sp;
+                player.userData.targetZ=player.userData.initialZ+(Math.random()-0.5)*(sp*0.7);
+            }
+            player.position.x+=(player.userData.targetX-player.position.x)*0.06;
+            player.position.z+=(player.userData.targetZ-player.position.z)*0.06;
+            player.position.y=Math.abs(Math.sin(animationTime*2.5+player.userData.bobOffset))*0.04;
+            const sw=Math.sin(animationTime*3+player.userData.swingPhase);
+            const arm=player.children[player.children.length-2];
+            if(arm)arm.rotation.z=(i<2?-0.5:0.5)+sw*0.3;
+            const dx=ball.position.x-player.position.x, dz=ball.position.z-player.position.z;
+            player.rotation.y=Math.atan2(dx,dz);
+            if(box){box.position.x=player.position.x;box.position.z=player.position.z;box.position.y=player.position.y;}
+
+            // Heatmap: spawn circles, persist 8 seconds
+            if(heatmapMode && Math.random()<0.06){
+                const cGeo=new THREE.CircleGeometry(0.4+Math.random()*0.3,12);
+                const initOp=0.35+Math.random()*0.2;
+                const cMat=new THREE.MeshBasicMaterial({
+                    color:i<2?0x00f5a0:0xff6b6b, transparent:true, opacity:initOp, side:THREE.DoubleSide
+                });
+                const circle=new THREE.Mesh(cGeo,cMat);
+                circle.rotation.x=-Math.PI/2;
+                circle.position.set(player.position.x, 0.015, player.position.z);
+                circle.userData.born=animationTime;
+                circle.userData.initOpacity=initOp;
+                scene.add(circle);
+                heatCircles.push(circle);
+            }
+        });
+
+        // Fade heatmap circles over 8 seconds (animationTime is ~60fps * 0.01 = 0.6 units/sec)
+        const lifetime = 4.8; // ~8 real seconds
+        heatCircles=heatCircles.filter(c => {
+            const age=animationTime-c.userData.born;
+            if(age>lifetime){scene.remove(c);c.geometry.dispose();c.material.dispose();return false;}
+            c.material.opacity=c.userData.initOpacity*(1-age/lifetime);
+            return true;
+        });
+
+        if(aiCamera) aiCamera.rotation.y=Math.PI/4+Math.sin(animationTime*0.4)*0.15;
+        if(isAutoRotate && currentView==='perspective'){
+            const r=24, a=animationTime*0.07;
+            camera.position.x=Math.cos(a)*r; camera.position.z=Math.sin(a)*r;
+            camera.position.y=14+Math.sin(animationTime*0.15)*2; camera.lookAt(0,1,0);
+        }
+        renderer.render(scene,camera);
+    }
+
+    window.addEventListener('resize', () => {
+        const c=document.getElementById('canvas3d');
+        const W = c.clientWidth || c.parentElement.clientWidth || 900;
+        const H = c.clientHeight || c.parentElement.clientHeight || 700;
+        camera.aspect=W/H;
+        camera.updateProjectionMatrix();
+        renderer.setSize(W, H, false);
+    });
+
+    // ═══════════════════════════════════════════════════
+    // MATCH SIMULATION
+    // ═══════════════════════════════════════════════════
+    class MatchSimulation {
+        constructor() {
+            this.team1Score={set1:0,set2:0,game:0};
+            this.team2Score={set1:0,set2:0,game:0};
+            this.currentSet=1; this.servingTeam=1; this.matchTime=0;
+            this.stats={winners:0,errors:0,rallyLengths:[],successfulServes:0,totalServes:0};
+            this.isRunning=false;
+        }
+        start() {
+            this.isRunning=true;
+            this.timer=setInterval(()=>{
+                this.matchTime++;
+                const mn=String(Math.floor(this.matchTime/60)).padStart(2,'0');
+                const sc=String(this.matchTime%60).padStart(2,'0');
+                document.getElementById('heroMatchTime').textContent=mn+':'+sc;
+            },1000);
+            this.simulatePoint();
+        }
+        simulatePoint() {
+            if(!this.isRunning||this.currentSet>2)return;
+            const rally=Math.floor(Math.random()*15)+2;
+            this.stats.rallyLengths.push(rally);
+            setTimeout(()=>{
+                const winner=Math.random()>0.48?1:2;
+                const isWinner=Math.random()>0.4, isAce=Math.random()>0.92;
+                const isError=!isWinner&&Math.random()>0.5;
+                if(isWinner)this.stats.winners++;
+                if(isError)this.stats.errors++;
+                this.stats.totalServes++;
+                if(Math.random()>0.25)this.stats.successfulServes++;
+                this.updateGameScore(winner);
+                let text='';
+                if(isAce) text='🔥 Ace de '+(winner===1?'Rodriguez':'Garcia')+' !';
+                else if(isError) text='Faute de '+(winner===1?'Garcia':'Rodriguez');
+                else if(isWinner) text='💥 Smash de '+(winner===1?'Martin':'Lopez')+' !';
+                else text='Échange '+rally+' coups — '+(winner===1?'Rodriguez/Martin':'Garcia/Lopez');
+                this.addEvent(text);
+                this.updateDisplay();
+                if(this.currentSet<=2)this.simulatePoint();
+            },Math.random()*3000+2000);
+        }
+        updateGameScore(winner) {
+            if(winner===1)this.team1Score.game++; else this.team2Score.game++;
+            if(this.team1Score.game>=4&&this.team1Score.game-this.team2Score.game>=2)this.winGame(1);
+            else if(this.team2Score.game>=4&&this.team2Score.game-this.team1Score.game>=2)this.winGame(2);
+        }
+        winGame(team) {
+            const s='set'+this.currentSet;
+            if(team===1)this.team1Score[s]++; else this.team2Score[s]++;
+            const t1=this.team1Score[s], t2=this.team2Score[s];
+            if(t1>=6&&t1-t2>=2)this.winSet(1); else if(t2>=6&&t2-t1>=2)this.winSet(2);
+            this.team1Score.game=0; this.team2Score.game=0;
+            this.servingTeam=this.servingTeam===1?2:1;
+        }
+        winSet(team) {
+            this.addEvent('🏆 Set '+this.currentSet+' remporté par '+(team===1?'Rodriguez/Martin':'Garcia/Lopez')+' !');
+            this.currentSet++;
+            if(this.currentSet<=2) document.getElementById('heroCurrentSet').textContent='SET '+this.currentSet;
+        }
+        addEvent(text) {
+            const mn=String(Math.floor(this.matchTime/60)).padStart(2,'0');
+            const sc=String(this.matchTime%60).padStart(2,'0');
+            const feed=document.getElementById('eventFeed');
+            if(!feed)return;
+            const el=document.createElement('div');
+            el.className='hero-event-item';
+            el.innerHTML='<span class="hero-event-time">'+mn+':'+sc+'</span><span>🎾</span><span class="hero-event-desc">'+text+'</span>';
+            feed.insertBefore(el,feed.firstChild);
+            while(feed.children.length>8)feed.removeChild(feed.lastChild);
+        }
+        updateDisplay() {
+            document.getElementById('heroTeam1Set1').textContent=this.team1Score.set1;
+            document.getElementById('heroTeam2Set1').textContent=this.team2Score.set1;
+            if(this.currentSet>=2){
+                document.getElementById('heroTeam1Set2').textContent=this.team1Score.set2;
+                document.getElementById('heroTeam2Set2').textContent=this.team2Score.set2;
+            }
+            const gs=['0','15','30','40','AD'];
+            let t1g=this.team1Score.game<=3?gs[this.team1Score.game]:'40';
+            let t2g=this.team2Score.game<=3?gs[this.team2Score.game]:'40';
+            if(this.team1Score.game>=4||this.team2Score.game>=4){
+                if(this.team1Score.game>this.team2Score.game){t1g='AD';t2g='40';}
+                else if(this.team2Score.game>this.team1Score.game){t1g='40';t2g='AD';}
+                else{t1g=t2g='40';}
+            }
+            document.getElementById('heroTeam1Game').textContent=t1g;
+            document.getElementById('heroTeam2Game').textContent=t2g;
+            document.getElementById('heroTeam1Indicator').classList.toggle('serving',this.servingTeam===1);
+            document.getElementById('heroTeam2Indicator').classList.toggle('serving',this.servingTeam===2);
+            document.getElementById('heroWinnersCount').textContent=this.stats.winners;
+            document.getElementById('heroErrorsCount').textContent=this.stats.errors;
+            const avgRally=this.stats.rallyLengths.length>0
+                ?(this.stats.rallyLengths.reduce((a,b)=>a+b,0)/this.stats.rallyLengths.length).toFixed(1):'0.0';
+            document.getElementById('heroRallyAvg').textContent=avgRally;
+            const svc=this.stats.totalServes>0?Math.round((this.stats.successfulServes/this.stats.totalServes)*100):0;
+            document.getElementById('heroServicePercent').textContent=svc+'%';
+            document.querySelectorAll('.hero-score-cell').forEach(c=>c.classList.remove('highlight'));
+            document.getElementById('heroTeam1Game').classList.add('highlight');
+            document.getElementById('heroTeam2Game').classList.add('highlight');
+        }
+    }
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name=document.getElementById('name').value, venue=document.getElementById('venue').value;
+        const email=document.getElementById('email').value, phone=document.getElementById('phone').value;
+        const courts=document.getElementById('courts').value, message=document.getElementById('message').value;
+        const subject=encodeURIComponent('Demande PadelVision AI de '+venue);
+        const body=encodeURIComponent('Nom : '+name+'\nClub : '+venue+'\nEmail : '+email+'\nTéléphone : '+phone+'\nTerrains : '+courts+'\n\nMessage :\n'+message);
+        window.location.href='mailto:marchadier.julien@gmail.com?subject='+subject+'&body='+body;
+    });
+
+    window.addEventListener('load', () => {
+        // Small delay ensures the canvas container is fully laid out
+        requestAnimationFrame(() => {
+            init3D();
+            globalMatchSimulation = new MatchSimulation();
+            globalMatchSimulation.start();
+        });
+    });
     </script>
 </body>
 </html>
