@@ -1,7 +1,7 @@
 /**
  * PADEL VISION AI — main.js
  * Non-blocking, dependency-free vanilla JS
- * Features: nav scroll, hamburger, scroll reveal, form handling
+ * Features: nav scroll, hamburger, scroll reveal, form handling, FAQ accordion
  */
 
 (function () {
@@ -16,10 +16,8 @@
     const updateHeader = () => {
       header.classList.toggle('header--scrolled', window.scrollY > 20);
     };
-
-    // Passive listener for performance
     window.addEventListener('scroll', updateHeader, { passive: true });
-    updateHeader(); // initialise on load
+    updateHeader();
   }
 
   /* ─────────────────────────────────────
@@ -33,18 +31,14 @@
       const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
       hamburger.setAttribute('aria-expanded', String(!isOpen));
       mobileMenu.classList.toggle('is-open', !isOpen);
-      // Update aria-hidden so screen readers know when menu is reachable
       mobileMenu.setAttribute('aria-hidden', String(isOpen));
-      // Prevent body scroll when menu is open
       document.body.style.overflow = isOpen ? '' : 'hidden';
     });
 
-    // Close on link click
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', closeMobileMenu);
     });
 
-    // Close on Escape key
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape' && mobileMenu.classList.contains('is-open')) {
         closeMobileMenu();
@@ -70,14 +64,12 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            // Unobserve after revealing (performance)
             revealObserver.unobserve(entry.target);
           }
         });
       },
       { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
     );
-
     revealElements.forEach(el => revealObserver.observe(el));
   }
 
@@ -95,25 +87,49 @@
   });
 
   /* ─────────────────────────────────────
-     5. CONTACT FORM — validation + mailto
+     5. FAQ ACCORDION
+     ───────────────────────────────────── */
+  document.querySelectorAll('.faq-item__btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+      // Collapse all others in same list
+      const parentList = btn.closest('.faq-list');
+      if (parentList) {
+        parentList.querySelectorAll('.faq-item__btn').forEach(otherBtn => {
+          if (otherBtn !== btn) {
+            otherBtn.setAttribute('aria-expanded', 'false');
+            const otherAnswer = otherBtn.closest('.faq-item').querySelector('.faq-item__answer');
+            if (otherAnswer) otherAnswer.hidden = true;
+          }
+        });
+      }
+      // Toggle current
+      btn.setAttribute('aria-expanded', String(!isExpanded));
+      const answer = btn.closest('.faq-item').querySelector('.faq-item__answer');
+      if (answer) answer.hidden = isExpanded;
+    });
+  });
+
+  /* ─────────────────────────────────────
+     6. CONTACT FORM — validation + mailto
      ───────────────────────────────────── */
   const contactForm = document.getElementById('contact-form');
-  const formFields  = contactForm ? contactForm.querySelectorAll('[required]') : [];
   const formSuccess = document.getElementById('form-success');
+  const formContainer = document.getElementById('form-container');
+  const formFields = contactForm ? contactForm.querySelectorAll('[required]') : [];
 
   if (contactForm) {
     contactForm.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      // Basic client-side validation
       let valid = true;
       formFields.forEach(field => {
         const group = field.closest('.form__group');
         const error = group ? group.querySelector('.form__error') : null;
         const isEmpty = !field.value.trim();
-        const isEmail = field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
+        const isInvalidEmail = field.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(field.value);
 
-        if (isEmpty || isEmail) {
+        if (isEmpty || isInvalidEmail) {
           valid = false;
           field.setAttribute('aria-invalid', 'true');
           field.style.borderColor = 'var(--color-red)';
@@ -129,27 +145,23 @@
 
       // Build mailto
       const name    = (document.getElementById('f-name')    || {}).value || '';
-      const venue   = (document.getElementById('f-venue')   || {}).value || '';
       const email   = (document.getElementById('f-email')   || {}).value || '';
-      const phone   = (document.getElementById('f-phone')   || {}).value || '';
       const courts  = (document.getElementById('f-courts')  || {}).value || '';
-      const offer   = (document.getElementById('f-offer')   || {}).value || '';
       const message = (document.getElementById('f-message') || {}).value || '';
 
-      const subject = encodeURIComponent(`Demande PadelVision AI — ${venue}`);
+      const subject = encodeURIComponent('Demande de démo — Padel Vision AI');
       const body    = encodeURIComponent(
-        `Nom : ${name}\nClub : ${venue}\nEmail : ${email}\nTéléphone : ${phone}\n` +
-        `Terrains : ${courts}\nOffre : ${offer}\n\nMessage :\n${message}`
+        `Nom : ${name}\nEmail : ${email}\nNombre de terrains : ${courts}\n\nMessage :\n${message}`
       );
 
-      // Obfuscated email address
       const addr = ['padel', '.', 'vision', '.', 'ai', '@', 'gmail', '.', 'com'].join('');
       window.location.href = `mailto:${addr}?subject=${subject}&body=${body}`;
 
       // Show success state
-      if (formSuccess) {
-        contactForm.style.display = 'none';
-        formSuccess.classList.add('is-visible');
+      if (formSuccess && formContainer) {
+        formContainer.hidden = true;
+        formSuccess.removeAttribute('hidden');
+        formSuccess.focus();
       }
     });
 
@@ -168,7 +180,7 @@
   }
 
   /* ─────────────────────────────────────
-     6. ACTIVE NAV LINK — current page
+     7. ACTIVE NAV LINK — current page
      ───────────────────────────────────── */
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav__link, .mobile-menu__link').forEach(link => {
@@ -179,7 +191,7 @@
   });
 
   /* ─────────────────────────────────────
-     7. LIVE SCORE BADGE — hero animation
+     8. LIVE SCORE BADGE — hero animation
      ───────────────────────────────────── */
   const liveScore = document.getElementById('live-score');
   if (liveScore) {
@@ -192,7 +204,7 @@
   }
 
   /* ─────────────────────────────────────
-     8. STAT COUNTER — animated numbers
+     9. STAT COUNTER — animated numbers
      ───────────────────────────────────── */
   const counters = document.querySelectorAll('[data-count]');
 
@@ -209,7 +221,6 @@
         const tick = now => {
           const elapsed = now - start;
           const progress = Math.min(elapsed / duration, 1);
-          // Ease-out
           const eased = 1 - Math.pow(1 - progress, 3);
           const value = target * eased;
           el.textContent = (Number.isInteger(target) ? Math.round(value) : value.toFixed(1)) + suffix;
