@@ -1,686 +1,781 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <!-- ═══════════════════ META ═══════════════════ -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO ── titres & descriptions optimisés mots-clés haute intention -->
-  <title>Caméra Padel IA | Score Auto & Stats Joueurs — Padel Vision</title>
-  <meta name="description" content="Caméras HD, scoring IA 100% auto et stats joueurs pour votre club padel. Démo gratuite sur terrain. 3 offres. Installation en 1 journée, sans engagement.">
-  <meta name="keywords" content="système caméra padel, score automatique padel, court padel connecté, analyse vidéo padel club, statistiques padel joueurs, technologie padel club, intelligence artificielle padel, smart court padel AI">
-  <meta name="author" content="Padel Vision AI">
+  <title>Caméra Padel IA — Analyse Vidéo Automatique | Padel Vision</title>
+  <meta name="description" content="Padel Vision équipe vos terrains de caméras IA HD. Score 100% automatique, statistiques avancées, +35% de revenus. Installation en moins d'une heure.">
   <link rel="canonical" href="https://padelvisionai.com/">
-
-  <!-- Open Graph -->
-  <meta property="og:type"        content="website">
-  <meta property="og:url"         content="https://padelvisionai.com/">
-  <meta property="og:title"       content="Système Caméra Padel IA | Scoring Auto & Stats — Padel Vision AI">
-  <meta property="og:description" content="Scoring automatique IA, caméras HD, statistiques joueurs et vidéos auto pour votre club de padel. Démo gratuite sur votre terrain.">
-  <meta property="og:image"       content="https://padelvisionai.com/assets/img/og-image.jpg">
-  <meta property="og:locale"      content="fr_FR">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Padel Vision AI — Court connecté, scoring IA automatique">
-  <meta name="twitter:description" content="Le seul système qui score, filme et analyse chaque match de padel automatiquement.">
-
-  <!-- Preconnect pour les polices (performance) -->
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta property="og:title" content="Padel Vision — IA pour Clubs de Padel">
+  <meta property="og:description" content="Système d'analyse vidéo par IA pour salles de padel. Installation rapide, ROI en 6 mois.">
+  <meta property="og:url" content="https://padelvisionai.com/">
+  <meta property="og:image" content="https://padelvisionai.com/assets/images/og-padelvision.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://padelvisionai.com/assets/images/og-padelvision.png">
+  <meta name="twitter:title" content="Caméra Padel IA — Score Automatique | Padel Vision">
+  <meta name="twitter:description" content="Système d'analyse vidéo IA pour clubs de padel. Score 100% automatique, +35% de revenus. Démo gratuite sur votre terrain.">
+  <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=EB+Garamond:wght@0,400;0,500&family=Courier+Prime:wght@400&display=swap" rel="stylesheet">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="style.css">
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- CSS critique inline : prévient le FOUC -->
-  <style>
-    .header { opacity: 1; }
-    body { background: #070D0F; }
-  </style>
-
-  <!-- JSON-LD : LocalBusiness (remplace Organization) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": "https://padelvisionai.com",
-    "name": "Padel Vision AI",
-    "url": "https://padelvisionai.com",
-    "email": "padel.vision.ai@gmail.com",
-    "telephone": "+33781124216",
-    "priceRange": "€€",
-    "areaServed": ["France", "Europe"],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "129 allée de Brienne",
-      "addressLocality": "Toulouse",
-      "postalCode": "31000",
-      "addressCountry": "FR"
-    },
-    "description": "Padel Vision AI est la première solution française de courts de padel connectés par IA : scoring automatique, caméras HD, statistiques joueurs et vidéos auto pour clubs.",
-    "sameAs": [
-      "https://www.linkedin.com/company/padelvisionai"
-    ]
-  }
-  </script>
-
-  <!-- JSON-LD : FAQ Page -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
       {
-        "@type": "Question",
-        "name": "Combien de temps dure l'installation ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "En général une journée complète. Notre équipe installe les caméras HD, l'écran de score et la tablette de contrôle, puis calibre l'IA sur votre terrain."
+        "@type": "Organization",
+        "@id": "https://padelvisionai.com/#organization",
+        "name": "Padel Vision",
+        "alternateName": "Padel Vision AI",
+        "url": "https://padelvisionai.com",
+        "email": "padel.vision.ai@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Toulouse",
+          "addressRegion": "Occitanie",
+          "addressCountry": "FR"
+        },
+        "description": "Système d'analyse vidéo par IA pour salles de padel. Score 100% automatique, replays annotés, statistiques avancées, revenus additionnels pour clubs.",
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://padelvisionai.com/#website",
+        "name": "Padel Vision",
+        "url": "https://padelvisionai.com",
+        "inLanguage": "fr",
+        "publisher": { "@id": "https://padelvisionai.com/#organization" }
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Padel Vision — Application Joueurs",
+        "applicationCategory": "SportsApplication",
+        "operatingSystem": "iOS, Android",
+        "description": "Replay automatique post-match annoté par IA, statistiques avancées (trajectoires, vitesses, heatmaps), évolution de niveau sur la saison.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR"
+        },
+        "publisher": { "@id": "https://padelvisionai.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://padelvisionai.com/#webpage",
+        "url": "https://padelvisionai.com/",
+        "name": "Caméra Padel IA — Analyse Vidéo Automatique | Padel Vision",
+        "isPartOf": { "@id": "https://padelvisionai.com/#website" },
+        "about": { "@id": "https://padelvisionai.com/#organization" },
+        "description": "Padel Vision équipe vos terrains de caméras IA HD. Score 100% automatique, statistiques avancées, +35% de revenus.",
+        "inLanguage": "fr"
+      },
+      {
+        "@type": "Product",
+        "@id": "https://padelvisionai.com/#product-camera",
+        "name": "Caméra Padel Vision AI",
+        "description": "Caméra HD 60fps avec analyse IA en temps réel pour terrains de padel. Détection automatique du score, trajectoires de balle, heatmaps et statistiques avancées.",
+        "brand": { "@type": "Brand", "name": "Padel Vision" },
+        "manufacturer": { "@id": "https://padelvisionai.com/#organization" },
+        "category": "Caméra de sport intelligente",
+        "offers": {
+          "@type": "Offer",
+          "seller": { "@id": "https://padelvisionai.com/#organization" },
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "url": "https://padelvisionai.com/products.html"
         }
       },
       {
-        "@type": "Question",
-        "name": "Le système fonctionne-t-il sur tous les courts de padel ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oui, le système Padel Vision AI est compatible avec tous les types de courts indoor et outdoor, avec ou sans éclairage spécifique."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Mes joueurs doivent-ils télécharger une application ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Non. Tout est accessible via navigateur web depuis mobile ou ordinateur. Aucune application à installer."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Quel est le retour sur investissement d'un court connecté ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Un court connecté attire en moyenne 15 % de réservations supplémentaires grâce à l'attractivité de la technologie. Contactez-nous pour un calcul ROI personnalisé selon votre club."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Que se passe-t-il si le matériel tombe en panne ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Nous offrons une garantie matérielle et un support technique réactif. En cas de panne, un remplacement est effectué sous 48 heures."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Puis-je changer d'offre après l'installation ?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Oui, les offres sont évolutives. Il est possible de passer du Court Connecté au Court Intelligent, puis au Court Prestige à tout moment."
+        "@type": "Service",
+        "@id": "https://padelvisionai.com/#service",
+        "name": "Système d'analyse vidéo IA pour clubs de padel",
+        "description": "Installation de caméras IA sur terrains de padel avec analyse en temps réel, score automatique, replays annotés et statistiques avancées pour les joueurs.",
+        "provider": { "@id": "https://padelvisionai.com/#organization" },
+        "serviceType": "Analyse vidéo sportive par intelligence artificielle",
+        "areaServed": [
+          { "@type": "Country", "name": "France" },
+          { "@type": "Continent", "name": "Europe" }
+        ],
+        "audience": {
+          "@type": "Audience",
+          "audienceType": "Gérants et propriétaires de clubs de padel"
         }
       }
     ]
   }
   </script>
-
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KP7WVV88');
-  </script>
 </head>
-
 <body>
-  <!-- Skip navigation (accessibilité) -->
-  <a class="skip-link" href="#main-content">Aller au contenu principal</a>
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KP7WVV88"
-      height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe>
-  </noscript>
+<!-- Skip navigation -->
+<a href="#main-content" class="skip-link">Aller au contenu principal</a>
 
-  <!-- ═══════════════════ HEADER ═══════════════════ -->
-  <header class="header" id="site-header" role="banner">
-    <div class="header__inner">
-      <a href="index.html" class="header__logo" aria-label="Padel Vision AI — Retour à l'accueil">
-        Padel Vision
-      </a>
+<!-- ═══ HEADER ═══ -->
+<header class="site-header" id="site-header" role="banner">
+  <div class="header__inner">
+    <!-- Logo -->
+    <a href="/" class="logo" aria-label="Padel Vision — Accueil">
+      <span class="logo__name">Padel Vision <span class="logo__dot" aria-hidden="true">·</span></span>
+      <span class="logo__sub" aria-hidden="true">Le terrain intelligent</span>
+    </a>
 
-      <!-- Navigation desktop -->
-      <nav aria-label="Navigation principale">
-        <ul class="nav__list" role="list">
-          <li><a href="index.html"    class="nav__link" aria-current="page">Accueil</a></li>
-          <li><a href="products.html" class="nav__link">Offres</a></li>
-          <li><a href="contact.html"  class="nav__link">Contact</a></li>
-        </ul>
-      </nav>
+    <!-- Desktop nav -->
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="/" class="nav__link" aria-current="page">Accueil</a>
+      <a href="products.html" class="nav__link">Offres</a>
+      <a href="comparatif-cameras-padel.html" class="nav__link">Comparatif</a>
+      <a href="contact.html" class="nav__link">Contact</a>
+      <a href="contact.html" class="nav__cta" aria-label="Demander une démonstration gratuite">Demander une démo →</a>
+    </nav>
 
-      <a href="contact.html" class="nav__cta" aria-label="Demander une démo gratuite sur votre terrain">
-        Démo gratuite →
-      </a>
+    <!-- Hamburger -->
+    <button class="hamburger" id="hamburger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Ouvrir le menu">
+      <span class="hamburger__line" aria-hidden="true"></span>
+      <span class="hamburger__line" aria-hidden="true"></span>
+      <span class="hamburger__line" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
 
-      <!-- Hamburger mobile -->
-      <button
-        class="header__hamburger"
-        id="hamburger"
-        aria-controls="mobile-menu"
-        aria-expanded="false"
-        aria-label="Ouvrir le menu de navigation"
-        type="button"
-      >
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </button>
+<!-- Mobile menu -->
+<nav class="mobile-menu" id="mobile-menu" aria-hidden="true" aria-label="Menu mobile">
+  <a href="/" class="mobile-menu__link" aria-current="page">Accueil</a>
+  <a href="products.html" class="mobile-menu__link">Offres</a>
+  <a href="comparatif-cameras-padel.html" class="mobile-menu__link">Comparatif</a>
+  <a href="contact.html" class="mobile-menu__link">Contact</a>
+  <a href="contact.html" class="mobile-menu__cta">Demander une démo →</a>
+</nav>
+
+<!-- ═══ MAIN ═══ -->
+<main id="main-content">
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" aria-label="Introduction Padel Vision">
+  <div class="hero__inner">
+
+    <!-- Left: text -->
+    <div class="hero__content">
+      <div class="hero__eyebrow">
+        <div class="live-badge" role="status" aria-live="polite">
+          <span class="live-badge__dot" aria-hidden="true"></span>
+          <span>Terrain 01 · Analyse Live</span>
+        </div>
+      </div>
+
+      <h1 class="hero__title">
+        Caméra <em>Padel</em> IA.<br>Score automatique.<br>Résultats immédiats.
+      </h1>
+
+      <p class="hero__lead">
+        La seule solution qui détecte et affiche le score en 100% automatique. Une caméra par terrain — l'IA analyse trajectoires, vitesses et positions des 4 joueurs en temps réel.
+      </p>
+
+      <div class="hero__actions">
+        <a href="contact.html" class="btn btn--primary btn--lg">Demander une démo →</a>
+        <a href="products.html" class="btn btn--outline">Voir les offres</a>
+      </div>
+
+      <!-- Stats strip -->
+      <div class="hero__stats" aria-label="Chiffres clés Padel Vision">
+        <div class="hero-stat">
+          <div class="hero-stat__value">100%</div>
+          <div class="hero-stat__label">Full HD<br>enregistré</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat__value">98%</div>
+          <div class="hero-stat__label">précision<br>IA</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat__value">&lt;1j</div>
+          <div class="hero-stat__label">installation<br>terrain</div>
+        </div>
+      </div>
     </div>
-  </header>
 
-  <!-- Menu mobile -->
-  <nav class="mobile-menu" id="mobile-menu" aria-label="Navigation mobile" aria-hidden="true">
-    <a href="index.html"    class="mobile-menu__link" aria-current="page">Accueil</a>
-    <a href="products.html" class="mobile-menu__link">Offres</a>
-    <a href="contact.html"  class="mobile-menu__link">Contact</a>
-    <a href="contact.html"  class="btn btn--primary btn--lg">Démo gratuite →</a>
-  </nav>
+    <!-- Right: Court SVG -->
+    <div class="hero__visual" aria-hidden="true">
+      <!-- Padel court bird's eye view SVG -->
+      <svg class="court-svg" viewBox="0 0 340 560" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Terrain de padel — vue aérienne avec analyse IA">
 
-  <!-- ═══════════════════ MAIN ═══════════════════ -->
-  <main id="main-content">
+        <!-- Court background -->
+        <rect x="10" y="10" width="320" height="540" rx="0" fill="#1B3C2D" stroke="rgba(240,232,214,0.12)" stroke-width="1"/>
 
-    <!-- ── HERO — PAS Framework ── -->
-    <section class="hero" aria-label="Padel Vision AI — Présentation">
-      <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
-      <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
-      <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
+        <!-- Outer border frame -->
+        <rect x="18" y="18" width="304" height="524" fill="none" stroke="rgba(240,232,214,0.18)" stroke-width="1.5"/>
 
-      <div class="hero__content">
-        <p class="hero__eyebrow">
-          <span class="hero__eyebrow-dot" aria-hidden="true"></span>
-          Pour les clubs de padel qui veulent se démarquer
+        <!-- Glass/vitre sides indicators -->
+        <rect x="10" y="10" width="8" height="540" fill="rgba(100,200,255,0.08)" stroke="rgba(100,200,255,0.2)" stroke-width="0.5"/>
+        <rect x="322" y="10" width="8" height="540" fill="rgba(100,200,255,0.08)" stroke="rgba(100,200,255,0.2)" stroke-width="0.5"/>
+        <!-- Back glass -->
+        <rect x="10" y="10" width="320" height="8" fill="rgba(100,200,255,0.08)" stroke="rgba(100,200,255,0.2)" stroke-width="0.5"/>
+        <rect x="10" y="542" width="320" height="8" fill="rgba(100,200,255,0.08)" stroke="rgba(100,200,255,0.2)" stroke-width="0.5"/>
+
+        <!-- Court lines — court surface -->
+        <rect x="40" y="40" width="260" height="480" fill="rgba(27,70,45,0.6)" stroke="rgba(240,232,214,0.5)" stroke-width="1.5"/>
+
+        <!-- Center line (net) -->
+        <line x1="40" y1="280" x2="300" y2="280" stroke="rgba(240,232,214,0.9)" stroke-width="2.5"/>
+        <!-- Net posts -->
+        <circle cx="40" cy="280" r="3" fill="rgba(240,232,214,0.7)"/>
+        <circle cx="300" cy="280" r="3" fill="rgba(240,232,214,0.7)"/>
+        <!-- Net vertical lines -->
+        <line x1="40" y1="274" x2="300" y2="274" stroke="rgba(240,232,214,0.2)" stroke-width="0.5" stroke-dasharray="4,3"/>
+        <line x1="40" y1="286" x2="300" y2="286" stroke="rgba(240,232,214,0.2)" stroke-width="0.5" stroke-dasharray="4,3"/>
+
+        <!-- Service lines -->
+        <line x1="40" y1="180" x2="300" y2="180" stroke="rgba(240,232,214,0.45)" stroke-width="1"/>
+        <line x1="40" y1="380" x2="300" y2="380" stroke="rgba(240,232,214,0.45)" stroke-width="1"/>
+        <!-- Center service lines -->
+        <line x1="170" y1="180" x2="170" y2="280" stroke="rgba(240,232,214,0.45)" stroke-width="1"/>
+        <line x1="170" y1="280" x2="170" y2="380" stroke="rgba(240,232,214,0.45)" stroke-width="1"/>
+
+        <!-- HEATMAP overlay - zones chaudes -->
+        <ellipse cx="105" cy="440" rx="55" ry="40" fill="rgba(255,80,40,0.18)"/>
+        <ellipse cx="105" cy="440" rx="30" ry="22" fill="rgba(255,80,40,0.22)"/>
+        <ellipse cx="235" cy="440" rx="40" ry="30" fill="rgba(255,140,0,0.14)"/>
+        <ellipse cx="170" cy="130" rx="50" ry="35" fill="rgba(255,180,0,0.1)"/>
+        <ellipse cx="105" cy="340" rx="35" ry="25" fill="rgba(100,200,50,0.1)"/>
+
+        <!-- PLAYER MARKERS -->
+        <!-- Team A (bottom) -->
+        <g transform="translate(95, 430)">
+          <circle class="player-ring player-ring--a" cx="0" cy="0" r="14" fill="rgba(200,160,80,0.25)" stroke="#C8A050" stroke-width="1.5"/>
+          <circle cx="0" cy="0" r="7" fill="#C8A050"/>
+          <text x="0" y="4" text-anchor="middle" font-family="'Courier Prime', monospace" font-size="7" fill="#0F2218" font-weight="700">A1</text>
+        </g>
+        <g transform="translate(245, 450)">
+          <circle class="player-ring player-ring--a" cx="0" cy="0" r="14" fill="rgba(200,160,80,0.2)" stroke="#C8A050" stroke-width="1.5" style="animation-delay:1.1s"/>
+          <circle cx="0" cy="0" r="7" fill="#C8A050"/>
+          <text x="0" y="4" text-anchor="middle" font-family="'Courier Prime', monospace" font-size="7" fill="#0F2218" font-weight="700">A2</text>
+        </g>
+
+        <!-- Team B (top) -->
+        <g transform="translate(95, 130)">
+          <circle class="player-ring player-ring--b" cx="0" cy="0" r="14" fill="rgba(100,170,255,0.2)" stroke="#64AAFF" stroke-width="1.5" style="animation-delay:0.6s"/>
+          <circle cx="0" cy="0" r="7" fill="#64AAFF"/>
+          <text x="0" y="4" text-anchor="middle" font-family="'Courier Prime', monospace" font-size="7" fill="#0F2218" font-weight="700">B1</text>
+        </g>
+        <g transform="translate(245, 120)">
+          <circle class="player-ring player-ring--b" cx="0" cy="0" r="14" fill="rgba(100,170,255,0.15)" stroke="#64AAFF" stroke-width="1.5" style="animation-delay:1.7s"/>
+          <circle cx="0" cy="0" r="7" fill="#64AAFF"/>
+          <text x="0" y="4" text-anchor="middle" font-family="'Courier Prime', monospace" font-size="7" fill="#0F2218" font-weight="700">B2</text>
+        </g>
+
+        <!-- Ball trajectory arc -->
+        <path d="M 95 430 Q 170 200 245 120" stroke="#FFD700" stroke-width="1.5" stroke-dasharray="5,3" fill="none" opacity="0.7"/>
+        <!-- Ball current position -->
+        <circle id="court-ball" cx="183" cy="273" r="5" fill="#FFD700" opacity="0.9"/>
+        <circle id="court-ball-glow" cx="183" cy="273" r="9" fill="rgba(255,215,0,0.2)" opacity="0.8"/>
+
+        <!-- Speed data badge -->
+        <rect x="190" y="255" width="80" height="26" fill="rgba(15,34,24,0.9)" stroke="rgba(200,160,80,0.4)" stroke-width="1"/>
+        <text x="230" y="266" text-anchor="middle" font-family="'Courier Prime', monospace" font-size="7" fill="#C8A050">94 km/h · SMASH</text>
+        <text x="230" y="275" text-anchor="middle" font-family="'Courier Prime', monospace" font-size="6" fill="rgba(240,232,214,0.5)">IA · TERRAIN 01</text>
+
+        <!-- Camera icon top center -->
+        <g transform="translate(154, 22)">
+          <rect x="0" y="0" width="32" height="20" rx="2" fill="rgba(200,160,80,0.15)" stroke="#C8A050" stroke-width="1"/>
+          <circle cx="16" cy="10" r="6" fill="none" stroke="#C8A050" stroke-width="1"/>
+          <circle cx="16" cy="10" r="3" fill="#C8A050" opacity="0.7"/>
+          <text x="16" y="29" text-anchor="middle" font-family="'Courier Prime', monospace" font-size="5.5" fill="rgba(200,160,80,0.7)">CAM IA</text>
+        </g>
+
+        <!-- Player movement trails -->
+        <path d="M 95 430 L 90 445 L 88 460" stroke="rgba(200,160,80,0.25)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+        <path d="M 245 450 L 250 460 L 252 468" stroke="rgba(200,160,80,0.2)" stroke-width="1" fill="none" stroke-dasharray="2,2"/>
+
+        <!-- Score display at bottom -->
+        <rect x="105" y="502" width="130" height="24" fill="rgba(15,34,24,0.95)" stroke="rgba(200,160,80,0.3)" stroke-width="1"/>
+        <text x="170" y="513" text-anchor="middle" font-family="'Courier Prime', monospace" font-size="7" fill="rgba(240,232,214,0.7)">SCORE</text>
+        <text x="170" y="521" text-anchor="middle" font-family="'Courier Prime', monospace" font-size="8" fill="#C8A050" id="live-score">40 – 30</text>
+
+      </svg>
+
+      <!-- Padel raquette icon -->
+      <div style="display:flex;gap:1rem;align-items:center;justify-content:center;">
+        <svg width="32" height="42" viewBox="0 0 32 42" fill="none" aria-hidden="true">
+          <ellipse cx="16" cy="16" rx="14" ry="14" stroke="rgba(200,160,80,0.5)" stroke-width="1.5" fill="rgba(200,160,80,0.06)"/>
+          <!-- Perforations -->
+          <circle cx="11" cy="11" r="2" fill="rgba(200,160,80,0.3)"/>
+          <circle cx="16" cy="9" r="2" fill="rgba(200,160,80,0.3)"/>
+          <circle cx="21" cy="11" r="2" fill="rgba(200,160,80,0.3)"/>
+          <circle cx="9" cy="16" r="2" fill="rgba(200,160,80,0.3)"/>
+          <circle cx="16" cy="16" r="2" fill="rgba(200,160,80,0.3)"/>
+          <circle cx="23" cy="16" r="2" fill="rgba(200,160,80,0.3)"/>
+          <circle cx="11" cy="21" r="2" fill="rgba(200,160,80,0.3)"/>
+          <circle cx="16" cy="23" r="2" fill="rgba(200,160,80,0.3)"/>
+          <circle cx="21" cy="21" r="2" fill="rgba(200,160,80,0.3)"/>
+          <!-- Handle -->
+          <rect x="13.5" y="28" width="5" height="12" rx="2.5" fill="rgba(200,160,80,0.2)" stroke="rgba(200,160,80,0.4)" stroke-width="1"/>
+        </svg>
+        <span style="font-family:'Courier Prime',monospace;font-size:0.55rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(240,232,214,0.3)">4 joueurs trackés · 60 fps · latence &lt; 100ms</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="section" id="comment-ca-marche" aria-labelledby="how-title">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__eyebrow">◆ Comment ça marche</div>
+      <h2 class="section__title" id="how-title">En place en moins d'une journée.<br>Résultats dès le premier match.</h2>
+      <p class="section__lead">Pas de travaux. Pas de compétences techniques requises. Notre équipe installe, configure et vous forme.</p>
+    </div>
+
+    <div class="steps-grid">
+      <div class="step reveal reveal--delay-1">
+        <div class="step__number" aria-hidden="true">01</div>
+        <span class="step__icon" aria-hidden="true">📷</span>
+        <h3 class="step__title">Installation &amp; Caméra</h3>
+        <p class="step__desc">2 ou 4 caméra HD 60fps est fixée en hauteur sur chaque terrain. Sans travaux. Notre technicien configure tout en moins d'une journée — vous signez, c'est en place.</p>
+        <span class="step__tag">⚡ Plug &amp; Play</span>
+      </div>
+
+      <div class="step reveal reveal--delay-2">
+        <div class="step__number" aria-hidden="true">02</div>
+        <span class="step__icon" aria-hidden="true">🧠</span>
+        <h3 class="step__title">Analyse IA &amp; Score Auto</h3>
+        <p class="step__desc">Notre IA analyse chaque seconde : score 100% automatique, trajectoires de balle, smash et bandeja, positions des 4 joueurs, heatmaps fond de court. Précision 98%.</p>
+        <span class="step__tag">🎯 IA · 60 fps</span>
+      </div>
+
+      <div class="step reveal reveal--delay-3">
+        <div class="step__number" aria-hidden="true">03</div>
+        <span class="step__icon" aria-hidden="true">📱</span>
+        <h3 class="step__title">Replays &amp; Revenus</h3>
+        <p class="step__desc">Dès la fin du match, vos joueurs reçoivent replay et statistiques sur l'application mobile. Ils paient un abonnement pour accéder à leurs données — revenus additionnels pour votre club.</p>
+        <span class="step__tag">💰 +35% revenus</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ AI SCORING DIFFERENTIATOR ═══ -->
+<section class="section section--dark" aria-labelledby="scoring-title">
+  <div class="container">
+    <div class="scoring-layout">
+
+      <!-- Left: text -->
+      <div class="reveal">
+        <div class="section__eyebrow" style="color:var(--gold-light);">◆ Notre grande différence</div>
+        <h2 class="section__title" id="scoring-title" style="color:var(--parchment);">
+          Le seul système avec<br>score <em style="color:var(--gold-light);font-style:italic;">100% automatique</em>
+        </h2>
+        <p class="section__lead" style="color:var(--on-dark-2);">
+          Plus besoin de saisir le score à la main. L'IA Padel Vision détecte chaque point en temps réel — service, faute, let, jeu — et met à jour le tableau de score instantanément.
         </p>
 
-        <!-- H1 réécrit : bénéfice clair + mots-clés SEO -->
-        <h1 class="hero__title">
-          Le seul système qui score, filme et analyse chaque match
-          <span class="grad-text"> de padel — 100&nbsp;% automatique.</span>
-        </h1>
+        <div class="scoring-features">
+          <div class="scoring-feature">
+            <span class="scoring-feature__icon" aria-hidden="true">🏆</span>
+            <div>
+              <strong class="scoring-feature__title">Score détecté automatiquement</strong>
+              <span class="scoring-feature__desc">Service, faute, let, changement de côté — tout est capté par la caméra sans intervention humaine.</span>
+            </div>
+          </div>
+          <div class="scoring-feature">
+            <span class="scoring-feature__icon" aria-hidden="true">📺</span>
+            <div>
+              <strong class="scoring-feature__title">Affichage live sur écran de terrain</strong>
+              <span class="scoring-feature__desc">Le score s'affiche en temps réel sur l'écran de votre club et dans l'application joueurs. Zéro friction.</span>
+            </div>
+          </div>
+          <div class="scoring-feature">
+            <span class="scoring-feature__icon" aria-hidden="true">📊</span>
+            <div>
+              <strong class="scoring-feature__title">Historique intégré aux stats</strong>
+              <span class="scoring-feature__desc">Chaque point est horodaté et lié à une séquence vidéo. Les joueurs retrouvent exactement le moment qui a fait basculer le match.</span>
+            </div>
+          </div>
+        </div>
 
-        <p class="hero__sub">
-          Padel Vision AI installe sur votre terrain des caméras HD intelligentes qui scorent en temps réel, génèrent les statistiques de chaque joueur et créent automatiquement des vidéos prêtes à partager sur Instagram. En 1 journée, sans arbitre.
+        <div style="margin-top:2.5rem;">
+          <a href="contact.html" class="btn btn--primary btn--lg">Voir le système en démo →</a>
+        </div>
+      </div>
+
+      <!-- Right: score display mockup -->
+      <div class="reveal reveal--delay-2" aria-hidden="true">
+        <div class="score-mockup">
+          <!-- Header label -->
+          <div class="score-mockup__header">
+            <span class="live-badge__dot" style="width:6px;height:6px;border-radius:50%;background:#4CAF50;display:inline-block;animation:blink 2s infinite;flex-shrink:0;"></span>
+            Score automatique · Terrain 03 · En cours
+          </div>
+
+          <!-- Score board sets -->
+          <div class="score-mockup__sets">
+            <div class="score-mockup__team">
+              <div class="score-mockup__team-label" style="color:var(--gold-light);">ÉQUIPE A</div>
+              <div class="score-mockup__big-num">6</div>
+              <div class="score-mockup__sub">Sets</div>
+            </div>
+            <div class="score-mockup__sep">–</div>
+            <div class="score-mockup__team">
+              <div class="score-mockup__team-label" style="color:rgba(100,170,255,0.9);">ÉQUIPE B</div>
+              <div class="score-mockup__big-num">4</div>
+              <div class="score-mockup__sub">Sets</div>
+            </div>
+          </div>
+
+          <div class="score-mockup__divider"></div>
+
+          <!-- Current game score -->
+          <div class="score-mockup__game">
+            <div class="score-mockup__team">
+              <div class="score-mockup__game-num" id="score-display-a">40</div>
+              <div class="score-mockup__sub">Jeu en cours</div>
+            </div>
+            <div class="score-mockup__sep" style="font-size:0.9rem;color:var(--on-dark-3);">–</div>
+            <div class="score-mockup__team">
+              <div class="score-mockup__game-num" style="color:var(--parchment);">30</div>
+              <div class="score-mockup__sub">Jeu en cours</div>
+            </div>
+          </div>
+
+          <!-- AI detection log -->
+          <div class="score-mockup__log">
+            <div class="score-mockup__log-title">◆ Dernière détection IA</div>
+            <div id="detection-time" style="font-family:var(--font-mono);font-size:0.7rem;color:var(--gold-light);">14:34:22 · Point détecté</div>
+            <div id="detection-event" style="font-family:var(--font-mono);font-size:0.65rem;color:var(--on-dark-2);margin-top:0.25rem;">Smash A1 · 94 km/h · Fond de court droit</div>
+            <div style="font-family:var(--font-mono);font-size:0.6rem;color:var(--on-dark-3);margin-top:0.25rem;">Confiance IA : <span id="detection-confidence">97,3%</span> · Score mis à jour auto</div>
+          </div>
+
+          <div class="score-mockup__footer">
+            ⚡ Latence score : &lt; 100ms · Aucune saisie manuelle
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FEATURES ═══ -->
+<section class="section section--alt" aria-labelledby="features-title">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__eyebrow">◆ Ce que l'IA voit</div>
+      <h2 class="section__title" id="features-title">Précision de haut niveau.<br>Données qui créent de la valeur.</h2>
+    </div>
+
+    <div class="features-grid">
+
+      <!-- Wide card: Heatmap -->
+      <div class="feature-card feature-card--wide reveal">
+        <span class="feature-card__tag">◆ Analyse Terrain · Heatmap Live</span>
+        <h3 class="feature-card__title">Vos joueurs sous toutes les coutures.<br><em style="font-style:italic;color:var(--gold-light)">Chaque terrain. Chaque match.</em></h3>
+        <p class="feature-card__desc">
+          L'IA Padel Vision génère une heatmap en temps réel de chaque terrain. 
+          Zones de prédilection, déplacements, points chauds au fond en verre — 
+          une cartographie vivante qui aide vos joueurs à progresser et à revenir.
         </p>
 
-        <div class="hero__actions">
-          <a href="contact.html" class="btn btn--primary btn--lg">
-            Voir une démo sur mon terrain →
-          </a>
-          <a href="products.html" class="btn btn--outline btn--lg">
-            Découvrir les 3 offres
-          </a>
+        <!-- Heatmap SVG mockup -->
+        <div class="heatmap-visual">
+          <svg viewBox="0 0 400 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:400px;">
+            <rect width="400" height="200" fill="rgba(15,34,24,0.7)"/>
+            <!-- Court outline -->
+            <rect x="20" y="20" width="360" height="160" fill="rgba(27,60,45,0.5)" stroke="rgba(240,232,214,0.2)" stroke-width="1"/>
+            <!-- Net -->
+            <line x1="20" y1="100" x2="380" y2="100" stroke="rgba(240,232,214,0.6)" stroke-width="1.5"/>
+            <!-- Heatmap zones -->
+            <ellipse cx="80" cy="160" rx="60" ry="30" fill="rgba(255,50,0,0.4)"/>
+            <ellipse cx="80" cy="160" rx="35" ry="18" fill="rgba(255,50,0,0.35)"/>
+            <ellipse cx="320" cy="155" rx="50" ry="28" fill="rgba(255,140,0,0.3)"/>
+            <ellipse cx="200" cy="50" rx="45" ry="22" fill="rgba(255,210,0,0.2)"/>
+            <ellipse cx="150" cy="130" rx="30" ry="20" fill="rgba(100,210,50,0.18)"/>
+            <ellipse cx="260" cy="70" rx="28" ry="18" fill="rgba(50,180,255,0.12)"/>
+            <!-- Legend -->
+            <text x="30" y="185" font-family="'Courier Prime',monospace" font-size="8" fill="rgba(240,232,214,0.4)">FRÉQUENCE DE FRAPPE · TERRAIN 03 · MATCH 14:32</text>
+            <!-- Color scale -->
+            <rect x="300" y="182" width="10" height="8" fill="rgba(255,50,0,0.7)"/>
+            <rect x="313" y="182" width="10" height="8" fill="rgba(255,140,0,0.6)"/>
+            <rect x="326" y="182" width="10" height="8" fill="rgba(100,210,50,0.5)"/>
+            <rect x="339" y="182" width="10" height="8" fill="rgba(50,180,255,0.4)"/>
+            <text x="352" y="189" font-family="'Courier Prime',monospace" font-size="6" fill="rgba(240,232,214,0.3)">+</text>
+            <text x="296" y="189" font-family="'Courier Prime',monospace" font-size="6" fill="rgba(240,232,214,0.3)">—</text>
+          </svg>
         </div>
 
-        <!-- Badge live score animé -->
-        <div class="hero__badge" aria-live="polite" aria-label="Score en direct — démonstration IA">
-          <span class="hero__badge-live" aria-hidden="true">LIVE</span>
-          Score :
-          <strong id="live-score">0 – 0</strong>
-          &nbsp;·&nbsp; IA scoring actif
-        </div>
-      </div>
-    </section>
-
-    <!-- ── SOCIAL PROOF STRIP ── -->
-    <section class="trust-strip" aria-label="Éléments de confiance">
-      <div class="container">
-        <div class="trust-strip__inner">
-          <p class="trust-strip__label">Pourquoi nous choisir</p>
-          <div class="trust-strip__items">
-            <div class="trust-item">
-              <span class="trust-item__icon" aria-hidden="true">🏅</span>
-              <span class="trust-item__text">Pionniers du scoring IA padel en France</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-item__icon" aria-hidden="true">⚡</span>
-              <span class="trust-item__text">Installation en 1 journée</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-item__icon" aria-hidden="true">🔧</span>
-              <span class="trust-item__text">Support réactif 48h</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-item__icon" aria-hidden="true">🎓</span>
-              <span class="trust-item__text">Ingénieurs IA certifiés</span>
-            </div>
-            <div class="trust-item">
-              <span class="trust-item__icon" aria-hidden="true">💯</span>
-              <span class="trust-item__text">Satisfaction garantie 30 jours</span>
-            </div>
+        <div style="margin-top:1.5rem;display:flex;gap:1.5rem;flex-wrap:wrap;">
+          <div>
+            <div class="feature-card__stat">+35%</div>
+            <div class="feature-card__stat-label">Revenus additionnels moy.</div>
+          </div>
+          <div>
+            <div class="feature-card__stat">6 mois</div>
+            <div class="feature-card__stat-label">ROI moyen constaté</div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- ── STATS STRIP ── -->
-    <section class="stats-strip" aria-label="Chiffres clés Padel Vision AI">
-      <div class="container">
-        <div class="stats-strip__inner">
-          <div class="stat-item reveal">
-            <p class="stat-item__number" data-count="3" data-suffix=" offres" aria-label="3 offres">3 offres</p>
-            <p class="stat-item__label">du court connecté au prestige</p>
-          </div>
-          <div class="stat-item reveal reveal--d1">
-            <p class="stat-item__number" data-count="4" data-suffix=" caméras" aria-label="jusqu'à 4 caméras HD">2/4 caméras</p>
-            <p class="stat-item__label">couverture HD multi-angles</p>
-          </div>
-          <div class="stat-item reveal reveal--d2">
-            <p class="stat-item__number" aria-label="scoring 100% automatique par IA">100&nbsp;%</p>
-            <p class="stat-item__label">scoring automatique par IA</p>
-          </div>
-          <div class="stat-item reveal reveal--d3">
-            <p class="stat-item__number" aria-label="stockage vidéo illimité en offre Prestige">∞</p>
-            <p class="stat-item__label">stockage vidéo (offre Prestige)</p>
-          </div>
+      <!-- Secondary cards -->
+      <div class="feature-card reveal reveal--delay-1">
+        <span class="feature-card__tag">◆ Statistiques Match</span>
+        <h3 class="feature-card__title">4 joueurs trackés en continu</h3>
+        <p class="feature-card__desc">Trajectoires, vitesses de smash et bandeja, lobs mesurés, positions au fond en verre — chaque joueur dispose de ses stats personnelles sur mobile.</p>
+      </div>
+
+      <div class="feature-card reveal reveal--delay-2">
+        <span class="feature-card__tag">◆ Application Mobile</span>
+        <h3 class="feature-card__title">Replay automatique dès la fin du match</h3>
+        <p class="feature-card__desc">L'application joueurs est incluse. Replay annoté, stats de match, évolution sur la saison. Vos joueurs progressent — et reviennent s'entraîner.</p>
+      </div>
+
+      <div class="feature-card reveal reveal--delay-3">
+        <span class="feature-card__tag">◆ Tableau de bord gérant</span>
+        <h3 class="feature-card__title">Pilotez votre club depuis une interface unifiée</h3>
+        <p class="feature-card__desc">Taux d'occupation terrain par terrain, abonnements actifs, revenus générés, alertes maintenance — toute la donnée de votre salle en un coup d'œil.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRICING ═══ -->
+<section class="section" id="offres" aria-labelledby="pricing-title">
+  <div class="container">
+    <div class="section__header reveal" style="text-align:center;">
+      <div class="section__eyebrow" style="justify-content:center;">◆ Nos Offres</div>
+      <h2 class="section__title" id="pricing-title">Trois niveaux d'équipement.<br>Un seul objectif : votre rentabilité.</h2>
+    </div>
+
+    <div class="pricing-grid reveal" style="margin-top:2rem;">
+
+      <!-- Produit 1: Court Connecté -->
+      <div class="pricing-card">
+        <div class="pricing-card__eyebrow">Offre 01</div>
+        <h3 class="pricing-card__name">Court Connecté</h3>
+        <p class="pricing-card__tagline">L'essentiel pour démarrer.</p>
+        <div class="pricing-card__rule"></div>
+        <ul class="pricing-card__features" role="list">
+          <li class="pricing-feature">Caméra HD 60fps installée par terrain</li>
+          <li class="pricing-feature">Replay automatique sur mobile dès la fin du match</li>
+          <li class="pricing-feature">Application mobile joueurs incluse</li>
+          <li class="pricing-feature">Tableau de bord gérant (réservations, fréquentation)</li>
+        </ul>
+        <div class="pricing-card__cta">
+          <a href="contact.html" class="btn btn--outline-dark" style="display:block;text-align:center;">Demander une démo →</a>
         </div>
       </div>
-    </section>
 
-    <!-- ── FEATURES — So What test appliqué ── -->
-    <section class="section" aria-labelledby="features-heading">
-      <div class="container">
-        <header class="text-center" style="margin-bottom: 3.5rem;">
-          <p class="section-label reveal">
-            <span class="section-label__dot" aria-hidden="true"></span>
-            Ce que ça change concrètement
-          </p>
-          <h2 class="section-heading reveal reveal--d1" id="features-heading">
-            Équipez votre club padel avec la technologie<br>
-            <span class="grad-text">qui fidélise vos joueurs</span>
-          </h2>
-          <p class="section-sub reveal reveal--d2" style="margin-inline: auto;">
-            Chaque fonctionnalité a été pensée pour augmenter l'attractivité et la rétention de votre club — pas juste pour faire "high-tech".
-          </p>
-        </header>
-
-        <div class="features-grid features-grid--four">
-
-          <article class="feature-card reveal">
-            <div class="feature-card__icon" aria-hidden="true">🎯</div>
-            <h3 class="feature-card__title">Zéro dispute sur le score</h3>
-            <p class="feature-card__desc">
-              L'IA suit chaque point, jeu et set en temps réel, affiché sur grand écran. Fini les conflits qui cassent l'ambiance — vos joueurs se concentrent sur leur jeu.
-            </p>
-          </article>
-
-          <article class="feature-card reveal reveal--d1">
-            <div class="feature-card__icon" aria-hidden="true">📹</div>
-            <h3 class="feature-card__title">Ne manquez aucun échange</h3>
-            <p class="feature-card__desc">
-              Jusqu'à 4 caméras HD filment chaque match sous tous les angles. Chaque joueur peut revivre son meilleur smash ou analyser ses erreurs — depuis son téléphone.
-            </p>
-          </article>
-
-          <article class="feature-card reveal reveal--d2">
-            <div class="feature-card__icon" aria-hidden="true">📊</div>
-            <h3 class="feature-card__title">Chaque joueur sait où il progresse</h3>
-            <p class="feature-card__desc">
-              Statistiques de match, distance parcourue, taux de points au filet, impacts de balle… Vos joueurs voient exactement où ils perdent des points — et reviennent s'améliorer.
-            </p>
-          </article>
-
-          <article class="feature-card reveal reveal--d3">
-            <div class="feature-card__icon" aria-hidden="true">📲</div>
-            <h3 class="feature-card__title">Des vidéos Instagram prêtes à l'emploi</h3>
-            <p class="feature-card__desc">
-              Chaque match génère automatiquement une vidéo courte au format reel. Vos joueurs partagent, votre club devient viral — sans aucune intervention de votre part.
-            </p>
-          </article>
-
-          <article class="feature-card reveal">
-            <div class="feature-card__icon" aria-hidden="true">☁️</div>
-            <h3 class="feature-card__title">6 mois de matchs stockés dans le cloud</h3>
-            <p class="feature-card__desc">
-              Vos vidéos sont sauvegardées automatiquement et accessibles de partout. Un joueur veut revoir son match d'il y a 3 mois ? C'est là, en 2 clics.
-            </p>
-          </article>
-
-          <article class="feature-card reveal reveal--d1">
-            <div class="feature-card__icon" aria-hidden="true">📱</div>
-            <h3 class="feature-card__title">Un profil joueur, comme un Strava du padel</h3>
-            <p class="feature-card__desc">
-              Chaque membre de votre club a son historique de matchs, son classement et ses vidéos. Ils reviennent régulièrement consulter leur évolution — et donc réserver plus souvent.
-            </p>
-          </article>
-
-          <article class="feature-card reveal reveal--d2">
-            <div class="feature-card__icon" aria-hidden="true">🏆</div>
-            <h3 class="feature-card__title">Un classement qui crée de la compétition</h3>
-            <p class="feature-card__desc">
-              Le ranking interne de votre club, calculé automatiquement sur les performances réelles. Vos joueurs veulent grimper — et ça se traduit en réservations supplémentaires.
-            </p>
-          </article>
-
-          <article class="feature-card reveal reveal--d3">
-            <div class="feature-card__icon" aria-hidden="true">🤖</div>
-            <h3 class="feature-card__title">Des recommandations IA personnalisées</h3>
-            <p class="feature-card__desc">
-              Notre moteur IA analyse les patterns de jeu et fournit des insights actionnables : "vous gagnez 72&nbsp;% des points quand vous attaquez le filet". Vos joueurs progressent, fidèles à votre club.
-            </p>
-          </article>
-
+      <!-- Produit 2: Club Intelligence (featured) -->
+      <div class="pricing-card pricing-card--featured" aria-label="Offre recommandée">
+        <div class="pricing-card__eyebrow">Offre 02</div>
+        <h3 class="pricing-card__name">Club Intelligence</h3>
+        <p class="pricing-card__tagline">IA complète + monétisation. Le plus populaire.</p>
+        <div class="pricing-card__rule"></div>
+        <div class="pricing-card__roi">+35% de revenus · ROI &lt; 6 mois</div>
+        <ul class="pricing-card__features" role="list">
+          <li class="pricing-feature">Tout le Court Connecté</li>
+          <li class="pricing-feature">Analyse IA temps réel (trajectoires, vitesses, heatmaps)</li>
+          <li class="pricing-feature">Statistiques de match avancées par joueur</li>
+          <li class="pricing-feature">Module d'abonnements joueurs (revenus additionnels)</li>
+          <li class="pricing-feature">Support prioritaire 7j/7</li>
+        </ul>
+        <div class="pricing-card__cta">
+          <a href="contact.html" class="btn btn--primary" style="display:block;text-align:center;">Demander une démo →</a>
         </div>
       </div>
-    </section>
 
-    <!-- ── HOW IT WORKS — 3 étapes bénéfices ── -->
-    <section class="section section--alt" aria-labelledby="how-heading">
-      <div class="container">
-        <header class="text-center" style="margin-bottom: 3.5rem;">
-          <p class="section-label reveal">
-            <span class="section-label__dot" aria-hidden="true"></span>
-            Mise en place
-          </p>
-          <h2 class="section-heading reveal reveal--d1" id="how-heading">
-            Simple à installer,<br>
-            <span class="grad-text">immédiatement opérationnel</span>
-          </h2>
-          <p class="section-sub reveal reveal--d2" style="margin-inline: auto;">
-            Pas de chantier, pas d'interruption de service. Nos ingénieurs s'occupent de tout.
-          </p>
-        </header>
-
-        <ol class="steps" aria-label="Les 3 étapes de mise en place">
-          <li class="step reveal">
-            <div class="step__number" aria-hidden="true">1</div>
-            <div class="step__body">
-              <h3 class="step__title">Installez (1 journée)</h3>
-              <p class="step__desc">Nos ingénieurs se déplacent dans votre club. Ils posent les caméras HD, l'écran de score et la tablette de contrôle. Vous n'avez rien à toucher. Dérangement zéro pour vos joueurs.</p>
-            </div>
-          </li>
-          <li class="step reveal reveal--d1">
-            <div class="step__number" aria-hidden="true">2</div>
-            <div class="step__body">
-              <h3 class="step__title">Jouez (dès le lendemain)</h3>
-              <p class="step__desc">Vos joueurs s'installent sur le court. L'IA démarre automatiquement. Le score s'affiche en temps réel. La vidéo s'enregistre. Aucun bouton à presser. Zéro arbitre requis.</p>
-            </div>
-          </li>
-          <li class="step reveal reveal--d2">
-            <div class="step__number" aria-hidden="true">3</div>
-            <div class="step__body">
-              <h3 class="step__title">Analysez (après chaque match)</h3>
-              <p class="step__desc">En fin de match, chaque joueur reçoit son bilan complet : statistiques, vidéos, classement. Votre club dispose d'un tableau de bord admin. Vos joueurs reviennent.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ── BENEFITS ── -->
-    <section class="section" aria-labelledby="benefits-heading">
-      <div class="container">
-        <div class="benefits-layout">
-          <div class="benefits-layout__intro">
-            <p class="section-label reveal">
-              <span class="section-label__dot" aria-hidden="true"></span>
-              Vos bénéfices business
-            </p>
-            <h2 class="section-heading reveal reveal--d1" id="benefits-heading">
-              Attractivité,<br>
-              <span class="grad-text">rétention & image</span>
-            </h2>
-            <p class="section-sub reveal reveal--d2">
-              Un court connecté n'est pas seulement une technologie — c'est un avantage concurrentiel durable qui se traduit directement en chiffre d'affaires.
-            </p>
-            <a href="contact.html" class="btn btn--primary reveal reveal--d3" style="margin-top: 2rem; display: inline-flex;">
-              Je veux ça pour mon club →
-            </a>
-          </div>
-
-          <div class="benefit-list">
-            <div class="benefit-item reveal">
-              <div class="benefit-item__icon" aria-hidden="true">🎯</div>
-              <div>
-                <p class="benefit-item__title">Fluidité de jeu = engagement émotionnel</p>
-                <p class="benefit-item__desc">Sans dispute sur le score, les matchs sont plus intenses et mémorables. Vos joueurs associent votre club à des émotions positives — et reviennent.</p>
-              </div>
-            </div>
-            <div class="benefit-item reveal reveal--d1">
-              <div class="benefit-item__icon" aria-hidden="true">🏅</div>
-              <div>
-                <p class="benefit-item__title">Court vitrine pour attirer tournois et joueurs</p>
-                <p class="benefit-item__desc">Une installation high-tech vous démarque de tous les clubs de la région. Vous attirez les joueurs sérieux et les organisateurs de tournois.</p>
-              </div>
-            </div>
-            <div class="benefit-item reveal reveal--d2">
-              <div class="benefit-item__icon" aria-hidden="true">📲</div>
-              <div>
-                <p class="benefit-item__title">Contenu Instagram & TikTok = visibilité gratuite</p>
-                <p class="benefit-item__desc">Les vidéos générées auto deviennent du contenu partageable. Chaque joueur qui poste un reel depuis votre court est un ambassadeur gratuit.</p>
-              </div>
-            </div>
-            <div class="benefit-item reveal reveal--d3">
-              <div class="benefit-item__icon" aria-hidden="true">📈</div>
-              <div>
-                <p class="benefit-item__title">+15&nbsp;% de réservations en moyenne</p>
-                <p class="benefit-item__desc">Les joueurs reviennent plus souvent pour consulter leurs stats et progresser. Une mécanique de rétention naturelle qui booste votre taux d'occupation.</p>
-              </div>
-            </div>
-          </div>
+      <!-- Produit 3: Réseau Premium -->
+      <div class="pricing-card">
+        <div class="pricing-card__eyebrow">Offre 03</div>
+        <h3 class="pricing-card__name">Réseau Premium</h3>
+        <p class="pricing-card__tagline">Multi-sites et grands complexes.</p>
+        <div class="pricing-card__rule"></div>
+        <ul class="pricing-card__features" role="list">
+          <li class="pricing-feature">Tout le Club Intelligence</li>
+          <li class="pricing-feature">Gestion centralisée de plusieurs clubs</li>
+          <li class="pricing-feature">API et intégrations sur mesure</li>
+          <li class="pricing-feature">Account manager dédié</li>
+          <li class="pricing-feature">SLA garanti 99,9%</li>
+        </ul>
+        <div class="pricing-card__cta">
+          <a href="contact.html" class="btn btn--outline-dark" style="display:block;text-align:center;">Nous contacter →</a>
         </div>
       </div>
-    </section>
 
-    <!-- ── ROI SECTION ── -->
-    <section class="section" aria-labelledby="roi-heading">
-      <div class="container">
-        <div class="roi-layout">
-          <div class="roi-layout__text">
-            <p class="section-label reveal">
-              <span class="section-label__dot" aria-hidden="true"></span>
-              Retour sur investissement
-            </p>
-            <h2 class="section-heading reveal reveal--d1" id="roi-heading">
-              Combien ça rapporte<br>
-              <span class="grad-text">concrètement ?</span>
-            </h2>
-            <p class="section-sub reveal reveal--d2">
-              Un court connecté n'est pas un coût — c'est un investissement avec un retour mesurable. Voici un exemple réel.
-            </p>
-          </div>
+    </div>
 
-          <div class="roi-card reveal reveal--d1" role="region" aria-label="Exemple de calcul ROI pour un club de padel avec 4 terrains">
-            <p class="roi-card__title">Exemple — Club 4 terrains</p>
-            <dl class="roi-card__list">
-              <div class="roi-row">
-                <dt>Réservations supplémentaires estimées</dt>
-                <dd><strong>+15&nbsp;%</strong> grâce à l'attractivité</dd>
-              </div>
-              <div class="roi-row">
-                <dt>Rétention joueurs (stats + classement)</dt>
-                <dd><strong>+20&nbsp;%</strong> de fidélisation</dd>
-              </div>
-              <div class="roi-row">
-                <dt>Visibilité réseaux sociaux</dt>
-                <dd>Organique — <strong>coût&nbsp;: 0&nbsp;€</strong></dd>
-              </div>
-              <div class="roi-row roi-row--highlight">
-                <dt>Retour sur investissement estimé</dt>
-                <dd><strong>4 à 8 mois</strong> selon l'offre</dd>
-              </div>
-            </dl>
-            <a href="contact.html" class="btn btn--primary" style="width: 100%; justify-content: center; margin-top: 1.5rem;">
-              Calculer le ROI pour mon club →
-            </a>
-          </div>
+    <p style="text-align:center;margin-top:2rem;font-family:'Courier Prime',monospace;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-gray);">
+      Contrat sans engagement ◆ Démo gratuite sur votre terrain ◆ Installation &lt; 1h
+    </p>
+  </div>
+</section>
+
+<!-- ═══ SCOREBOARD / KEY FIGURES ═══ -->
+<section class="scoreboard section" aria-labelledby="scoreboard-title">
+  <div class="scoreboard__header">
+    <div class="section__eyebrow" style="justify-content:center;color:var(--gold-light);">◆ Résultats Mesurés</div>
+    <h2 class="scoreboard__title" id="scoreboard-title">Padel Vision en chiffres</h2>
+  </div>
+
+  <div class="stats-board" role="list" aria-label="Statistiques Padel Vision">
+    <div class="stat-cell reveal" role="listitem">
+      <div style="font-size:1.8rem;margin-bottom:0.75rem;" aria-hidden="true">🎥</div>
+      <div class="stat-cell__value" data-count="100" data-suffix="%">100%</div>
+      <div class="stat-cell__label">des matchs enregistrés<br>en Full HD</div>
+    </div>
+    <div class="stat-cell reveal reveal--delay-1" role="listitem">
+      <div style="font-size:1.8rem;margin-bottom:0.75rem;" aria-hidden="true">🎯</div>
+      <div class="stat-cell__value" data-count="98" data-suffix="%">98%</div>
+      <div class="stat-cell__label">précision du modèle<br>IA certifiée</div>
+    </div>
+    <div class="stat-cell reveal reveal--delay-2" role="listitem">
+      <div style="font-size:1.8rem;margin-bottom:0.75rem;" aria-hidden="true">⚡</div>
+      <div class="stat-cell__value" style="font-size:clamp(2rem,4vw,3.5rem);">&lt; 1h</div>
+      <div class="stat-cell__label">d'installation<br>par terrain</div>
+    </div>
+    <div class="stat-cell reveal reveal--delay-3" role="listitem">
+      <div style="font-size:1.8rem;margin-bottom:0.75rem;" aria-hidden="true">🏆</div>
+      <div class="stat-cell__value" data-count="200" data-suffix="+">200+</div>
+      <div class="stat-cell__label">clubs équipés<br>France &amp; Europe</div>
+    </div>
+  </div>
+
+  <!-- Data feed live -->
+  <div class="data-feed" aria-label="Données d'analyse en direct" role="log" aria-live="polite">
+    <div class="data-feed__label">◆ Live data feed — Terrains actifs</div>
+    <div class="data-feed__row" id="feed-row-1">
+      <span class="data-feed__time">14:32:08</span>
+      <span class="data-feed__event">Smash détecté · 94 km/h · Joueur A1 · Terrain 03</span>
+      <span class="data-feed__score">40 – 30</span>
+      <span class="data-feed__tag">IA</span>
+    </div>
+    <div class="data-feed__row">
+      <span class="data-feed__time">14:32:14</span>
+      <span class="data-feed__event">Bandeja · 72 km/h · Joueur B2 · Terrain 01</span>
+      <span class="data-feed__score">30 – 30</span>
+      <span class="data-feed__tag">IA</span>
+    </div>
+    <div class="data-feed__row">
+      <span class="data-feed__time">14:32:21</span>
+      <span class="data-feed__event">Lob · trajectoire 8,4m · Joueur A2 · Terrain 05</span>
+      <span class="data-feed__score">15 – 40</span>
+      <span class="data-feed__tag">IA</span>
+    </div>
+    <div class="data-feed__row">
+      <span class="data-feed__time">14:32:33</span>
+      <span class="data-feed__event">Service · 68 km/h · Zone fond en verre · Terrain 02</span>
+      <span class="data-feed__score">0 – 0</span>
+      <span class="data-feed__tag">IA</span>
+    </div>
+    <div class="data-feed__row">
+      <span class="data-feed__time">14:32:47</span>
+      <span class="data-feed__event">Déplacement · 4,2m/s · Joueur B1 · Terrain 04</span>
+      <span class="data-feed__score">Deuce</span>
+      <span class="data-feed__tag">IA</span>
+    </div>
+  </div>
+
+  <div style="padding:3rem 0 4rem;text-align:center;">
+    <a href="contact.html" class="btn btn--primary btn--lg">Demander une démonstration →</a>
+  </div>
+</section>
+
+
+<!-- ═══ CTA FINAL ═══ -->
+<section class="cta-section" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="section__eyebrow" style="justify-content:center;">◆ Prêt à passer à l'étape suivante ?</div>
+    <h2 class="cta-section__title" id="cta-title">
+      Votre terrain de <em>padel</em><br>mérite mieux qu'une caméra de surveillance.
+    </h2>
+    <p class="cta-section__lead">
+      Rejoignez les 200+ clubs qui ont transformé leur expérience joueur — et leurs revenus.
+    </p>
+    <div class="cta-section__actions">
+      <a href="contact.html" class="btn btn--primary btn--lg">Demander une démo gratuite →</a>
+      <a href="products.html" class="btn btn--outline btn--lg">Comparer les offres</a>
+    </div>
+    <p class="cta-note">
+      <span>Démo sur votre terrain</span> ◆ <span>Installation &lt; 1h</span> ◆ Contrat sans engagement
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+
+      <div class="footer__brand">
+        <a href="/" class="logo" aria-label="Padel Vision — Accueil">
+          <span class="logo__name">Padel Vision <span class="logo__dot" aria-hidden="true">·</span></span>
+          <span class="logo__sub" aria-hidden="true">Intelligence Artificielle</span>
+        </a>
+        <p class="footer__desc">Système d'analyse vidéo par IA pour salles de padel. Installation rapide, ROI mesurable, joueurs fidélisés.</p>
+        <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
+          <span class="label label--parchment">200+ clubs</span>
+          <span class="label label--parchment">France &amp; Europe</span>
         </div>
       </div>
-    </section>
 
-    <!-- ── FAQ ANTI-OBJECTIONS ── -->
-    <section class="section section--alt" aria-labelledby="faq-home-heading">
-      <div class="container" style="max-width: 760px;">
-        <header class="text-center" style="margin-bottom: 3rem;">
-          <p class="section-label reveal">
-            <span class="section-label__dot" aria-hidden="true"></span>
-            Vos questions
-          </p>
-          <h2 class="section-heading reveal reveal--d1" id="faq-home-heading">
-            Tout ce que vous voulez savoir<br>
-            <span class="grad-text">avant de décider</span>
-          </h2>
-        </header>
-
-        <dl class="faq-list" aria-label="Questions fréquentes">
-
-          <div class="faq-item reveal">
-            <dt class="faq-item__question">
-              <button class="faq-item__btn" aria-expanded="false" type="button">
-                Combien de temps dure l'installation ?
-                <span class="faq-item__chevron" aria-hidden="true">▾</span>
-              </button>
-            </dt>
-            <dd class="faq-item__answer" hidden>
-              En général une journée complète. Notre équipe installe les caméras HD, l'écran de score et la tablette, puis calibre l'IA sur votre terrain. Le lendemain matin, tout est opérationnel.
-            </dd>
-          </div>
-
-          <div class="faq-item reveal reveal--d1">
-            <dt class="faq-item__question">
-              <button class="faq-item__btn" aria-expanded="false" type="button">
-                Le système est-il compatible avec tous les types de courts ?
-                <span class="faq-item__chevron" aria-hidden="true">▾</span>
-              </button>
-            </dt>
-            <dd class="faq-item__answer" hidden>
-              Oui. Que votre court soit indoor, outdoor, avec ou sans éclairage spécifique, notre système s'adapte. Nous réalisons une analyse préalable lors de la consultation gratuite.
-            </dd>
-          </div>
-
-          <div class="faq-item reveal reveal--d2">
-            <dt class="faq-item__question">
-              <button class="faq-item__btn" aria-expanded="false" type="button">
-                Mes joueurs doivent-ils télécharger une application ?
-                <span class="faq-item__chevron" aria-hidden="true">▾</span>
-              </button>
-            </dt>
-            <dd class="faq-item__answer" hidden>
-              Non. Tout est accessible via navigateur web depuis mobile ou ordinateur. Aucune application à installer, aucune friction pour vos joueurs.
-            </dd>
-          </div>
-
-          <div class="faq-item reveal reveal--d3">
-            <dt class="faq-item__question">
-              <button class="faq-item__btn" aria-expanded="false" type="button">
-                Que se passe-t-il si le matériel tombe en panne ?
-                <span class="faq-item__chevron" aria-hidden="true">▾</span>
-              </button>
-            </dt>
-            <dd class="faq-item__answer" hidden>
-              Nous offrons une garantie matérielle et un support technique réactif. En cas de panne, un remplacement est effectué sous 48 heures. Vous n'êtes jamais laissé sans solution.
-            </dd>
-          </div>
-
-          <div class="faq-item reveal reveal--d1">
-            <dt class="faq-item__question">
-              <button class="faq-item__btn" aria-expanded="false" type="button">
-                Êtes-vous les seuls sur ce marché en France ?
-                <span class="faq-item__chevron" aria-hidden="true">▾</span>
-              </button>
-            </dt>
-            <dd class="faq-item__answer" hidden>
-              Oui. Padel Vision AI est la première solution française de scoring IA automatique pour le padel. En choisissant notre système maintenant, votre club bénéficie d'un avantage concurrentiel durable avant vos concurrents.
-            </dd>
-          </div>
-
-          <div class="faq-item reveal reveal--d2">
-            <dt class="faq-item__question">
-              <button class="faq-item__btn" aria-expanded="false" type="button">
-                Puis-je changer d'offre après l'installation ?
-                <span class="faq-item__chevron" aria-hidden="true">▾</span>
-              </button>
-            </dt>
-            <dd class="faq-item__answer" hidden>
-              Absolument. Nos offres sont conçues pour évoluer. Il est possible de passer du Court Connecté au Court Intelligent, puis au Court Prestige à tout moment, sans réinstallation complète.
-            </dd>
-          </div>
-
-        </dl>
+      <div>
+        <div class="footer__heading">Navigation</div>
+        <ul class="footer__links" role="list">
+          <li><a href="/" class="footer__link">Accueil</a></li>
+          <li><a href="products.html" class="footer__link">Nos offres</a></li>
+          <li><a href="comparatif-cameras-padel.html" class="footer__link">Comparatif caméras</a></li>
+          <li><a href="contact.html" class="footer__link">Contact</a></li>
+          <li><a href="contact.html" class="footer__link">Demander une démo</a></li>
+        </ul>
       </div>
-    </section>
 
-    <!-- ── CTA BANNER ── -->
-    <section class="section" aria-labelledby="cta-heading">
-      <div class="container">
-        <div class="cta-banner reveal">
-          <h2 class="cta-banner__title" id="cta-heading">
-            Prêt à connecter<br>
-            <span class="grad-text">votre court ?</span>
-          </h2>
-          <p class="cta-banner__sub">
-            Nos deux ingénieurs se déplacent gratuitement dans votre club pour une démo sur votre terrain. Sans engagement. Réponse sous 24h.
-          </p>
-          <div class="cta-banner__actions">
-            <a href="contact.html" class="btn btn--primary btn--lg">
-              Parler à un expert en 48h →
-            </a>
-            <a href="products.html" class="btn btn--outline btn--lg">
-              Voir les 3 offres
-            </a>
-          </div>
-          <!-- Risk-reversal -->
-          <p class="cta-banner__guarantee">
-            <span aria-hidden="true">💯</span>
-            Satisfaction garantie 30 jours — si vous n'êtes pas conquis, on déinstalle et on rembourse.
-          </p>
-        </div>
+      <div>
+        <div class="footer__heading">Offres</div>
+        <ul class="footer__links" role="list">
+          <li><a href="products.html" class="footer__link">Court Connecté</a></li>
+          <li><a href="products.html" class="footer__link">Club Intelligence</a></li>
+          <li><a href="products.html" class="footer__link">Réseau Premium</a></li>
+        </ul>
       </div>
-    </section>
 
-  </main>
-
-  <!-- ═══════════════════ FOOTER ═══════════════════ -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__inner">
-        <div>
-          <p class="footer__logo">Padel Vision</p>
-          <p class="footer__tagline">L'IA au service du padel</p>
-        </div>
-
-        <nav aria-label="Liens du pied de page">
-          <ul class="footer__nav" role="list">
-            <li><a href="index.html"    class="footer__nav-link">Accueil</a></li>
-            <li><a href="products.html" class="footer__nav-link">Nos offres</a></li>
-            <li><a href="contact.html"  class="footer__nav-link">Contact</a></li>
-          </ul>
-        </nav>
-
-        <address class="footer__contact" style="font-style: normal;">
-          <p class="footer__contact-item">
-            <span aria-hidden="true">📞</span>
-            <a href="tel:+33781124216">+33 7 81 12 42 16</a>
-          </p>
-          <p class="footer__contact-item">
-            <span aria-hidden="true">✉️</span>
-            <a href="mailto:padel.vision.ai@gmail.com">padel.vision.ai@gmail.com</a>
-          </p>
-          <p class="footer__contact-item">
-            <span aria-hidden="true">📍</span>
-            129 allée de Brienne, 31000 Toulouse
-          </p>
+      <div>
+        <div class="footer__heading">Contact</div>
+        <address>
+          <div class="footer__contact-item">
+            <span class="footer__contact-label">Email</span>
+            <a href="/cdn-cgi/l/email-protection#4f3f2e2b2a236139263c262021612e260f28222e2623612c2022" class="footer__link"><span class="__cf_email__" data-cfemail="87f7e6e3e2eba9f1eef4eee8e9a9e6eec7e0eae6eeeba9e4e8ea">[email&#160;protected]</span></a>
+          </div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-label">Localisation</span>
+            <span>Toulouse, France</span>
+          </div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-label">Support</span>
+            <span>7j/7 · Prioritaire</span>
+          </div>
         </address>
       </div>
 
-      <p class="footer__bottom">
-        © 2026 Padel Vision AI · Tous droits réservés ·
-        <a href="https://padelvisionai.com" class="footer__nav-link">padelvisionai.com</a>
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__legal">
+        © 2026 Padel Vision AI · Toulouse, France ·
+        <a href="mentions-legales.html">Mentions légales</a> ·
+        <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      </p>
+      <p class="footer__legal" style="color:var(--on-dark-3);">
+        200+ clubs équipés <span class="sep">◆</span> Installation &lt; 1h <span class="sep">◆</span> Démo gratuite
       </p>
     </div>
-  </footer>
-
-  <script src="assets/js/main.js" defer></script>
+  </div>
+</footer>
+<script src="main.js" defer></script>
 </body>
 </html>
