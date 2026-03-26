@@ -150,33 +150,55 @@
 
       if (!valid) return;
 
-      // Build mailto
-      const club   = (document.getElementById('f-club')    || {}).value || '';
+      // Collect values
+      const club    = (document.getElementById('f-club')    || {}).value || '';
       const name    = (document.getElementById('f-name')    || {}).value || '';
       const email   = (document.getElementById('f-email')   || {}).value || '';
       const courts  = (document.getElementById('f-courts')  || {}).value || '';
       const message = (document.getElementById('f-message') || {}).value || '';
 
-      const subject = encodeURIComponent('Demande de démo — Padel Vision AI');
-      const body    = encodeURIComponent(
-        `Nom : ${name}
-Email : ${email}
-Salle : ${club}
-Nombre de terrains : ${courts}
+      // Send via Web3Forms (static-site email service)
+      // Clé gratuite sur https://web3forms.com — entrez votre email pour en obtenir une
+      const WEB3FORMS_KEY = '2da1ea23-8dae-4789-b152-47bb8635ff84';
 
-Message :
-${message}`
-      );
+      const btn = contactForm.querySelector('[type=submit]');
+      btn.disabled = true;
+      btn.textContent = 'Envoi en cours…';
 
-      const addr = ['padel', '.', 'vision', '.', 'ai', '@', 'gmail', '.', 'com'].join('');
-      window.location.href = `mailto:${addr}?subject=${subject}&body=${body}`;
-
-      // Show success state
-      if (formSuccess && formContainer) {
-        formContainer.hidden = true;
-        formSuccess.removeAttribute('hidden');
-        formSuccess.focus();
-      }
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: 'Demande de démo — Padel Vision AI',
+          from_name: name,
+          replyto: email,
+          Nom: name,
+          Email: email,
+          Salle: club,
+          Terrains: courts,
+          Message: message || '(aucun message)'
+        })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          if (formSuccess && formContainer) {
+            formContainer.hidden = true;
+            formSuccess.removeAttribute('hidden');
+            formSuccess.focus();
+          }
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Envoyer ma demande →';
+          alert('Une erreur est survenue. Veuillez réessayer ou nous écrire directement à padel.vision.ai@gmail.com');
+        }
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.textContent = 'Envoyer ma demande →';
+        alert('Erreur réseau. Veuillez réessayer ou nous écrire directement à padel.vision.ai@gmail.com');
+      });
     });
 
     // Live inline validation on blur
