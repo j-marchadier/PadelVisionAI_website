@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nos Offres — Padel Vision · Court Connecté, Club Intelligence, Réseau Premium</title>
-  <meta name="description" content="Comparez les 3 offres Padel Vision : Court Connecté, Club Intelligence et Réseau Premium. Tableaux de fonctionnalités, ROI calculé, FAQ. Installation en moins d'une heure.">
+  <title>Nos Offres — Padel Vision · Court Connecté, Club Intelligence, Court Préstige</title>
+  <meta name="description" content="Comparez les 3 offres Padel Vision : Court Connecté, Club Intelligence et Court Préstige. Tableaux de fonctionnalités, ROI calculé, FAQ. Installation en moins d'une heure.">
   <link rel="canonical" href="https://padelvisionai.com/products.html">
   <meta property="og:title" content="Nos Offres — Padel Vision">
   <meta property="og:description" content="3 formules pour équiper votre salle de padel en analyse IA. Comparez et choisissez.">
@@ -57,7 +57,21 @@
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "WebPage",
+        "@id": "https://padelvisionai.com/products.html#webpage",
+        "url": "https://padelvisionai.com/products.html",
+        "name": "Nos Offres — Padel Vision · Court Connecté, Club Intelligence, Court Préstige",
+        "isPartOf": { "@id": "https://padelvisionai.com/#website" },
+        "about": { "@id": "https://padelvisionai.com/#organization" },
+        "description": "Comparez les 3 offres Padel Vision : Court Connecté, Club Intelligence et Court Préstige. Tableaux de fonctionnalités, ROI calculé. Installation en moins d'une heure.",
+        "inLanguage": "fr",
+        "datePublished": "2025-01-01",
+        "dateModified": "2026-03-27",
+        "breadcrumb": { "@id": "https://padelvisionai.com/products.html#breadcrumb" }
+      },
+      {
         "@type": "BreadcrumbList",
+        "@id": "https://padelvisionai.com/products.html#breadcrumb",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://padelvisionai.com/" },
           { "@type": "ListItem", "position": 2, "name": "Nos Offres", "item": "https://padelvisionai.com/products.html" }
@@ -65,7 +79,8 @@
       },
       {
         "@type": "ItemList",
-        "name": "Offres Padel Vision",
+        "@id": "https://padelvisionai.com/products.html#offer-list",
+        "name": "Offres Padel Vision AI",
         "numberOfItems": 3,
         "itemListElement": [
           {
@@ -73,10 +88,35 @@
             "position": 1,
             "item": {
               "@type": "Service",
+              "@id": "https://padelvisionai.com/products.html#court-connecte",
               "name": "Court Connecté",
               "url": "https://padelvisionai.com/products.html",
-              "description": "Caméra HD 60fps par terrain, replay automatique mobile, application joueurs, tableau de bord gérant.",
-              "provider": { "@id": "https://padelvisionai.com/#organization" }
+              "description": "Deux caméras HD 60fps par terrain, replay automatique mobile, partage réseaux sociaux, statistiques de match et par joueur. Stockage cloud 1 mois.",
+              "provider": { "@id": "https://padelvisionai.com/#organization" },
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+                "url": "https://padelvisionai.com/products.html",
+                "seller": { "@id": "https://padelvisionai.com/#organization" },
+                "priceSpecification": [
+                  {
+                    "@type": "UnitPriceSpecification",
+                    "price": "1900",
+                    "priceCurrency": "EUR",
+                    "name": "Installation",
+                    "description": "Frais d'installation unique"
+                  },
+                  {
+                    "@type": "UnitPriceSpecification",
+                    "price": "140",
+                    "priceCurrency": "EUR",
+                    "unitCode": "MON",
+                    "name": "Abonnement mensuel",
+                    "description": "140 € par mois, abonnement Court Connecté"
+                  }
+                ]
+              }
             }
           },
           {
@@ -84,10 +124,35 @@
             "position": 2,
             "item": {
               "@type": "Service",
+              "@id": "https://padelvisionai.com/products.html#club-intelligence",
               "name": "Club Intelligence",
               "url": "https://padelvisionai.com/products.html",
-              "description": "Analyse IA temps réel, trajectoires, heatmaps, statistiques avancées, module abonnements joueurs. ROI moyen inférieur à 6 mois.",
-              "provider": { "@id": "https://padelvisionai.com/#organization" }
+              "description": "Analyse IA temps réel, trajectoires de balle, heatmaps par joueur, détection smash/bandeja/lob, module abonnements joueurs. ROI inférieur à 6 mois.",
+              "provider": { "@id": "https://padelvisionai.com/#organization" },
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+                "url": "https://padelvisionai.com/products.html",
+                "seller": { "@id": "https://padelvisionai.com/#organization" },
+                "priceSpecification": [
+                  {
+                    "@type": "UnitPriceSpecification",
+                    "price": "1900",
+                    "priceCurrency": "EUR",
+                    "name": "Installation",
+                    "description": "Frais d'installation unique"
+                  },
+                  {
+                    "@type": "UnitPriceSpecification",
+                    "price": "240",
+                    "priceCurrency": "EUR",
+                    "unitCode": "MON",
+                    "name": "Abonnement mensuel",
+                    "description": "240 € par mois, abonnement Club Intelligence"
+                  }
+                ]
+              }
             }
           },
           {
@@ -95,10 +160,35 @@
             "position": 3,
             "item": {
               "@type": "Service",
-              "name": "Réseau Premium",
+              "@id": "https://padelvisionai.com/products.html#court-prestige",
+              "name": "Court Préstige",
               "url": "https://padelvisionai.com/products.html",
-              "description": "Gestion multi-clubs centralisée, API REST documentée, account manager dédié, SLA garanti 99,9%.",
-              "provider": { "@id": "https://padelvisionai.com/#organization" }
+              "description": "Gestion multi-clubs centralisée, API REST documentée, account manager dédié, SLA garanti 99,9%. Dashboard consolidé pour franchises et réseaux de clubs.",
+              "provider": { "@id": "https://padelvisionai.com/#organization" },
+              "offers": {
+                "@type": "Offer",
+                "priceCurrency": "EUR",
+                "availability": "https://schema.org/InStock",
+                "url": "https://padelvisionai.com/products.html",
+                "seller": { "@id": "https://padelvisionai.com/#organization" },
+                "priceSpecification": [
+                  {
+                    "@type": "UnitPriceSpecification",
+                    "price": "2900",
+                    "priceCurrency": "EUR",
+                    "name": "Installation",
+                    "description": "Frais d'installation unique"
+                  },
+                  {
+                    "@type": "UnitPriceSpecification",
+                    "price": "380",
+                    "priceCurrency": "EUR",
+                    "unitCode": "MON",
+                    "name": "Abonnement mensuel",
+                    "description": "380 € par mois, abonnement Court Préstige"
+                  }
+                ]
+              }
             }
           }
         ]
@@ -299,7 +389,7 @@
         <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:1.5rem;">
           <div>
             <span style="font-family:'Courier Prime',monospace;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold-light);margin-bottom:0.75rem;display:block;">◆ Offre 03</span>
-            <h3 style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--parchment);margin-bottom:0.5rem;line-height:1.1;" id="p3-title">Réseau Premium</h3>
+            <h3 style="font-family:var(--font-display);font-size:2rem;font-weight:700;color:var(--parchment);margin-bottom:0.5rem;line-height:1.1;" id="p3-title">Court Préstige</h3>
             <p style="font-family:var(--font-refined);font-size:1.1rem;font-style:italic;color:var(--on-dark-2);">Multi-sites et grands complexes.</p>
           </div>
           <div style="display:flex;flex-direction:column;align-items:flex-end;gap:0.4rem;">
@@ -377,7 +467,7 @@
               <span class="compare-table__product-sub">Offre 02 · Recommandée</span>
             </th>
             <th scope="col">
-              <span class="compare-table__product-name">Réseau Premium</span>
+              <span class="compare-table__product-name">Court Préstige</span>
               <span class="compare-table__product-sub">Offre 03</span>
             </th>
           </tr>
@@ -593,7 +683,7 @@
         <ul class="footer__links" role="list">
           <li><a href="products.html" class="footer__link">Court Connecté</a></li>
           <li><a href="products.html" class="footer__link">Club Intelligence</a></li>
-          <li><a href="products.html" class="footer__link">Réseau Premium</a></li>
+          <li><a href="products.html" class="footer__link">Court Préstige</a></li>
         </ul>
       </div>
       <div>

@@ -63,29 +63,69 @@
       {
         "@type": "Organization",
         "@id": "https://padelvisionai.com/#organization",
-        "name": "Padel Vision",
-        "alternateName": "Padel Vision AI",
+        "name": "Padel Vision AI",
+        "alternateName": "Padel Vision",
         "url": "https://padelvisionai.com",
         "email": "padel.vision.ai@gmail.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://padelvisionai.com/assets/images/og-padelvision.png",
+          "width": 1200,
+          "height": 630
+        },
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Toulouse",
           "addressRegion": "Occitanie",
           "addressCountry": "FR"
         },
-        "description": "Système d'analyse vidéo par IA pour salles de padel. Score 100% automatique, replays annotés, statistiques avancées, revenus additionnels pour clubs.",
-        "sameAs": []
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "padel.vision.ai@gmail.com",
+          "contactType": "sales",
+          "availableLanguage": "French",
+          "areaServed": "FR"
+        },
+        "description": "Système d'analyse vidéo par IA pour salles de padel. Score 100% automatique, replays annotés, statistiques avancées, revenus additionnels pour clubs."
       },
       {
         "@type": "WebSite",
         "@id": "https://padelvisionai.com/#website",
-        "name": "Padel Vision",
+        "name": "Padel Vision AI",
         "url": "https://padelvisionai.com",
         "inLanguage": "fr",
-        "publisher": { "@id": "https://padelvisionai.com/#organization" }
+        "publisher": { "@id": "https://padelvisionai.com/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://padelvisionai.com/?s={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://padelvisionai.com/#webpage",
+        "url": "https://padelvisionai.com/",
+        "name": "Caméra Padel IA — Analyse Vidéo Automatique | Padel Vision",
+        "isPartOf": { "@id": "https://padelvisionai.com/#website" },
+        "about": { "@id": "https://padelvisionai.com/#organization" },
+        "description": "Padel Vision équipe vos terrains de caméras IA HD. Score 100% automatique grâce à l'IA. Vidéo HD 60fps, statistiques avancées, revenus additionnels. Installation rapide.",
+        "inLanguage": "fr",
+        "datePublished": "2025-01-01",
+        "dateModified": "2026-03-27"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://padelvisionai.com/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://padelvisionai.com/" }
+        ]
       },
       {
         "@type": "SoftwareApplication",
+        "@id": "https://padelvisionai.com/#app",
         "name": "Padel Vision — Application Joueurs",
         "applicationCategory": "SportsApplication",
         "operatingSystem": "iOS, Android",
@@ -98,35 +138,29 @@
         "publisher": { "@id": "https://padelvisionai.com/#organization" }
       },
       {
-        "@type": "WebPage",
-        "@id": "https://padelvisionai.com/#webpage",
-        "url": "https://padelvisionai.com/",
-        "name": "Caméra Padel IA — Analyse Vidéo Automatique | Padel Vision",
-        "isPartOf": { "@id": "https://padelvisionai.com/#website" },
-        "about": { "@id": "https://padelvisionai.com/#organization" },
-        "description": "Padel Vision équipe vos terrains de caméras IA HD. Score 100% automatique grâce à l'IA. Vidéo HD 60fps, statistiques avancées, revenus additionnels. Installation rapide.",
-        "inLanguage": "fr"
-      },
-      {
         "@type": "Product",
         "@id": "https://padelvisionai.com/#product-camera",
-        "name": "Caméra Padel Vision AI",
+        "name": "Système Caméra Padel Vision AI",
         "description": "Caméra HD 60fps avec analyse IA en temps réel pour terrains de padel. Détection automatique du score, trajectoires de balle, heatmaps et statistiques avancées.",
-        "brand": { "@type": "Brand", "name": "Padel Vision" },
+        "brand": { "@type": "Brand", "name": "Padel Vision AI" },
         "manufacturer": { "@id": "https://padelvisionai.com/#organization" },
         "category": "Caméra de sport intelligente",
         "offers": {
-          "@type": "Offer",
-          "seller": { "@id": "https://padelvisionai.com/#organization" },
+          "@type": "AggregateOffer",
+          "offerCount": 3,
+          "lowPrice": "1900",
+          "highPrice": "2900",
           "priceCurrency": "EUR",
           "availability": "https://schema.org/InStock",
-          "url": "https://padelvisionai.com/products.html"
+          "url": "https://padelvisionai.com/products.html",
+          "seller": { "@id": "https://padelvisionai.com/#organization" }
         }
       },
       {
         "@type": "Service",
         "@id": "https://padelvisionai.com/#service",
         "name": "Système d'analyse vidéo IA pour clubs de padel",
+        "url": "https://padelvisionai.com/products.html",
         "description": "Installation de caméras IA sur terrains de padel avec analyse en temps réel, score automatique, replays annotés et statistiques avancées pour les joueurs.",
         "provider": { "@id": "https://padelvisionai.com/#organization" },
         "serviceType": "Analyse vidéo sportive par intelligence artificielle",
@@ -545,7 +579,7 @@
         </div>
       </div>
 
-      <!-- Produit 3: Réseau Premium -->
+      <!-- Produit 3: Court Préstige -->
       <div class="pricing-card pricing-card--featured">
         <div class="pricing-card__eyebrow">Offre 03</div>
         <h3 class="pricing-card__name">Court Préstige</h3>
@@ -664,7 +698,7 @@
         <ul class="footer__links" role="list">
           <li><a href="products.html" class="footer__link">Court Connecté</a></li>
           <li><a href="products.html" class="footer__link">Club Intelligence</a></li>
-          <li><a href="products.html" class="footer__link">Réseau Premium</a></li>
+          <li><a href="products.html" class="footer__link">Court Préstige</a></li>
         </ul>
       </div>
 

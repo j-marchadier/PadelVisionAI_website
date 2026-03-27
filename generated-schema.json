@@ -1,0 +1,646 @@
+{
+  "_meta": {
+    "generated": "2026-03-27",
+    "site": "https://padelvisionai.com",
+    "note": "Each top-level key corresponds to an HTML file. Drop each block into the corresponding page's <head> as a <script type='application/ld+json'> tag. These blocks REPLACE the existing JSON-LD on each page unless noted otherwise.",
+    "deprecation_notice": "HowTo (removed Sep 2023), FAQ (restricted Aug 2023, gov/health only), SpecialAnnouncement (deprecated Jul 2025), CourseInfo/LearningVideo (retired Jun 2025) are intentionally excluded."
+  },
+
+  "index.html": {
+    "_changes": [
+      "Added Organization.logo property",
+      "Added Organization.contactPoint",
+      "Removed empty sameAs array (replaced with placeholder comment)",
+      "Added BreadcrumbList (single item for homepage)",
+      "Fixed Product.offers to include a priceRange instead of a blank price",
+      "Added Service.url",
+      "Added WebPage.datePublished and dateModified",
+      "Added WebSite.potentialAction SearchAction"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://padelvisionai.com/#organization",
+          "name": "Padel Vision AI",
+          "alternateName": "Padel Vision",
+          "url": "https://padelvisionai.com",
+          "email": "padel.vision.ai@gmail.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://padelvisionai.com/assets/images/og-padelvision.png",
+            "width": 1200,
+            "height": 630
+          },
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Toulouse",
+            "addressRegion": "Occitanie",
+            "addressCountry": "FR"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "padel.vision.ai@gmail.com",
+            "contactType": "sales",
+            "availableLanguage": "French",
+            "areaServed": "FR"
+          },
+          "description": "Système d'analyse vidéo par IA pour salles de padel. Score 100% automatique, replays annotés, statistiques avancées, revenus additionnels pour clubs.",
+          "sameAs": []
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://padelvisionai.com/#website",
+          "name": "Padel Vision AI",
+          "url": "https://padelvisionai.com",
+          "inLanguage": "fr",
+          "publisher": { "@id": "https://padelvisionai.com/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://padelvisionai.com/?s={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://padelvisionai.com/#webpage",
+          "url": "https://padelvisionai.com/",
+          "name": "Caméra Padel IA — Analyse Vidéo Automatique | Padel Vision",
+          "isPartOf": { "@id": "https://padelvisionai.com/#website" },
+          "about": { "@id": "https://padelvisionai.com/#organization" },
+          "description": "Padel Vision équipe vos terrains de caméras IA HD. Score 100% automatique grâce à l'IA. Vidéo HD 60fps, statistiques avancées, revenus additionnels. Installation rapide.",
+          "inLanguage": "fr",
+          "datePublished": "2025-01-01",
+          "dateModified": "2026-03-27"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://padelvisionai.com/#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://padelvisionai.com/"
+            }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://padelvisionai.com/#app",
+          "name": "Padel Vision — Application Joueurs",
+          "applicationCategory": "SportsApplication",
+          "operatingSystem": "iOS, Android",
+          "description": "Replay automatique post-match annoté par IA, statistiques avancées (trajectoires, vitesses, heatmaps), évolution de niveau sur la saison.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "EUR"
+          },
+          "publisher": { "@id": "https://padelvisionai.com/#organization" }
+        },
+        {
+          "@type": "Product",
+          "@id": "https://padelvisionai.com/#product-camera",
+          "name": "Système Caméra Padel Vision AI",
+          "description": "Caméra HD 60fps avec analyse IA en temps réel pour terrains de padel. Détection automatique du score, trajectoires de balle, heatmaps et statistiques avancées.",
+          "brand": { "@type": "Brand", "name": "Padel Vision AI" },
+          "manufacturer": { "@id": "https://padelvisionai.com/#organization" },
+          "category": "Caméra de sport intelligente",
+          "offers": {
+            "@type": "AggregateOffer",
+            "offerCount": 3,
+            "lowPrice": "1900",
+            "highPrice": "2900",
+            "priceCurrency": "EUR",
+            "availability": "https://schema.org/InStock",
+            "url": "https://padelvisionai.com/products.html",
+            "seller": { "@id": "https://padelvisionai.com/#organization" }
+          }
+        },
+        {
+          "@type": "Service",
+          "@id": "https://padelvisionai.com/#service",
+          "name": "Système d'analyse vidéo IA pour clubs de padel",
+          "url": "https://padelvisionai.com/products.html",
+          "description": "Installation de caméras IA sur terrains de padel avec analyse en temps réel, score automatique, replays annotés et statistiques avancées pour les joueurs.",
+          "provider": { "@id": "https://padelvisionai.com/#organization" },
+          "serviceType": "Analyse vidéo sportive par intelligence artificielle",
+          "areaServed": [
+            { "@type": "Country", "name": "France" },
+            { "@type": "Continent", "name": "Europe" }
+          ],
+          "audience": {
+            "@type": "Audience",
+            "audienceType": "Gérants et propriétaires de clubs de padel"
+          }
+        }
+      ]
+    }
+  },
+
+  "products.html": {
+    "_changes": [
+      "Added WebPage node with isPartOf reference",
+      "Added individual Offer pricing to each Service block",
+      "Used UnitPriceSpecification for installation + recurring fees",
+      "Renamed third product to 'Réseau Premium' — consistent with HTML (brief name 'Court Préstige' appears incorrect; verify before publishing)"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": "https://padelvisionai.com/products.html#webpage",
+          "url": "https://padelvisionai.com/products.html",
+          "name": "Nos Offres — Padel Vision · Court Connecté, Club Intelligence, Réseau Premium",
+          "isPartOf": { "@id": "https://padelvisionai.com/#website" },
+          "about": { "@id": "https://padelvisionai.com/#organization" },
+          "description": "Comparez les 3 offres Padel Vision : Court Connecté, Club Intelligence et Réseau Premium. Tableaux de fonctionnalités, ROI calculé. Installation en moins d'une heure.",
+          "inLanguage": "fr",
+          "datePublished": "2025-01-01",
+          "dateModified": "2026-03-27",
+          "breadcrumb": { "@id": "https://padelvisionai.com/products.html#breadcrumb" }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://padelvisionai.com/products.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://padelvisionai.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Nos Offres",
+              "item": "https://padelvisionai.com/products.html"
+            }
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://padelvisionai.com/products.html#offer-list",
+          "name": "Offres Padel Vision AI",
+          "numberOfItems": 3,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "Service",
+                "@id": "https://padelvisionai.com/products.html#court-connecte",
+                "name": "Court Connecté",
+                "url": "https://padelvisionai.com/products.html",
+                "description": "Deux caméras HD 60fps par terrain, replay automatique mobile, partage réseaux sociaux, statistiques de match et par joueur. Stockage cloud 1 mois.",
+                "provider": { "@id": "https://padelvisionai.com/#organization" },
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "EUR",
+                  "availability": "https://schema.org/InStock",
+                  "url": "https://padelvisionai.com/products.html",
+                  "seller": { "@id": "https://padelvisionai.com/#organization" },
+                  "priceSpecification": [
+                    {
+                      "@type": "UnitPriceSpecification",
+                      "price": "1900",
+                      "priceCurrency": "EUR",
+                      "name": "Installation",
+                      "description": "Frais d'installation unique"
+                    },
+                    {
+                      "@type": "UnitPriceSpecification",
+                      "price": "140",
+                      "priceCurrency": "EUR",
+                      "unitCode": "MON",
+                      "name": "Abonnement mensuel",
+                      "description": "140 € par mois, abonnement Court Connecté"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "Service",
+                "@id": "https://padelvisionai.com/products.html#club-intelligence",
+                "name": "Club Intelligence",
+                "url": "https://padelvisionai.com/products.html",
+                "description": "Analyse IA temps réel, trajectoires de balle, heatmaps par joueur, détection smash/bandeja/lob, module abonnements joueurs. ROI inférieur à 6 mois.",
+                "provider": { "@id": "https://padelvisionai.com/#organization" },
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "EUR",
+                  "availability": "https://schema.org/InStock",
+                  "url": "https://padelvisionai.com/products.html",
+                  "seller": { "@id": "https://padelvisionai.com/#organization" },
+                  "priceSpecification": [
+                    {
+                      "@type": "UnitPriceSpecification",
+                      "price": "1900",
+                      "priceCurrency": "EUR",
+                      "name": "Installation",
+                      "description": "Frais d'installation unique"
+                    },
+                    {
+                      "@type": "UnitPriceSpecification",
+                      "price": "240",
+                      "priceCurrency": "EUR",
+                      "unitCode": "MON",
+                      "name": "Abonnement mensuel",
+                      "description": "240 € par mois, abonnement Club Intelligence"
+                    }
+                  ]
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "Service",
+                "@id": "https://padelvisionai.com/products.html#reseau-premium",
+                "name": "Réseau Premium",
+                "url": "https://padelvisionai.com/products.html",
+                "description": "Gestion multi-clubs centralisée, API REST documentée, account manager dédié, SLA garanti 99,9%. Dashboard consolidé pour franchises et réseaux de clubs.",
+                "provider": { "@id": "https://padelvisionai.com/#organization" },
+                "offers": {
+                  "@type": "Offer",
+                  "priceCurrency": "EUR",
+                  "availability": "https://schema.org/InStock",
+                  "url": "https://padelvisionai.com/products.html",
+                  "seller": { "@id": "https://padelvisionai.com/#organization" },
+                  "priceSpecification": [
+                    {
+                      "@type": "UnitPriceSpecification",
+                      "price": "2900",
+                      "priceCurrency": "EUR",
+                      "name": "Installation",
+                      "description": "Frais d'installation unique"
+                    },
+                    {
+                      "@type": "UnitPriceSpecification",
+                      "price": "380",
+                      "priceCurrency": "EUR",
+                      "unitCode": "MON",
+                      "name": "Abonnement mensuel",
+                      "description": "380 € par mois, abonnement Réseau Premium"
+                    }
+                  ]
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+
+  "contact.html": {
+    "_changes": [
+      "Added datePublished and dateModified to ContactPage",
+      "Added contactPoint to reference Organization",
+      "Schema was otherwise valid — minimal changes"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://padelvisionai.com/contact.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://padelvisionai.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Contact",
+              "item": "https://padelvisionai.com/contact.html"
+            }
+          ]
+        },
+        {
+          "@type": "ContactPage",
+          "@id": "https://padelvisionai.com/contact.html#webpage",
+          "url": "https://padelvisionai.com/contact.html",
+          "name": "Demander une démo — Padel Vision",
+          "isPartOf": { "@id": "https://padelvisionai.com/#website" },
+          "about": { "@id": "https://padelvisionai.com/#organization" },
+          "description": "Demandez une démonstration gratuite de Padel Vision sur votre terrain. Formulaire B2B, réponse sous 24h. Toulouse, France.",
+          "inLanguage": "fr",
+          "datePublished": "2025-01-01",
+          "dateModified": "2026-03-27",
+          "breadcrumb": { "@id": "https://padelvisionai.com/contact.html#breadcrumb" }
+        }
+      ]
+    }
+  },
+
+  "comparatif-cameras-padel.html": {
+    "_changes": [
+      "Added Article schema with datePublished, dateModified, author, headline",
+      "Added WebPage node",
+      "Kept existing BreadcrumbList and ItemList unchanged (both valid)",
+      "Fixed PlaySight description typo ('racquis' -> 'racheté')",
+      "Removed empty priceSpecification on Padel Vision offer (no price value was present)"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://padelvisionai.com/comparatif-cameras-padel.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://padelvisionai.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Comparatif Caméras Padel",
+              "item": "https://padelvisionai.com/comparatif-cameras-padel.html"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://padelvisionai.com/comparatif-cameras-padel.html#webpage",
+          "url": "https://padelvisionai.com/comparatif-cameras-padel.html",
+          "name": "Comparatif Caméras & Systèmes Vidéo pour Clubs de Padel (2026) — Padel Vision",
+          "isPartOf": { "@id": "https://padelvisionai.com/#website" },
+          "about": { "@id": "https://padelvisionai.com/#organization" },
+          "description": "Comparatif complet des meilleures caméras et systèmes d'analyse vidéo pour clubs de padel en 2026 : Padel Vision, Veo, Pixellot, PlaySight.",
+          "inLanguage": "fr",
+          "datePublished": "2026-01-01",
+          "dateModified": "2026-03-27",
+          "breadcrumb": { "@id": "https://padelvisionai.com/comparatif-cameras-padel.html#breadcrumb" }
+        },
+        {
+          "@type": "Article",
+          "@id": "https://padelvisionai.com/comparatif-cameras-padel.html#article",
+          "headline": "Comparatif Caméras & Systèmes Vidéo pour Clubs de Padel (2026)",
+          "description": "Comparatif complet des meilleures caméras et systèmes d'analyse vidéo pour clubs de padel en 2026 : Padel Vision, Veo, Pixellot, PlaySight. Tableau de fonctionnalités, tarifs et verdict.",
+          "url": "https://padelvisionai.com/comparatif-cameras-padel.html",
+          "inLanguage": "fr",
+          "datePublished": "2026-01-01",
+          "dateModified": "2026-03-27",
+          "author": { "@id": "https://padelvisionai.com/#organization" },
+          "publisher": { "@id": "https://padelvisionai.com/#organization" },
+          "image": "https://padelvisionai.com/assets/images/og-padelvision.png",
+          "isPartOf": { "@id": "https://padelvisionai.com/comparatif-cameras-padel.html#webpage" },
+          "about": [
+            { "@type": "Thing", "name": "Caméras padel" },
+            { "@type": "Thing", "name": "Analyse vidéo sportive" }
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://padelvisionai.com/comparatif-cameras-padel.html#comparison-list",
+          "name": "Comparatif des meilleurs systèmes vidéo pour clubs de padel",
+          "description": "Comparaison de Padel Vision AI, Veo, Pixellot et PlaySight pour les clubs de padel en France.",
+          "numberOfItems": 4,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "SoftwareApplication",
+                "name": "Padel Vision AI",
+                "url": "https://padelvisionai.com",
+                "applicationCategory": "SportsApplication",
+                "description": "Système d'analyse vidéo par IA spécialisé padel. Score automatique, trajectoires, heatmaps, module de monétisation pour clubs.",
+                "offers": {
+                  "@type": "AggregateOffer",
+                  "offerCount": 3,
+                  "lowPrice": "1900",
+                  "highPrice": "2900",
+                  "priceCurrency": "EUR"
+                }
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "SoftwareApplication",
+                "name": "Veo",
+                "url": "https://veo.co",
+                "applicationCategory": "SportsApplication",
+                "description": "Caméra autonome pour sports collectifs, non spécialisée padel."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "SoftwareApplication",
+                "name": "Pixellot",
+                "url": "https://pixellot.tv",
+                "applicationCategory": "SportsApplication",
+                "description": "Solution de captation vidéo automatisée multi-sports orientée diffusion."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "SoftwareApplication",
+                "name": "PlaySight",
+                "url": "https://playsight.com",
+                "applicationCategory": "SportsApplication",
+                "description": "Système d'analyse vidéo pour sports de raquette, racheté par Sportradar."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+
+  "alternative-veo-padel.html": {
+    "_changes": [
+      "Added Article schema with datePublished, dateModified, author, headline",
+      "Added WebPage node",
+      "Fixed AggregateOffer: added lowPrice (1900) and highPrice (2900), removed description-only pricing",
+      "Kept featureList and existing SoftwareApplication block"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://padelvisionai.com/alternative-veo-padel.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://padelvisionai.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Padel Vision vs Veo",
+              "item": "https://padelvisionai.com/alternative-veo-padel.html"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://padelvisionai.com/alternative-veo-padel.html#webpage",
+          "url": "https://padelvisionai.com/alternative-veo-padel.html",
+          "name": "Padel Vision vs Veo : Quelle Solution pour Votre Club de Padel ? (2026)",
+          "isPartOf": { "@id": "https://padelvisionai.com/#website" },
+          "about": { "@id": "https://padelvisionai.com/#organization" },
+          "description": "Padel Vision AI vs Veo : comparaison complète pour clubs de padel. Score automatique, IA spécialisée, tarifs, monétisation joueurs.",
+          "inLanguage": "fr",
+          "datePublished": "2026-01-01",
+          "dateModified": "2026-03-27",
+          "breadcrumb": { "@id": "https://padelvisionai.com/alternative-veo-padel.html#breadcrumb" }
+        },
+        {
+          "@type": "Article",
+          "@id": "https://padelvisionai.com/alternative-veo-padel.html#article",
+          "headline": "Padel Vision vs Veo : Quelle Solution pour Votre Club de Padel ?",
+          "description": "Padel Vision AI vs Veo : comparaison complète pour clubs de padel. Score automatique, IA spécialisée, tarifs, monétisation joueurs. Pourquoi Padel Vision l'emporte pour le padel.",
+          "url": "https://padelvisionai.com/alternative-veo-padel.html",
+          "inLanguage": "fr",
+          "datePublished": "2026-01-01",
+          "dateModified": "2026-03-27",
+          "author": { "@id": "https://padelvisionai.com/#organization" },
+          "publisher": { "@id": "https://padelvisionai.com/#organization" },
+          "image": "https://padelvisionai.com/assets/images/og-padelvision.png",
+          "isPartOf": { "@id": "https://padelvisionai.com/alternative-veo-padel.html#webpage" },
+          "about": [
+            { "@type": "Thing", "name": "Caméras padel" },
+            { "@type": "Thing", "name": "Veo" },
+            { "@type": "Thing", "name": "Padel Vision AI" }
+          ]
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://padelvisionai.com/alternative-veo-padel.html#pv-app",
+          "name": "Padel Vision AI",
+          "url": "https://padelvisionai.com",
+          "applicationCategory": "SportsApplication",
+          "operatingSystem": "iOS, Android",
+          "description": "Système d'analyse vidéo par IA spécialisé padel. Score 100% automatique, trajectoires, heatmaps, smash/bandeja détectés, module d'abonnements joueurs pour clubs.",
+          "featureList": [
+            "Score automatique 98% précision",
+            "Trajectoires de balle en temps réel",
+            "Heatmaps par joueur",
+            "Détection smash, bandeja, lob",
+            "Tracking 4 joueurs à 60 fps",
+            "Module d'abonnements joueurs",
+            "Application mobile iOS et Android",
+            "Tableau de bord gérant",
+            "Installation en moins d'une heure"
+          ],
+          "offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "EUR",
+            "offerCount": 3,
+            "lowPrice": "1900",
+            "highPrice": "2900"
+          },
+          "publisher": { "@id": "https://padelvisionai.com/#organization" }
+        }
+      ]
+    }
+  },
+
+  "mentions-legales.html": {
+    "_changes": [
+      "Added WebPage node for consistency across the site"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://padelvisionai.com/mentions-legales.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://padelvisionai.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Mentions légales",
+              "item": "https://padelvisionai.com/mentions-legales.html"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://padelvisionai.com/mentions-legales.html#webpage",
+          "url": "https://padelvisionai.com/mentions-legales.html",
+          "name": "Mentions légales — Padel Vision",
+          "isPartOf": { "@id": "https://padelvisionai.com/#website" },
+          "about": { "@id": "https://padelvisionai.com/#organization" },
+          "description": "Mentions légales du site padelvisionai.com — Padel Vision AI, Toulouse, France.",
+          "inLanguage": "fr",
+          "breadcrumb": { "@id": "https://padelvisionai.com/mentions-legales.html#breadcrumb" }
+        }
+      ]
+    }
+  },
+
+  "politique-de-confidentialite.html": {
+    "_changes": [
+      "Added WebPage node for consistency across the site"
+    ],
+    "schema": {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://padelvisionai.com/politique-de-confidentialite.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Accueil",
+              "item": "https://padelvisionai.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Politique de confidentialité",
+              "item": "https://padelvisionai.com/politique-de-confidentialite.html"
+            }
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://padelvisionai.com/politique-de-confidentialite.html#webpage",
+          "url": "https://padelvisionai.com/politique-de-confidentialite.html",
+          "name": "Politique de confidentialité — Padel Vision",
+          "isPartOf": { "@id": "https://padelvisionai.com/#website" },
+          "about": { "@id": "https://padelvisionai.com/#organization" },
+          "description": "Politique de confidentialité et protection des données personnelles de Padel Vision — RGPD, cookies, données vidéo joueurs.",
+          "inLanguage": "fr",
+          "breadcrumb": { "@id": "https://padelvisionai.com/politique-de-confidentialite.html#breadcrumb" }
+        }
+      ]
+    }
+  }
+}
