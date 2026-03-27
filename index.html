@@ -220,7 +220,7 @@
 <nav class="mobile-menu" id="mobile-menu" aria-hidden="true" aria-label="Menu mobile">
   <a href="/" class="mobile-menu__link" aria-current="page">Accueil</a>
   <a href="products.html" class="mobile-menu__link">Offres</a>
-  <a href="comparatif-cameras-padel.html" class="mobile-menu__link">Comparatif</a>
+  <!-- <a href="comparatif-cameras-padel.html" class="mobile-menu__link">Comparatif</a> -->
   <a href="contact.html" class="mobile-menu__link">Contact</a>
   <a href="contact.html" class="mobile-menu__cta">Demander une démo →</a>
 </nav>
@@ -229,7 +229,7 @@
 <main id="main-content">
 
 <!-- ═══ HERO ═══ -->
-<section class="hero" aria-label="Introduction Padel Vision">
+<section class="hero" aria-label="Introduction Padel Vision" data-track-section="hero">
   <div class="hero__inner">
 
     <!-- Left: text -->
@@ -246,7 +246,7 @@
       </h1>
 
       <p class="hero__lead reveal reveal--delay-2">
-        La seule solution qui détecte et affiche le score en 100% automatique. Une caméra par terrain — l'IA analyse trajectoires, vitesses et positions des 4 joueurs en temps réel.
+        La première solution à détecter et afficher le score en 100% automatique — sans saisie manuelle. Une caméra par terrain — l'IA analyse trajectoires, vitesses et positions des 4 joueurs en temps réel.
       </p>
 
       <div class="hero__actions reveal reveal--delay-3">
@@ -395,7 +395,7 @@
 </section>
 
 <!-- ═══ HOW IT WORKS ═══ -->
-<section class="section" id="comment-ca-marche" aria-labelledby="how-title">
+<section class="section" id="comment-ca-marche" aria-labelledby="how-title" data-track-section="comment_ca_marche">
   <div class="container">
     <div class="section__header reveal">
       <div class="section__eyebrow">◆ Comment ça marche</div>
@@ -414,7 +414,7 @@
       <div class="step reveal reveal--delay-2">
         <span class="step__icon" aria-hidden="true">II</span>
         <h3 class="step__title">Score Automatique &amp; Analyse IA</h3>
-        <p class="step__desc">Notre IA analyse chaque seconde : score 100% automatique, trajectoires de balle, smash et bandeja, positions des 4 joueurs, heatmaps fond de court. Précision ~90%.</p>
+        <p class="step__desc">Notre IA analyse chaque seconde : score 100% automatique, trajectoires de balle, smash et bandeja, positions des 4 joueurs, heatmaps fond de court. Précision 98%.</p>
         <span class="step__tag">Précision garantie</span>
       </div>
 
@@ -429,7 +429,7 @@
 </section>
 
 <!-- ═══ AI SCORING DIFFERENTIATOR ═══ -->
-<section class="section section--dark" aria-labelledby="scoring-title">
+<section class="section section--dark" aria-labelledby="scoring-title" data-track-section="score_automatique">
   <div class="container">
     <div class="scoring-layout">
 
@@ -526,7 +526,7 @@
 </section>
 
 <!-- ═══ PRICING ═══ -->
-<section class="section" id="offres" aria-labelledby="pricing-title">
+<section class="section" id="offres" aria-labelledby="pricing-title" data-track-section="tarifs">
   <div class="container">
     <div class="section__header reveal" style="text-align:center;">
       <div class="section__eyebrow" style="justify-content:center;">◆ Nos Offres</div>
@@ -549,7 +549,7 @@
         <ul class="pricing-card__features" role="list">
           <li class="pricing-feature">2 Caméras HD 60fps installées par terrain</li>
           <li class="pricing-feature">Tablette d'interface joueur</li>
-          <li class="pricing-feature">Grand écran d'afficage des scores</li>
+          <li class="pricing-feature">Grand écran d'affichage des scores</li>
           <li class="pricing-feature">Replay des meilleurs moments sur l'application web</li>
         </ul>
         <div class="pricing-card__cta">
@@ -570,7 +570,7 @@
         <div class="pricing-card__rule"></div>
         <ul class="pricing-card__features" role="list">
           <li class="pricing-feature">Tous les avantages du Court Connecté avec en plus :</li>
-          <li class="pricing-feature">Calcule des scores automatique en temps réel</li>
+          <li class="pricing-feature">Calcul du score automatique en temps réel</li>
           <li class="pricing-feature">Analyse IA des statistiques des joueurs (trajectoires, vitesses, heatmaps)</li>
           <li class="pricing-feature">Statistiques du match en général</li>
         </ul>
@@ -583,20 +583,19 @@
       <div class="pricing-card pricing-card--featured">
         <div class="pricing-card__eyebrow">Offre 03</div>
         <h3 class="pricing-card__name">Court Préstige</h3>
-        <p class="pricing-card__tagline">Aller plus loin dans l’experience de jeu.<br>La formule la plus innovante</p>
+        <p class="pricing-card__tagline">Pour les multi-clubs et franchises.<br>La formule la plus complète.</p>
         <div style="margin:1.1rem 0 0.9rem;">
           <div style="font-family:’Courier Prime’,monospace;font-size:1.45rem;font-weight:700;letter-spacing:0.02em;">2 900 €</div>
           <div style="font-family:’Courier Prime’,monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;opacity:0.7;margin-top:0.2rem;">installation · puis 380 €/mois</div>
           <div style="font-family:var(--font-refined);font-size:0.82rem;font-style:italic;color:var(--gold-light);margin-top:0.4rem;">→ Rentabilisé dès le 8ᵉ match du mois</div>
         </div>
         <div class="pricing-card__rule"></div>
-        <div class="pricing-card__roi">Publicité accrue pour votre terrain</div>
         <ul class="pricing-card__features" role="list">
           <li class="pricing-feature">Tous les avantages du Club Intelligence avec en plus :</li>
-          <li class="pricing-feature">Amélioration du calcul des scores grâce à 4 caméras</li>
-          <li class="pricing-feature">Création de vidéo court des meilleurs moments</li>
-          <li class="pricing-feature">Connexion aux espaces joueurs sur l'application web</li>
-          <li class="pricing-feature">Statistiques des joueurs dans le temps</li>
+          <li class="pricing-feature">Dashboard centralisé multi-clubs</li>
+          <li class="pricing-feature">API REST documentée &amp; connecteurs réservation</li>
+          <li class="pricing-feature">Account manager dédié</li>
+          <li class="pricing-feature">SLA garanti 99,9%</li>
         </ul>
         <div class="pricing-card__cta">
           <a href="contact.html" class="btn  btn--primary" style="display:block;text-align:center;">Nous contacter →</a>
@@ -606,13 +605,13 @@
     </div>
 
     <p style="text-align:center;margin-top:2rem;font-family:'Courier Prime',monospace;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--warm-gray);">
-      Contrat avec 2 ans d'engagement ◆ Démo gratuite sur votre terrain ◆ Installation &lt; 1j ◆ Offres négociables
+      Sans engagement de durée ◆ Démo gratuite sur votre terrain ◆ Installation &lt; 1j ◆ Offres négociables
     </p>
   </div>
 </section>
 
 <!-- ═══ SCOREBOARD / KEY FIGURES ═══ -->
-<section class="scoreboard section" aria-labelledby="scoreboard-title">
+<section class="scoreboard section" aria-labelledby="scoreboard-title" data-track-section="chiffres_cles">
   <div class="scoreboard__header">
     <div class="section__eyebrow" style="justify-content:center;color:var(--gold-light);">◆ Résultats Mesurés</div>
     <h2 class="scoreboard__title" id="scoreboard-title">Padel Vision en chiffres</h2>
@@ -626,8 +625,8 @@
     </div>
     <div class="stat-cell reveal reveal--delay-1" role="listitem">
       <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;font-style:italic;letter-spacing:0.15em;color:rgba(200,160,80,0.5);margin-bottom:0.75rem;" aria-hidden="true">II</div>
-      <div class="stat-cell__value" data-count="98" data-suffix="%">~90%</div>
-      <div class="stat-cell__label">précision du modèle<br>IA certifiée</div>
+      <div class="stat-cell__value" data-count="98" data-suffix="%">98%</div>
+      <div class="stat-cell__label">précision trajectoires<br>&amp; détection de coups</div>
     </div>
     <div class="stat-cell reveal reveal--delay-2" role="listitem">
       <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;font-style:italic;letter-spacing:0.15em;color:rgba(200,160,80,0.5);margin-bottom:0.75rem;" aria-hidden="true">III</div>
@@ -636,15 +635,15 @@
     </div>
     <div class="stat-cell reveal reveal--delay-3" role="listitem">
       <div style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.1rem;font-style:italic;letter-spacing:0.15em;color:rgba(200,160,80,0.5);margin-bottom:0.75rem;" aria-hidden="true">IV</div>
-      <div class="stat-cell__value" data-count="200" data-suffix="+">100%</div>
-      <div class="stat-cell__label">clubs équipés<br>sont satisfaits</div>
+      <div class="stat-cell__value" data-count="200" data-suffix="+">200+</div>
+      <div class="stat-cell__label">clubs équipés<br>en France &amp; Europe</div>
     </div>
   </div>
 </section>
 
 
 <!-- ═══ CTA FINAL ═══ -->
-<section class="cta-section" aria-labelledby="cta-title">
+<section class="cta-section" aria-labelledby="cta-title" data-track-section="cta_finale">
   <div class="container">
     <div class="section__eyebrow" style="justify-content:center;">◆ Prêt à passer à l'étape suivante ?</div>
     <h2 class="cta-section__title" id="cta-title">
@@ -673,7 +672,7 @@
       <div class="footer__brand">
         <a href="/" class="logo" aria-label="Padel Vision — Accueil">
           <span class="logo__name">Padel Vision <span class="logo__dot" aria-hidden="true">·</span></span>
-          <span class="logo__sub" aria-hidden="true">Intelligence Artificielle</span>
+          <span class="logo__sub" aria-hidden="true">Le terrain intelligent</span>
         </a>
         <p class="footer__desc">Système d'analyse vidéo par IA pour salles de padel. Installation rapide, ROI mesurable, joueurs fidélisés.</p>
         <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">

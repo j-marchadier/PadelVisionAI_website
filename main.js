@@ -183,6 +183,7 @@
       .then(res => res.json())
       .then(data => {
         if (data.success) {
+          pushEvent('demo_requested', { courts_count: courts });
           if (formSuccess && formContainer) {
             formContainer.hidden = true;
             formSuccess.removeAttribute('hidden');
@@ -224,6 +225,68 @@
     if (href === currentPath || (currentPath === '' && href === 'index.html')) {
       link.setAttribute('aria-current', 'page');
     }
+  });
+
+  /* ─────────────────────────────────────
+     8. ANALYTICS — dataLayer events
+     ───────────────────────────────────── */
+  function pushEvent(eventName, params) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: eventName }, params));
+  }
+
+  // 8a. Section visibility — fires once per section when 20% is in view
+  const trackedSections = document.querySelectorAll('[data-track-section]');
+  if (trackedSections.length) {
+    const sectionObserver = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            pushEvent('section_viewed', {
+              section_name: entry.target.dataset.trackSection,
+              page: window.location.pathname
+            });
+            sectionObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+    trackedSections.forEach(el => sectionObserver.observe(el));
+  }
+
+  // 8b. CTA clicks — all links pointing to contact.html
+  document.querySelectorAll('a[href="contact.html"]').forEach(link => {
+    link.addEventListener('click', () => {
+      let location = 'autre';
+      const section = link.closest('[data-track-section]');
+      if (section) {
+        location = section.dataset.trackSection;
+      } else if (link.classList.contains('nav__cta') || link.classList.contains('nav__link')) {
+        location = 'nav';
+      } else if (link.classList.contains('mobile-menu__cta') || link.classList.contains('mobile-menu__link')) {
+        location = 'mobile_nav';
+      } else if (link.classList.contains('footer__link')) {
+        location = 'footer';
+      }
+      pushEvent('cta_clicked', {
+        button_text: link.textContent.trim(),
+        location: location,
+        page: window.location.pathname
+      });
+    });
+  });
+
+  // 8c. FAQ interactions
+  document.querySelectorAll('.faq-item__btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.getAttribute('aria-expanded') !== 'true') {
+        pushEvent('faq_opened', {
+          question: btn.textContent.trim(),
+          page: window.location.pathname
+        });
+      }
+    });
   });
 
 })();
