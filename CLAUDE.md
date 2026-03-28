@@ -29,7 +29,7 @@ Navigation markup is **duplicated** in every HTML file (desktop nav + mobile men
 | # | Name | Price |
 |---|------|-------|
 | 01 | Court Connecté | 1 900 € install + 140 €/mois |
-| 02 | Club Intelligence ★ | 1 900 € install + 240 €/mois |
+| 02 | Court Intelligence ★ | 1 900 € install + 240 €/mois |
 | 03 | Court Préstige | 2 900 € install + 380 €/mois |
 
 Offers are negotiable. ROI phrase: 1 match = 13 € × 4 players = 52 €, so monthly fee is covered after 3/5/8 matches respectively.
