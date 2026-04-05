@@ -67,7 +67,7 @@
   --space-24:  6rem;
 
   /* Layout */
-  --container-max: 1200px;
+  --container-max: 1600px;
   --nav-height:    72px;
 
   /* Borders */
@@ -299,39 +299,56 @@ p { font-size: 1.0625rem; }
 
 /* Logo */
 .logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.logo__img {
+  display: block;
+  height: 80px;
+  width: auto;
+  flex-shrink: 0;
+}
+.logo__text {
   display: flex;
   flex-direction: column;
   line-height: 1.1;
-  text-decoration: none;
   gap: 2px;
 }
 .logo__name {
   font-family: var(--font-display);
-  font-size: 2.1rem;
+  font-size: 1.35rem;
   font-weight: 700;
-  color: var(--parchment);
+  color: var(--forest);
   letter-spacing: -0.01em;
 }
 .logo__dot {
-  color: var(--gold-light);
-  margin: 0 var(--space-1);
+  color: var(--gold);
+  margin: 0 2px;
 }
 .logo__sub {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: var(--gold);
+}
+/* Footer logo — couleurs adaptées au fond sombre */
+.footer__brand .logo__img {
+  height: 80px;
+  width: auto;
+  border: none;
+}
+.footer__brand .logo__name {
+  color: var(--parchment);
+}
+.footer__brand .logo__dot {
   color: var(--gold-light);
 }
-/* Override logo colors when inside the light header */
-.site-header .logo__name {
-  color: var(--forest);
-}
-.site-header .logo__sub {
-  color: var(--gold);
-}
-.site-header .logo__dot {
-  color: var(--gold);
+.footer__brand .logo__sub {
+  color: var(--gold-light);
 }
 
 /* Nav links */
@@ -553,6 +570,7 @@ p { font-size: 1.0625rem; }
 @media (min-width: 768px) {
   .hero__inner {
     grid-template-columns: 1fr 1fr;
+    align-items: center;
     padding: 0 var(--space-8);
     gap: var(--space-16);
   }
@@ -668,22 +686,34 @@ p { font-size: 1.0625rem; }
   background: rgba(27,60,45,0.05);
 }
 
-/* Court SVG container */
+/* ──────────────────────────────────────
+   10. HERO PRODUCT IMAGE
+   ────────────────────────────────────── */
 .hero__visual {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: var(--space-4);
-  position: relative;
 }
 
-/* ──────────────────────────────────────
-   10. PADEL COURT SVG STYLES
-   ────────────────────────────────────── */
-.court-svg {
+.hero__product-figure {
+  margin: 0;
+  border: 1px solid rgba(140,100,32,0.20);
+  box-shadow: 0 2px 12px rgba(42,32,24,0.08);
+}
+.hero__product-img {
   width: 100%;
-  max-width: 380px;
-  filter: drop-shadow(0 2px 12px rgba(42,32,24,0.08));
+  height: auto;
+  display: block;
+}
+.hero__product-caption {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--warm-gray);
+  text-align: center;
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid rgba(140,100,32,0.12);
+  background: var(--parchment-3);
 }
 
 /* ──────────────────────────────────────
@@ -1508,9 +1538,7 @@ p { font-size: 1.0625rem; }
   }
 }
 
-.footer__brand .logo__name {
-  font-size: 1.25rem;
-}
+/* (footer logo overrides now in .footer__brand .logo__img above) */
 
 .footer__desc {
   font-size: 0.9rem;
