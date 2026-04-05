@@ -67,7 +67,7 @@
   --space-24:  6rem;
 
   /* Layout */
-  --container-max: 1600px;
+  --container-max: 1900px;
   --nav-height:    72px;
 
   /* Borders */
@@ -404,7 +404,7 @@ p { font-size: 1.0625rem; }
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 24px;
+  width: 50px;
   background: none;
   border: none;
   padding: var(--space-2);
@@ -414,7 +414,7 @@ p { font-size: 1.0625rem; }
   .hamburger { display: none; }
 }
 .hamburger__line {
-  height: 1px;
+  height: 2px;
   background: var(--forest);
   transition: transform var(--t), opacity var(--t);
   display: block;
@@ -526,7 +526,6 @@ p { font-size: 1.0625rem; }
    ────────────────────────────────────── */
 .hero {
   background: var(--parchment-2);
-  min-height: 100svh;
   display: flex;
   flex-direction: column;
   justify-content: center;
